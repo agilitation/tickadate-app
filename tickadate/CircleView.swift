@@ -8,27 +8,27 @@
 
 import UIKit
 
+@IBDesignable
 class CircleView: UIView {
     
     @IBInspectable var color:UIColor = UIColor.black {
         didSet {
-            self.setNeedsLayout()
+            self.setNeedsDisplay()
         }
     }
     @IBInspectable var strokeColor:UIColor = UIColor.black {
         didSet {
-            self.setNeedsLayout()
+            self.setNeedsDisplay()
         }
     }
     @IBInspectable var strokeWidth:CGFloat = 0.0 {
         didSet {
-            self.setNeedsLayout()
+            self.setNeedsDisplay()
         }
     }
     
     
     override func draw(_ rect: CGRect) {
-        
         let ctx:CGContext = UIGraphicsGetCurrentContext()!
         //fill
         ctx.addEllipse(in: rect)

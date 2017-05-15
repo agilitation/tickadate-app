@@ -7,69 +7,80 @@
 //
 
 import UIKit
+import DynamicColor
 
 class CalendarDateCell: UICollectionViewCell {
-    
-    
-    var label = UILabel(frame: CGRect(x: 4, y: 2, width: 46, height: 20))
-    
-    var calendarDate:CalendarDate?
-    {
-        didSet{
-            self.label.text = calendarDate?.formatted
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+  
+  static let borderColor:UIColor = DynamicColor(hexString: "EEEEEE")
+  static let currentMonthDateColor:UIColor = DynamicColor(hexString: "444444")
+  static let dateColor:UIColor = DynamicColor(hexString: "A9A9A9")
+  static let todayDateColor:UIColor = UIColor.black
+  
+  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var stack: EventDotsStack!
+  
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    stack.dots = []
+  }
+  
+  func initViewElements(){
+    backgroundView = UIView(frame: self.bounds)
+    selectedBackgroundView = UIView(frame: self.bounds)
+    selectedBackgroundView?.backgroundColor = DynamicColor(hexString: "EEEEEE")
+    selectedBackgroundView?.isOpaque = true
+    selectedBackgroundView?.layer.cornerRadius = 5
+    
+    label.textAlignment = .center
+    stack.isOpaque = false
+  
+    contentView.addSubview(label)
+    contentView.addSubview(stack)
+  }
+  
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    initViewElements()
+  }
+  
+  
+  func setEventDots(_ dots: [String]){
+    stack.dots = dots
+  }
+  
+  func setDate(_ cd:CalendarDate){
+    self.label.text = cd.formatted
+    
+    if cd.isCurrentMonth {
+      label.textColor = CalendarDateCell.currentMonthDateColor
+    } else  {
+      label.textColor = CalendarDateCell.dateColor
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        let w:CGFloat = self.bounds.width
-        let h:CGFloat = self.bounds.height
-        
-        let dotsStack = EventDotsStack(frame: CGRect(x:4,y:24,width: 50,height:30))
-        dotsStack.events = []
-            
-        drawLine(
-            onLayer: layer,
-            fromPoint: CGPoint(x:0, y: h),
-            toPoint: CGPoint(x: w, y: h),
-            color: UIColor.lightGray.cgColor
-        )
-        drawLine(
-            onLayer: layer,
-            fromPoint: CGPoint(x:w, y: 0),
-            toPoint: CGPoint(x: w, y: h),
-            color: UIColor.lightGray.cgColor
-        )
-        self.contentView.addSubview(self.label)
-        self.contentView.addSubview(dotsStack)
-    
+    if cd.isToday {
+      label.textColor = CalendarDateCell.todayDateColor
+      label.font = UIFont.systemFont(ofSize: UIFont.labelFontSize, weight: 900)
+//      UIFont.systemFont(ofSize: UIFont.labelFontSize, weight: 900)
+    } else {
+      label.font = UIFont.systemFont(ofSize: UIFont.labelFontSize)
     }
-    
-    override var isSelected: Bool {
-        didSet {
-            self.backgroundColor = isSelected ? UIColor.red : UIColor.clear
-        }
+  }
+  
+  override var isSelected: Bool {
+    didSet {
+      if let selBg = selectedBackgroundView {
+        selBg.isHidden = !isSelected
+//        selBg.alpha = isSelected ? 0 : 1
+//        selBg.isHidden = false
+//        
+//        UIView.animate(
+//          withDuration: 0.1,
+//          animations: { selBg.alpha = self.isSelected ? 1 : 0 },
+//          completion: { (finished:Bool) in selBg.isHidden = !self.isSelected }
+//        )
+      }
     }
-
-
-    func drawLine(onLayer layer: CALayer, fromPoint start: CGPoint, toPoint end: CGPoint, color: CGColor) {
-        let line = CAShapeLayer()
-        let linePath = UIBezierPath()
-        linePath.move(to: start)
-        linePath.addLine(to: end)
-        line.path = linePath.cgPath
-        line.fillColor = nil
-        line.opacity = 1.0
-        line.strokeColor = color
-        layer.addSublayer(line)
-    }
-    
+  }
 }
