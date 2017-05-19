@@ -54,6 +54,8 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
   func select(date:Date){
     if let ip = indexPath(forDate: date){
       collectionView?.selectItem(at: ip, animated: true, scrollPosition: .centeredVertically)
+      selectedIndexPath = ip
+      self.delegate?.calendarController(self, didSelectDate: date)
     }
   }
   

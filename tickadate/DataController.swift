@@ -9,12 +9,27 @@
 import UIKit
 import CoreData
 import EventKit
+import Contacts
 
-class Attendee : EKParticipant {
+extension String {
+  func index(of target: String) -> Int? {
+    if let range = self.range(of: target) {
+      return characters.distance(from: startIndex, to: range.lowerBound)
+    } else {
+      return nil
+    }
+  }
   
+  func lastIndex(of target: String) -> Int? {
+    if let range = self.range(of: target, options: .backwards) {
+      return characters.distance(from: startIndex, to: range.lowerBound)
+    } else {
+      return nil
+    }
+  }
 }
 
-class DataController: NSObject {
+class DataController: NSObject, CLLocationManagerDelegate {
   
   
   var context:NSManagedObjectContext!
@@ -23,12 +38,7 @@ class DataController: NSObject {
     super.init()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     context = appDelegate.persistentContainer.viewContext
-    
-    //deleteAllEvents()
-    //deleteAllEventTypes()
-    //bootstrapEventTypes()
   }
-  
   
   func deleteAllEventTypes() {
     let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "EventType")
@@ -100,50 +110,108 @@ class DataController: NSObject {
     event.isAllDay = type.isAllDay
     event.details = details
     
-    context.insert(event)
-    save()
-    
-    if type.shouldCreateEventInCalendar && type.ekCalendarIdentifier != nil {
-      let eventStore : EKEventStore = EKEventStore()
-      eventStore.requestAccess(to: .event) { (granted, error) in
-        if (granted) && (error == nil) {
-          
-          let calendarEvent:EKEvent = EKEvent(eventStore: eventStore)
-          calendarEvent.title = event.title ?? type.name!
-          if(event.details != nil){
-            calendarEvent.title.append(": ")
-            calendarEvent.title.append(event.details!)
-          }
-          calendarEvent.startDate = event.date! as Date
-          calendarEvent.endDate = Calendar.current.date(byAdding: .minute, value: Int(event.duration), to: event.date! as Date)!
-          calendarEvent.notes = event.notes ?? ""
-          calendarEvent.isAllDay = type.isAllDay
-          
-          if let calendar = eventStore.calendar(withIdentifier: type.ekCalendarIdentifier!) {
-            calendarEvent.calendar = calendar
-          }
-          
-          do {
-            try eventStore.save(calendarEvent, span: .thisEvent)
-          } catch let error as NSError {
-            print("failed to save event with error : \(error)")
-          }
-          
-        } else {
-          
-//          let alert = UIAlertController(
-//            title: "Could not create event in calendar",
-//            message: "Go to Settings > Tick A Date and allow access to calendar events to enable the feature",
-//            preferredStyle: .actionSheet
-//          )
-          
-//          .present(alert, animated: true, completion: nil)
-          
-        }
+    func finishCreationOfEvent(){
+      context.insert(event)
+      save()
+      
+      print("Event created", event)
+      
+      if type.shouldCreateEventInCalendar && type.ekCalendarIdentifier != nil {
+        createCalendarEvent(fromEvent: event)
       }
+    }
+    
+    if(type.shouldAskForLocation){
+      self.getLocation(forEvent: event, completionHandler: finishCreationOfEvent)
+    } else {
+      finishCreationOfEvent()
     }
   }
   
+  func getLocation(forEvent event:Event, completionHandler: @escaping () -> Void) {
+    let manager = CLLocationManager()
+    manager.delegate = self
+    manager.requestLocation()
+    
+    if let location = manager.location {
+      
+      event.hasLocation = true
+      event.locationLatitude = location.coordinate.latitude as Double
+      event.locationLongitude =  location.coordinate.longitude as Double
+      event.locationAltitude = location.altitude as Double
+      event.locationTimestamp = location.timestamp as NSDate
+      event.locationVerticalAccuracy = location.verticalAccuracy as Double
+      event.locationHorizontalAccuracy = location.horizontalAccuracy as Double
+      
+      CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+        if error != nil {
+          print(error!)
+          completionHandler()
+          return
+        }
+        
+        if placemarks!.count > 0 {
+          var addressString = String(describing:placemarks![0])
+          event.locationAddress = addressString.substring(to: addressString.characters.index(of: "@") ?? addressString.endIndex)
+        }
+        
+        completionHandler()
+      })
+    } else {
+      completionHandler()
+    }
+  }
+  
+  func createCalendarEvent(fromEvent event:Event){
+    let eventStore : EKEventStore = EKEventStore()
+    let type:EventType = event.type!
+    
+    eventStore.requestAccess(to: .event) { (granted, error) in
+      if (granted) && (error == nil) {
+        
+        let calendarEvent:EKEvent = EKEvent(eventStore: eventStore)
+        if let calendar = eventStore.calendar(withIdentifier: type.ekCalendarIdentifier!) {
+          calendarEvent.calendar = calendar
+        } else {
+          return
+        }
+        
+        
+        calendarEvent.title = event.title ?? type.name!
+        if(event.details != nil){
+          calendarEvent.title.append(": ")
+          calendarEvent.title.append(event.details!)
+        }
+        
+        if(event.hasLocation){
+          calendarEvent.structuredLocation = EKStructuredLocation(title: event.locationAddress ?? "")
+          calendarEvent.structuredLocation?.geoLocation = CLLocation(
+            coordinate: CLLocationCoordinate2D(),
+            altitude: event.locationAltitude as CLLocationDistance,
+            horizontalAccuracy: event.locationHorizontalAccuracy as CLLocationAccuracy,
+            verticalAccuracy: event.locationVerticalAccuracy as CLLocationAccuracy,
+            timestamp: event.locationTimestamp! as Date
+          )
+          
+        }
+        calendarEvent.startDate = event.date! as Date
+        calendarEvent.endDate = Calendar.current.date(
+          byAdding: .minute,
+          value: Int(event.duration),
+          to: event.date! as Date)!
+        calendarEvent.notes = event.notes ?? ""
+        calendarEvent.isAllDay = type.isAllDay
+        
+        
+        do {
+          try eventStore.save(calendarEvent, span: .thisEvent)
+        } catch let error as NSError {
+          print("failed to save event with error : \(error)")
+        }
+        
+      }
+    }
+  }
   func createEventType() -> EventType {
     let eventType = EventType(context: context)
     eventType.isActive = true
@@ -200,4 +268,14 @@ class DataController: NSObject {
     
     save()
   }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    
+  }
+  
+  
 }

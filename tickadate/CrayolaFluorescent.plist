@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict><key>hex</key><string>FF355E</string><key>label</key><string>Radical Red</string></dict>
+  <dict><key>hex</key><string>FD5B78</string><key>label</key><string>Wild Watermelon</string></dict>
+  <dict><key>hex</key><string>FF6037</string><key>label</key><string>Outrageous Orange</string></dict>
+  <dict><key>hex</key><string>FF9966</string><key>label</key><string>Atomic Tangerine</string></dict>
+  <dict><key>hex</key><string>FF9933</string><key>label</key><string>Neon Carrot</string></dict>
+  <dict><key>hex</key><string>FFCC33</string><key>label</key><string>Sunglow</string></dict>
+  <dict><key>hex</key><string>FFFF66</string><key>label</key><string>Laser Lemon</string></dict>
+  <dict><key>hex</key><string>FFFF66</string><key>label</key><string>Unmellow Yellow</string></dict>
+  <dict><key>hex</key><string>CCFF00</string><key>label</key><string>Electric Lime</string></dict>
+  <dict><key>hex</key><string>66FF66</string><key>label</key><string>Screamin' Green</string></dict>
+  <dict><key>hex</key><string>AAF0D1</string><key>label</key><string>Magic Mint</string></dict>
+  <dict><key>hex</key><string>50BFE6</string><key>label</key><string>Blizzard Blue</string></dict>
+  <dict><key>hex</key><string>FF6EFF</string><key>label</key><string>Shocking Pink</string></dict>
+  <dict><key>hex</key><string>EE34D2</string><key>label</key><string>Razzle Dazzle Rose</string></dict>
+  <dict><key>hex</key><string>FF00CC</string><key>label</key><string>Hot Magenta</string></dict>
+  <dict><key>hex</key><string>FF00CC</string><key>label</key><string>Purple Pizzazz</string></dict>
+
+  </array>
+</plist>

@@ -35,6 +35,7 @@ class BorderedView: UIView {
   }
   
   
+  
   override func draw(_ rect: CGRect) {
     if borderWidth > 0 {
       let corners = DrawUtils.getCorners(fromRect: rect)

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,24 +33,25 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Event Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tct-hI-42A">
-                                <rect key="frame" x="0.0" y="80" width="375" height="20"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="syP-dq-Qq4"/>
+                                    <constraint firstAttribute="height" constant="30" id="syP-dq-Qq4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOs-XN-t5A">
-                                <rect key="frame" x="0.0" y="100" width="375" height="20"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="aOM-l6-yok"/>
                                 </constraints>
                             </view>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-tD-xBf" userLabel="Days of the week" customClass="WeekDayHeader" customModule="tickadate" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="120" width="375" height="30"/>
-                                <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" label="Days of the week"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="e6U-Np-4N7"/>
@@ -57,13 +59,18 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnLeftSide" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnRightSide" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.78823281057238881" green="0.78900048086401309" blue="0.83602518962724559" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnTopSide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnBottomSide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vD8-hG-vF3">
-                                <rect key="frame" x="0.0" y="151" width="375" height="417"/>
+                                <rect key="frame" x="0.0" y="161" width="375" height="407"/>
                                 <connections>
                                     <segue destination="Dx2-bU-prB" kind="embed" identifier="calendarEmbedView" id="uhJ-lS-o4k"/>
                                 </connections>
@@ -102,23 +109,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIU-Du-t9E">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZZ-Qs-xn5">
-                                        <rect key="frame" x="308" y="15" width="57" height="30"/>
-                                        <state key="normal" title="Settings"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZZ-Qs-xn5" customClass="DaySummaryButton" customModule="tickadate" customModuleProvider="target">
+                                        <rect key="frame" x="305" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ZZZ-Qs-xn5" secondAttribute="height" multiplier="1:1" id="kJS-uH-7EY"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="1" green="0.36612253379999998" blue="0.347834641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="seh-Xh-ugV" kind="show" id="jeZ-KJ-RFG"/>
+                                            <segue destination="gw7-B3-Nah" kind="show" id="jeZ-KJ-RFG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhE-FZ-yXH">
-                                        <rect key="frame" x="172" y="15" width="30" height="30"/>
-                                        <state key="normal" title="Tick"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhE-FZ-yXH" customClass="TickButton" customModule="tickadate" customModuleProvider="target">
+                                        <rect key="frame" x="157.66666666666666" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FhE-FZ-yXH" secondAttribute="height" id="t5D-BF-zhj"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="onTick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="laI-6u-Cyk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oar-5E-0yP">
-                                        <rect key="frame" x="10" y="15" width="30" height="30"/>
-                                        <state key="normal" title="⚡"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oar-5E-0yP" customClass="QuickAddButton" customModule="tickadate" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oar-5E-0yP" secondAttribute="height" multiplier="1:1" id="7oe-vD-Jod"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="toggleQuickDatePicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DEo-Gh-9fD"/>
                                         </connections>
@@ -129,11 +147,15 @@
                                     <constraint firstAttribute="height" constant="60" id="6ux-5h-DBx"/>
                                     <constraint firstItem="oar-5E-0yP" firstAttribute="leading" secondItem="YIU-Du-t9E" secondAttribute="leading" constant="10" id="Huw-4u-3rl"/>
                                     <constraint firstItem="FhE-FZ-yXH" firstAttribute="centerY" secondItem="YIU-Du-t9E" secondAttribute="centerY" id="KLy-pe-wXn"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZZZ-Qs-xn5" secondAttribute="bottom" id="Qw6-ck-dZY"/>
+                                    <constraint firstAttribute="bottom" secondItem="oar-5E-0yP" secondAttribute="bottom" id="XXd-5q-SVn"/>
                                     <constraint firstItem="ZZZ-Qs-xn5" firstAttribute="centerY" secondItem="YIU-Du-t9E" secondAttribute="centerY" id="Z2P-lf-U7l"/>
+                                    <constraint firstItem="FhE-FZ-yXH" firstAttribute="height" secondItem="YIU-Du-t9E" secondAttribute="height" id="cBi-yO-Fga"/>
+                                    <constraint firstItem="oar-5E-0yP" firstAttribute="top" secondItem="YIU-Du-t9E" secondAttribute="top" id="gXe-6c-bsZ"/>
                                     <constraint firstAttribute="trailing" secondItem="ZZZ-Qs-xn5" secondAttribute="trailing" constant="10" id="iMd-zs-VWN"/>
                                     <constraint firstItem="FhE-FZ-yXH" firstAttribute="centerX" secondItem="YIU-Du-t9E" secondAttribute="centerX" id="kwJ-9g-HDr"/>
                                     <constraint firstItem="oar-5E-0yP" firstAttribute="centerY" secondItem="YIU-Du-t9E" secondAttribute="centerY" id="owM-f5-kZ0"/>
-                                    <constraint firstItem="ZZZ-Qs-xn5" firstAttribute="baseline" secondItem="FhE-FZ-yXH" secondAttribute="baseline" id="rFv-MQ-cGV"/>
+                                    <constraint firstItem="ZZZ-Qs-xn5" firstAttribute="top" secondItem="YIU-Du-t9E" secondAttribute="top" id="ryq-c4-QTe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -168,9 +190,15 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="calendarViewContainer" destination="vD8-hG-vF3" id="Gie-fr-daM"/>
+                        <outlet property="daySummaryButton" destination="ZZZ-Qs-xn5" id="vu1-NP-M0E"/>
+                        <outlet property="quickAddButton" destination="oar-5E-0yP" id="FOl-Bm-FdN"/>
                         <outlet property="quickSelectionButton" destination="oar-5E-0yP" id="mEv-gi-Ld3"/>
                         <outlet property="selectedEventTypeLabel" destination="Tct-hI-42A" id="COY-Zp-oWR"/>
+                        <outlet property="tickButton" destination="FhE-FZ-yXH" id="TmP-hb-Q0f"/>
+                        <outlet property="toolbarView" destination="YIU-Du-t9E" id="lid-Ks-xcj"/>
                         <outlet property="visibleMonthLabel" destination="7EG-bN-2GJ" id="mok-Qy-ASb"/>
+                        <outlet property="visibleMonthView" destination="PuR-09-ekx" id="wOl-Ac-bze"/>
+                        <outlet property="weekDayHeader" destination="hIb-tD-xBf" id="gru-FP-xon"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -192,7 +220,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addEventTypeCell" id="sqT-ri-bZe">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addEventTypeCell" id="sqT-ri-bZe">
                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -200,7 +228,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VrK-Qj-0rD" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="24" width="12" height="12"/>
+                                            <rect key="frame" x="25" y="25" width="10" height="10"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="color">
@@ -214,16 +242,16 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="VrK-Qj-0rD" firstAttribute="leading" secondItem="sqT-ri-bZe" secondAttribute="leading" constant="24" id="38N-2T-poG"/>
-                                    <constraint firstAttribute="bottom" secondItem="VrK-Qj-0rD" secondAttribute="bottom" constant="24" id="Dd8-xf-dJs"/>
-                                    <constraint firstItem="VrK-Qj-0rD" firstAttribute="top" secondItem="sqT-ri-bZe" secondAttribute="top" constant="24" id="dDV-d2-v2s"/>
-                                    <constraint firstAttribute="trailing" secondItem="VrK-Qj-0rD" secondAttribute="trailing" constant="24" id="isd-J4-8hl"/>
+                                    <constraint firstItem="VrK-Qj-0rD" firstAttribute="top" secondItem="sqT-ri-bZe" secondAttribute="topMargin" constant="17" id="Gah-JI-4sF"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="VrK-Qj-0rD" secondAttribute="trailing" constant="17" id="HFR-aM-K3z"/>
+                                    <constraint firstItem="VrK-Qj-0rD" firstAttribute="leading" secondItem="sqT-ri-bZe" secondAttribute="leadingMargin" constant="17" id="UL3-b6-xG0"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="VrK-Qj-0rD" secondAttribute="bottom" constant="17" id="k9o-HM-m0i"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="seh-Xh-ugV" kind="show" identifier="createEventTypeSegue" id="o4l-EL-csX"/>
+                                    <segue destination="gw7-B3-Nah" kind="show" identifier="createEventTypeSegue" id="o4l-EL-csX"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventTypeCell" id="n7M-u6-inE" customClass="EventTypeCollectionViewCell" customModule="tickadate" customModuleProvider="target">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventTypeCell" id="n7M-u6-inE" customClass="EventTypeCollectionViewCell" customModule="tickadate" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="60" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -231,7 +259,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view hidden="YES" opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAJ-XN-Wzj" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                            <rect key="frame" x="5" y="5" width="50" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                             <userDefinedRuntimeAttributes>
@@ -248,10 +276,10 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gAJ-XN-Wzj" secondAttribute="trailing" constant="10" id="MUF-oR-J2k"/>
-                                    <constraint firstItem="gAJ-XN-Wzj" firstAttribute="leading" secondItem="n7M-u6-inE" secondAttribute="leading" constant="10" id="Q7U-wV-yDq"/>
-                                    <constraint firstAttribute="bottom" secondItem="gAJ-XN-Wzj" secondAttribute="bottom" constant="10" id="U4x-sb-CVZ"/>
-                                    <constraint firstItem="gAJ-XN-Wzj" firstAttribute="top" secondItem="n7M-u6-inE" secondAttribute="top" constant="10" id="aDs-B2-oav"/>
+                                    <constraint firstAttribute="trailing" secondItem="gAJ-XN-Wzj" secondAttribute="trailing" constant="5" id="MUF-oR-J2k"/>
+                                    <constraint firstItem="gAJ-XN-Wzj" firstAttribute="leading" secondItem="n7M-u6-inE" secondAttribute="leading" constant="5" id="Q7U-wV-yDq"/>
+                                    <constraint firstAttribute="bottom" secondItem="gAJ-XN-Wzj" secondAttribute="bottom" constant="5" id="U4x-sb-CVZ"/>
+                                    <constraint firstItem="gAJ-XN-Wzj" firstAttribute="top" secondItem="n7M-u6-inE" secondAttribute="top" constant="5" id="aDs-B2-oav"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="eventTypeCircle" destination="37L-jP-0NT" id="am1-dj-yv0"/>
@@ -333,174 +361,26 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TU-ku-lTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="776"/>
+            <point key="canvasLocation" x="1180" y="453"/>
         </scene>
-        <!--Event Types-->
-        <scene sceneID="2WJ-eT-Xl4">
+        <!--colorPickerViewController-->
+        <scene sceneID="B1J-gw-NoQ">
             <objects>
-                <tableViewController id="krc-pP-F8w" customClass="EventTypesTableViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sBx-6A-liv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gbb-7v-qhs" customClass="EventTypeTableViewCell" customModule="tickadate" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbb-7v-qhs" id="fWa-Hk-vME">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnw-29-hC0">
-                                            <rect key="frame" x="8" y="11" width="315" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoD-S6-GcS" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="280" y="9" width="24" height="24"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="4eQ-gO-o3j"/>
-                                                <constraint firstAttribute="width" constant="24" id="T1q-0X-0Ct"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="LoD-S6-GcS" secondAttribute="bottom" constant="2" id="QSV-gQ-wEQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="LoD-S6-GcS" secondAttribute="trailing" constant="8" id="f0m-Fc-gL8"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="dot" destination="LoD-S6-GcS" id="Njx-wL-DG7"/>
-                                    <outlet property="label" destination="Bnw-29-hC0" id="6dG-Vv-Ml5"/>
-                                    <segue destination="OUS-jc-Emm" kind="show" identifier="selectEventTypeSegue" id="Np8-6a-B0g"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="krc-pP-F8w" id="onv-wF-khi"/>
-                            <outlet property="delegate" destination="krc-pP-F8w" id="XzZ-nz-Tlm"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Debug" id="3Rq-Mi-AYA">
-                            <connections>
-                                <segue destination="0Q0-Dj-ql4" kind="show" id="x8W-ng-gMc"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="WBE-ej-2A9"/>
-                        <barButtonItem systemItem="add" id="fNU-Po-lnk">
-                            <connections>
-                                <segue destination="OUS-jc-Emm" kind="show" identifier="createEventTypeSegue" id="MWt-1i-8yA"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Event Types" id="3zO-D4-lgs">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="fCy-fa-fM1">
-                            <connections>
-                                <action selector="onBack:" destination="krc-pP-F8w" id="m9B-id-5gq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="backButtonItem" destination="fCy-fa-fM1" id="yjG-Rj-x8J"/>
-                        <segue destination="kgw-fM-dOx" kind="unwind" identifier="unwindToViewController" unwindAction="unwindToViewControllerWithSegue:" id="Owq-N3-YzJ"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mju-bR-mel" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="kgw-fM-dOx" userLabel="Exit" sceneMemberID="exit"/>
+                <viewControllerPlaceholder storyboardIdentifier="colorPickerViewController" storyboardName="ColorPicker" referencedIdentifier="colorPickerViewController" id="0WA-og-lrX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4B-Xj-kMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879" y="455"/>
+            <point key="canvasLocation" x="1281" y="1573"/>
         </scene>
-        <!--Debug View Controller-->
-        <scene sceneID="y0X-0W-hez">
+        <!--EventTypes-->
+        <scene sceneID="pAf-0C-ftw">
             <objects>
-                <viewController id="0Q0-Dj-ql4" customClass="DebugViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NSv-1T-k8t"/>
-                        <viewControllerLayoutGuide type="bottom" id="6b3-RL-pRx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="azh-j1-FdH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0X-6e-eSd">
-                                <rect key="frame" x="99" y="203" width="143" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Remove Event Types"/>
-                                <connections>
-                                    <action selector="removeEventTypes:" destination="0Q0-Dj-ql4" eventType="touchUpInside" id="VPC-Z9-QRv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-qt-oYR">
-                                <rect key="frame" x="79" y="299" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create default event types"/>
-                                <connections>
-                                    <action selector="createDefaultEventTypes:" destination="0Q0-Dj-ql4" eventType="touchUpInside" id="x28-9f-BzM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eih-8q-evS">
-                                <rect key="frame" x="135" y="113" width="105" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Remove Events"/>
-                                <connections>
-                                    <action selector="removeEvents:" destination="0Q0-Dj-ql4" eventType="touchUpInside" id="JWQ-2g-jUl"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LUI-ac-D3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="EventTypes" id="gw7-B3-Nah" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ol-0d-AGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="1248"/>
-        </scene>
-        <!--Event Type Form View Controller-->
-        <scene sceneID="j4Z-Sh-993">
-            <objects>
-                <viewController id="OUS-jc-Emm" customClass="EventTypeFormViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="502-m3-1jk"/>
-                        <viewControllerLayoutGuide type="bottom" id="DAh-ar-pr2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aJi-jd-LCo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hsc-x1-5Se" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2722" y="455"/>
-        </scene>
-        <!--Event Types-->
-        <scene sceneID="IRW-fM-MUc">
-            <objects>
-                <navigationController title="Event Types" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="seh-Xh-ugV" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cvk-zK-AwN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pVL-VQ-dbd">
-                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="krc-pP-F8w" kind="relationship" relationship="rootViewController" id="NoI-Rj-J9c"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="492-49-tLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1184" y="456"/>
+            <point key="canvasLocation" x="1180" y="137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="o4l-EL-csX"/>
-        <segue reference="Np8-6a-B0g"/>
     </inferredMetricsTieBreakers>
 </document>

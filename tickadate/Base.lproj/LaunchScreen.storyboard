@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +21,26 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashscreen-check-date" translatesAutoresizingMaskIntoConstraints="NO" id="kbq-xM-O97">
+                                <rect key="frame" x="-38" y="0.0" width="413" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kbq-xM-O97" secondAttribute="trailing" id="a4a-D9-EJR"/>
+                            <constraint firstItem="kbq-xM-O97" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-54" id="e08-hQ-6nb"/>
+                            <constraint firstItem="kbq-xM-O97" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rZO-zS-ABk"/>
+                            <constraint firstItem="kbq-xM-O97" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="sQv-cW-3if"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="47.200000000000003" y="456.52173913043481"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashscreen-check-date" width="1200" height="1290"/>
+    </resources>
 </document>

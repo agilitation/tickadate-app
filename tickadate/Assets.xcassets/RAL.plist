@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict><key>hex</key><string>CCC58F</string><key>label</key><string>Green beige</string></dict>
+  <dict><key>hex</key><string>D1BC8A</string><key>label</key><string>Beige</string></dict>
+  <dict><key>hex</key><string>D2B773</string><key>label</key><string>Sand yellow</string></dict>
+  <dict><key>hex</key><string>F7BA0B</string><key>label</key><string>Signal yellow</string></dict>
+  <dict><key>hex</key><string>E2B007</string><key>label</key><string>Golden yellow</string></dict>
+  <dict><key>hex</key><string>C89F04</string><key>label</key><string>Honey yellow</string></dict>
+  <dict><key>hex</key><string>E1A100</string><key>label</key><string>Maize yellow</string></dict>
+  <dict><key>hex</key><string>E79C00</string><key>label</key><string>Daffodil yellow</string></dict>
+  <dict><key>hex</key><string>AF8A54</string><key>label</key><string>Brown beige</string></dict>
+  <dict><key>hex</key><string>D9C022</string><key>label</key><string>Lemon yellow</string></dict>
+  <dict><key>hex</key><string>E9E5CE</string><key>label</key><string>Oyster white</string></dict>
+  <dict><key>hex</key><string>DFCEA1</string><key>label</key><string>Ivory</string></dict>
+  <dict><key>hex</key><string>EADEBD</string><key>label</key><string>Light ivory</string></dict>
+  <dict><key>hex</key><string>EAF044</string><key>label</key><string>Sulfur yellow</string></dict>
+  <dict><key>hex</key><string>F4B752</string><key>label</key><string>Saffron yellow</string></dict>
+  <dict><key>hex</key><string>F3E03B</string><key>label</key><string>Zinc yellow</string></dict>
+  <dict><key>hex</key><string>A4957D</string><key>label</key><string>Grey beige</string></dict>
+  <dict><key>hex</key><string>9A9464</string><key>label</key><string>Olive yellow</string></dict>
+  <dict><key>hex</key><string>EEC900</string><key>label</key><string>Rape yellow</string></dict>
+  <dict><key>hex</key><string>F0CA00</string><key>label</key><string>traffic yellow</string></dict>
+  <dict><key>hex</key><string>B89C50</string><key>label</key><string>Ochre yellow</string></dict>
+  <dict><key>hex</key><string>F5FF00</string><key>label</key><string>Luminous yellow</string></dict>
+  <dict><key>hex</key><string>A38C15</string><key>label</key><string>Curry</string></dict>
+  <dict><key>hex</key><string>FFAB00</string><key>label</key><string>Melon yellow</string></dict>
+  <dict><key>hex</key><string>DDB20F</string><key>label</key><string>Broom yellow</string></dict>
+  <dict><key>hex</key><string>FAAB21</string><key>label</key><string>Dahlia yellow</string></dict>
+  <dict><key>hex</key><string>EDAB56</string><key>label</key><string>Pastel yellow</string></dict>
+  <dict><key>hex</key><string>A29985</string><key>label</key><string>Pearl beige</string></dict>
+  <dict><key>hex</key><string>927549</string><key>label</key><string>Pearl gold</string></dict>
+  <dict><key>hex</key><string>EEA205</string><key>label</key><string>Sun yellow</string></dict>
+  <dict><key>hex</key><string>DD7907</string><key>label</key><string>Yellow orange</string></dict>
+  <dict><key>hex</key><string>BE4E20</string><key>label</key><string>Red orange</string></dict>
+  <dict><key>hex</key><string>C63927</string><key>label</key><string>Vermillion</string></dict>
+  <dict><key>hex</key><string>FA842B</string><key>label</key><string>Pastel orange</string></dict>
+  <dict><key>hex</key><string>E75B12</string><key>label</key><string>Pure orange</string></dict>
+  <dict><key>hex</key><string>FF2300</string><key>label</key><string>Luminous orange</string></dict>
+  <dict><key>hex</key><string>FFA421</string><key>label</key><string>Luminous bright orange</string></dict>
+  <dict><key>hex</key><string>F3752C</string><key>label</key><string>Bright red orange</string></dict>
+  <dict><key>hex</key><string>E15501</string><key>label</key><string>traffic orange</string></dict>
+  <dict><key>hex</key><string>D4652F</string><key>label</key><string>Signal orange</string></dict>
+  <dict><key>hex</key><string>EC7C25</string><key>label</key><string>Deep orange</string></dict>
+  <dict><key>hex</key><string>DB6A50</string><key>label</key><string>Salmon orange</string></dict>
+  <dict><key>hex</key><string>954527</string><key>label</key><string>Pearl orange</string></dict>
+  <dict><key>hex</key><string>AB2524</string><key>label</key><string>Flame red</string></dict>
+  <dict><key>hex</key><string>A02128</string><key>label</key><string>Signal red</string></dict>
+  <dict><key>hex</key><string>A1232B</string><key>label</key><string>Carmine red</string></dict>
+  <dict><key>hex</key><string>8D1D2C</string><key>label</key><string>Ruby red</string></dict>
+  <dict><key>hex</key><string>701F29</string><key>label</key><string>Purple red</string></dict>
+  <dict><key>hex</key><string>5E2028</string><key>label</key><string>Wine red</string></dict>
+  <dict><key>hex</key><string>402225</string><key>label</key><string>Black red</string></dict>
+  <dict><key>hex</key><string>703731</string><key>label</key><string>Oxide red</string></dict>
+  <dict><key>hex</key><string>7E292C</string><key>label</key><string>Brown red</string></dict>
+  <dict><key>hex</key><string>CB8D73</string><key>label</key><string>Beige red</string></dict>
+  <dict><key>hex</key><string>9C322E</string><key>label</key><string>Tomato red</string></dict>
+  <dict><key>hex</key><string>D47479</string><key>label</key><string>Antique pink</string></dict>
+  <dict><key>hex</key><string>E1A6AD</string><key>label</key><string>Light pink</string></dict>
+  <dict><key>hex</key><string>AC4034</string><key>label</key><string>Coral red</string></dict>
+  <dict><key>hex</key><string>D3545F</string><key>label</key><string>Rose</string></dict>
+  <dict><key>hex</key><string>D14152</string><key>label</key><string>Strawberry red</string></dict>
+  <dict><key>hex</key><string>C1121C</string><key>label</key><string>traffic red</string></dict>
+  <dict><key>hex</key><string>D56D56</string><key>label</key><string>Salmon pink</string></dict>
+  <dict><key>hex</key><string>F70000</string><key>label</key><string>Luminous red</string></dict>
+  <dict><key>hex</key><string>FF0000</string><key>label</key><string>Luminous bright red</string></dict>
+  <dict><key>hex</key><string>B42041</string><key>label</key><string>Raspberry red</string></dict>
+  <dict><key>hex</key><string>E72512</string><key>label</key><string>Pure red</string></dict>
+  <dict><key>hex</key><string>AC323B</string><key>label</key><string>Orient red</string></dict>
+  <dict><key>hex</key><string>711521</string><key>label</key><string>Pearl ruby red</string></dict>
+  <dict><key>hex</key><string>B24C43</string><key>label</key><string>Pearl pink</string></dict>
+  <dict><key>hex</key><string>8A5A83</string><key>label</key><string>Red lilac</string></dict>
+  <dict><key>hex</key><string>933D50</string><key>label</key><string>Red violet</string></dict>
+  <dict><key>hex</key><string>D15B8F</string><key>label</key><string>Heather violet</string></dict>
+  <dict><key>hex</key><string>691639</string><key>label</key><string>Claret violet</string></dict>
+  <dict><key>hex</key><string>83639D</string><key>label</key><string>Blue lilac</string></dict>
+  <dict><key>hex</key><string>992572</string><key>label</key><string>Traffic purple</string></dict>
+  <dict><key>hex</key><string>4A203B</string><key>label</key><string>Purple violet</string></dict>
+  <dict><key>hex</key><string>904684</string><key>label</key><string>Signal violet</string></dict>
+  <dict><key>hex</key><string>A38995</string><key>label</key><string>Pastel violet</string></dict>
+  <dict><key>hex</key><string>C63678</string><key>label</key><string>Telemagenta</string></dict>
+  <dict><key>hex</key><string>8773A1</string><key>label</key><string>Pearl violet</string></dict>
+  <dict><key>hex</key><string>6B6880</string><key>label</key><string>Pearl blackberry</string></dict>
+  <dict><key>hex</key><string>384C70</string><key>label</key><string>Violet blue</string></dict>
+  <dict><key>hex</key><string>1F4764</string><key>label</key><string>Green blue</string></dict>
+  <dict><key>hex</key><string>2B2C7C</string><key>label</key><string>Ultramarine blue</string></dict>
+  <dict><key>hex</key><string>2A3756</string><key>label</key><string>Sapphire blue</string></dict>
+  <dict><key>hex</key><string>1D1F2A</string><key>label</key><string>Black blue</string></dict>
+  <dict><key>hex</key><string>154889</string><key>label</key><string>Signal blue</string></dict>
+  <dict><key>hex</key><string>41678D</string><key>label</key><string>Brilliant blue</string></dict>
+  <dict><key>hex</key><string>313C48</string><key>label</key><string>Grey blue</string></dict>
+  <dict><key>hex</key><string>2E5978</string><key>label</key><string>Azure blue</string></dict>
+  <dict><key>hex</key><string>13447C</string><key>label</key><string>Gentian blue</string></dict>
+  <dict><key>hex</key><string>232C3F</string><key>label</key><string>Steel blue</string></dict>
+  <dict><key>hex</key><string>3481B8</string><key>label</key><string>Light blue</string></dict>
+  <dict><key>hex</key><string>232D53</string><key>label</key><string>Cobalt blue</string></dict>
+  <dict><key>hex</key><string>6C7C98</string><key>label</key><string>Pigeon blue</string></dict>
+  <dict><key>hex</key><string>2874B2</string><key>label</key><string>Sky blue</string></dict>
+  <dict><key>hex</key><string>0E518D</string><key>label</key><string>Traffic blue</string></dict>
+  <dict><key>hex</key><string>21888F</string><key>label</key><string>Turquoise blue</string></dict>
+  <dict><key>hex</key><string>1A5784</string><key>label</key><string>Capri blue</string></dict>
+  <dict><key>hex</key><string>0B4151</string><key>label</key><string>Ocean blue</string></dict>
+  <dict><key>hex</key><string>07737A</string><key>label</key><string>Water blue</string></dict>
+  <dict><key>hex</key><string>2F2A5A</string><key>label</key><string>Night blue</string></dict>
+  <dict><key>hex</key><string>4D668E</string><key>label</key><string>Distant blue</string></dict>
+  <dict><key>hex</key><string>6A93B0</string><key>label</key><string>Pastel blue</string></dict>
+  <dict><key>hex</key><string>296478</string><key>label</key><string>Pearl Gentian blue</string></dict>
+  <dict><key>hex</key><string>102C54</string><key>label</key><string>Pearl night blue</string></dict>
+  <dict><key>hex</key><string>327662</string><key>label</key><string>Patina green</string></dict>
+  <dict><key>hex</key><string>28713E</string><key>label</key><string>Emerald green</string></dict>
+  <dict><key>hex</key><string>276235</string><key>label</key><string>Leaf green</string></dict>
+  <dict><key>hex</key><string>4B573E</string><key>label</key><string>Olive Green</string></dict>
+  <dict><key>hex</key><string>0E4243</string><key>label</key><string>Blue green</string></dict>
+  <dict><key>hex</key><string>0F4336</string><key>label</key><string>Moss green</string></dict>
+  <dict><key>hex</key><string>40433B</string><key>label</key><string>Grey olive</string></dict>
+  <dict><key>hex</key><string>283424</string><key>label</key><string>Bottle green</string></dict>
+  <dict><key>hex</key><string>35382E</string><key>label</key><string>Brown green</string></dict>
+  <dict><key>hex</key><string>26392F</string><key>label</key><string>Fir green</string></dict>
+  <dict><key>hex</key><string>3E753B</string><key>label</key><string>Grass green</string></dict>
+  <dict><key>hex</key><string>68825B</string><key>label</key><string>Reseda green</string></dict>
+  <dict><key>hex</key><string>31403D</string><key>label</key><string>Black green</string></dict>
+  <dict><key>hex</key><string>797C5A</string><key>label</key><string>Reed green</string></dict>
+  <dict><key>hex</key><string>444337</string><key>label</key><string>Yellow olive</string></dict>
+  <dict><key>hex</key><string>3D403A</string><key>label</key><string>Black olive</string></dict>
+  <dict><key>hex</key><string>026A52</string><key>label</key><string>Turquoise green</string></dict>
+  <dict><key>hex</key><string>468641</string><key>label</key><string>May green</string></dict>
+  <dict><key>hex</key><string>48A43F</string><key>label</key><string>Yellow green</string></dict>
+  <dict><key>hex</key><string>B7D9B1</string><key>label</key><string>pastel green</string></dict>
+  <dict><key>hex</key><string>354733</string><key>label</key><string>Chrome green</string></dict>
+  <dict><key>hex</key><string>86A47C</string><key>label</key><string>Pale green</string></dict>
+  <dict><key>hex</key><string>3E3C32</string><key>label</key><string>Brown olive</string></dict>
+  <dict><key>hex</key><string>008754</string><key>label</key><string>Traffic green</string></dict>
+  <dict><key>hex</key><string>53753C</string><key>label</key><string>Fern green</string></dict>
+  <dict><key>hex</key><string>005D52</string><key>label</key><string>Opal green</string></dict>
+  <dict><key>hex</key><string>81C0BB</string><key>label</key><string>Light green</string></dict>
+  <dict><key>hex</key><string>2D5546</string><key>label</key><string>Pine green</string></dict>
+  <dict><key>hex</key><string>007243</string><key>label</key><string>Mint green</string></dict>
+  <dict><key>hex</key><string>0F8558</string><key>label</key><string>Signal green</string></dict>
+  <dict><key>hex</key><string>478A84</string><key>label</key><string>Mint turquoise</string></dict>
+  <dict><key>hex</key><string>7FB0B2</string><key>label</key><string>Pastel turquoise</string></dict>
+  <dict><key>hex</key><string>1B542C</string><key>label</key><string>Pearl green</string></dict>
+  <dict><key>hex</key><string>005D4C</string><key>label</key><string>Pearl opal green</string></dict>
+  <dict><key>hex</key><string>25E712</string><key>label</key><string>Pure green</string></dict>
+  <dict><key>hex</key><string>00F700</string><key>label</key><string>Luminous green</string></dict>
+  <dict><key>hex</key><string>7E8B92</string><key>label</key><string>Squirrel grey</string></dict>
+  <dict><key>hex</key><string>8F999F</string><key>label</key><string>Silver grey</string></dict>
+  <dict><key>hex</key><string>817F68</string><key>label</key><string>Olive grey</string></dict>
+  <dict><key>hex</key><string>7A7B6D</string><key>label</key><string>Moss grey</string></dict>
+  <dict><key>hex</key><string>9EA0A1</string><key>label</key><string>Signal grey</string></dict>
+  <dict><key>hex</key><string>6B716F</string><key>label</key><string>Mouse grey</string></dict>
+  <dict><key>hex</key><string>756F61</string><key>label</key><string>Beige grey</string></dict>
+  <dict><key>hex</key><string>746643</string><key>label</key><string>Khaki grey</string></dict>
+  <dict><key>hex</key><string>5B6259</string><key>label</key><string>Green grey</string></dict>
+  <dict><key>hex</key><string>575D57</string><key>label</key><string>Tarpaulin grey</string></dict>
+  <dict><key>hex</key><string>555D61</string><key>label</key><string>Iron grey</string></dict>
+  <dict><key>hex</key><string>596163</string><key>label</key><string>Basalt grey</string></dict>
+  <dict><key>hex</key><string>555548</string><key>label</key><string>Brown-grey also
+    NATO-olive, Stone-grey-olive</string></dict>
+  <dict><key>hex</key><string>51565C</string><key>label</key><string>Slate grey</string></dict>
+  <dict><key>hex</key><string>373F43</string><key>label</key><string>Anthracite grey</string></dict>
+  <dict><key>hex</key><string>2E3234</string><key>label</key><string>Black grey</string></dict>
+  <dict><key>hex</key><string>4B4D46</string><key>label</key><string>Umbra grey</string></dict>
+  <dict><key>hex</key><string>818479</string><key>label</key><string>Concrete grey</string></dict>
+  <dict><key>hex</key><string>474A50</string><key>label</key><string>Graphite grey</string></dict>
+  <dict><key>hex</key><string>374447</string><key>label</key><string>Granite grey</string></dict>
+  <dict><key>hex</key><string>939388</string><key>label</key><string>Stone grey</string></dict>
+  <dict><key>hex</key><string>5D6970</string><key>label</key><string>Blue grey</string></dict>
+  <dict><key>hex</key><string>B9B9A8</string><key>label</key><string>Pebble grey</string></dict>
+  <dict><key>hex</key><string>818979</string><key>label</key><string>Cement grey</string></dict>
+  <dict><key>hex</key><string>939176</string><key>label</key><string>Yellow grey</string></dict>
+  <dict><key>hex</key><string>CBD0CC</string><key>label</key><string>Light grey</string></dict>
+  <dict><key>hex</key><string>9A9697</string><key>label</key><string>Platinum grey</string></dict>
+  <dict><key>hex</key><string>7C7F7E</string><key>label</key><string>Dusty grey</string></dict>
+  <dict><key>hex</key><string>B4B8B0</string><key>label</key><string>Agate grey</string></dict>
+  <dict><key>hex</key><string>6B695F</string><key>label</key><string>Quartz grey</string></dict>
+  <dict><key>hex</key><string>9DA3A6</string><key>label</key><string>Window grey</string></dict>
+  <dict><key>hex</key><string>8F9695</string><key>label</key><string>Traffic grey A</string></dict>
+  <dict><key>hex</key><string>4E5451</string><key>label</key><string>Traffic grey B</string></dict>
+  <dict><key>hex</key><string>BDBDB2</string><key>label</key><string>Silk grey</string></dict>
+  <dict><key>hex</key><string>91969A</string><key>label</key><string>Telegrey 1</string></dict>
+  <dict><key>hex</key><string>82898E</string><key>label</key><string>Telegrey 2</string></dict>
+  <dict><key>hex</key><string>CFD0CF</string><key>label</key><string>Telegrey 4</string></dict>
+  <dict><key>hex</key><string>888175</string><key>label</key><string>Pearl mouse grey</string></dict>
+  <dict><key>hex</key><string>887142</string><key>label</key><string>Green brown</string></dict>
+  <dict><key>hex</key><string>9C6B30</string><key>label</key><string>Ochre brown</string></dict>
+  <dict><key>hex</key><string>7B5141</string><key>label</key><string>Signal brown</string></dict>
+  <dict><key>hex</key><string>80542F</string><key>label</key><string>Clay brown</string></dict>
+  <dict><key>hex</key><string>8F4E35</string><key>label</key><string>Copper brown</string></dict>
+  <dict><key>hex</key><string>6F4A2F</string><key>label</key><string>Fawn brown</string></dict>
+  <dict><key>hex</key><string>6F4F28</string><key>label</key><string>Olive brown</string></dict>
+  <dict><key>hex</key><string>5A3A29</string><key>label</key><string>Nut brown</string></dict>
+  <dict><key>hex</key><string>673831</string><key>label</key><string>Red brown</string></dict>
+  <dict><key>hex</key><string>49392D</string><key>label</key><string>Sepia brown</string></dict>
+  <dict><key>hex</key><string>633A34</string><key>label</key><string>Chestnut brown</string></dict>
+  <dict><key>hex</key><string>4C2F26</string><key>label</key><string>Mahogany brown</string></dict>
+  <dict><key>hex</key><string>44322D</string><key>label</key><string>Chocolate brown</string></dict>
+  <dict><key>hex</key><string>3F3A3A</string><key>label</key><string>Grey brown</string></dict>
+  <dict><key>hex</key><string>211F20</string><key>label</key><string>Black brown</string></dict>
+  <dict><key>hex</key><string>A65E2F</string><key>label</key><string>Orange brown</string></dict>
+  <dict><key>hex</key><string>79553C</string><key>label</key><string>Beige brown</string></dict>
+  <dict><key>hex</key><string>755C49</string><key>label</key><string>Pale brown</string></dict>
+  <dict><key>hex</key><string>4E3B31</string><key>label</key><string>Terra brown</string></dict>
+  <dict><key>hex</key><string>763C28</string><key>label</key><string>Pearl copper</string></dict>
+  <dict><key>hex</key><string>FDF4E3</string><key>label</key><string>Cream</string></dict>
+  <dict><key>hex</key><string>E7EBDA</string><key>label</key><string>Grey white</string></dict>
+  <dict><key>hex</key><string>F4F4F4</string><key>label</key><string>Signal white</string></dict>
+  <dict><key>hex</key><string>282828</string><key>label</key><string>Signal black</string></dict>
+  <dict><key>hex</key><string>0A0A0A</string><key>label</key><string>Jet black</string></dict>
+  <dict><key>hex</key><string>A5A5A5</string><key>label</key><string>White aluminum</string></dict>
+  <dict><key>hex</key><string>8F8F8F</string><key>label</key><string>Grey aluminum</string></dict>
+  <dict><key>hex</key><string>FFFFFF</string><key>label</key><string>Pure white</string></dict>
+  <dict><key>hex</key><string>1C1C1C</string><key>label</key><string>Graphite black</string></dict>
+  <dict><key>hex</key><string>F6F6F6</string><key>label</key><string>Traffic white</string></dict>
+  <dict><key>hex</key><string>1E1E1E</string><key>label</key><string>Traffic black</string></dict>
+  <dict><key>hex</key><string>D7D7D7</string><key>label</key><string>Papyrus white</string></dict>
+  <dict><key>hex</key><string>9C9C9C</string><key>label</key><string>Pearl light grey</string></dict>
+  <dict><key>hex</key><string>828282</string><key>label</key><string>Pearl dark grey</string></dict>
+
+</array>
+</plist>

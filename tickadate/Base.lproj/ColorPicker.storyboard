@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Color Picker View Controller-->
+        <scene sceneID="jix-Zz-lHc">
+            <objects>
+                <collectionViewController storyboardIdentifier="colorPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LCt-kZ-ETc" customClass="ColorPickerViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="422-Ic-EJU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tyR-2L-nqK">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xCS-fg-I5N" customClass="ColorPickerCollectionViewCell" customModule="tickadate">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-8b-Szu" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="10" width="40" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                    <color key="value" red="1" green="0.36612253379999998" blue="0.347834641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8m-ez-vXk">
+                                            <rect key="frame" x="10" y="57" width="60" height="13"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="u8m-ez-vXk" secondAttribute="bottom" constant="10" id="C1t-rl-G9R"/>
+                                    <constraint firstItem="bsr-8b-Szu" firstAttribute="top" secondItem="xCS-fg-I5N" secondAttribute="topMargin" constant="2" id="R0w-iK-UeA"/>
+                                    <constraint firstItem="u8m-ez-vXk" firstAttribute="top" secondItem="bsr-8b-Szu" secondAttribute="bottom" constant="7" id="XvA-Dh-qIH"/>
+                                    <constraint firstItem="u8m-ez-vXk" firstAttribute="leading" secondItem="xCS-fg-I5N" secondAttribute="leading" constant="10" id="aY0-Yg-OkZ"/>
+                                    <constraint firstItem="bsr-8b-Szu" firstAttribute="leading" secondItem="xCS-fg-I5N" secondAttribute="leadingMargin" constant="12" id="cQH-Sq-Ha7"/>
+                                    <constraint firstAttribute="trailing" secondItem="u8m-ez-vXk" secondAttribute="trailing" constant="10" id="p4P-Wb-KbB"/>
+                                    <constraint firstItem="bsr-8b-Szu" firstAttribute="centerX" secondItem="u8m-ez-vXk" secondAttribute="centerX" id="vVH-er-ddA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="circleView" destination="bsr-8b-Szu" id="eMx-gU-40W"/>
+                                    <outlet property="label" destination="u8m-ez-vXk" id="Odm-jK-IeB"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="LCt-kZ-ETc" id="sNy-Nx-ryT"/>
+                            <outlet property="delegate" destination="LCt-kZ-ETc" id="FKT-nl-SWD"/>
+                        </connections>
+                    </collectionView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="480"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wG-yX-BBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281" y="1573"/>
+        </scene>
+    </scenes>
+</document>

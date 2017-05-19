@@ -11,27 +11,19 @@ import CoreData
 import DynamicColor
 import SwiftIconFont
 
-class QuickDatePickerItem : NSObject {
-  
-  var date:Date!
-  var label:String!
-  var handler: ((UIAlertAction, Date) -> Swift.Void)?
-  
-  init(date:Date, label:String, handler:((UIAlertAction, Date) -> Swift.Void)? = nil) {
-    super.init()
-    self.date = date
-    self.label = label
-    self.handler = handler
-  }
-  
-  func asAlertAction() -> UIAlertAction {
-    return UIAlertAction(title: label, style: .default, handler: {
-      self.handler?($0, self.date)
-    })
-  }
-}
 
 class ViewController: UIViewController, EventTypesControllerDelegate, CalendarControllerDelegate {
+  
+  @IBOutlet weak var quickSelectionButton: UIButton!
+  @IBOutlet weak var visibleMonthLabel: UILabel!
+  @IBOutlet weak var selectedEventTypeLabel: UILabel!
+  @IBOutlet weak var calendarViewContainer: UIView!
+  @IBOutlet weak var weekDayHeader: WeekDayHeader!
+  @IBOutlet weak var visibleMonthView: BorderedView!
+  @IBOutlet weak var toolbarView: UIView!
+  @IBOutlet weak var tickButton: TickButton!
+  @IBOutlet weak var quickAddButton: QuickAddButton!
+  @IBOutlet weak var daySummaryButton: DaySummaryButton!
   
   @IBAction func onTick(_ sender: Any) {
     
@@ -65,13 +57,8 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     calendarController.scrollToToday()
   }
   
-  @IBOutlet weak var quickSelectionButton: UIButton!
-  @IBOutlet weak var visibleMonthLabel: UILabel!
-  @IBOutlet weak var selectedEventTypeLabel: UILabel!
-  @IBOutlet weak var calendarViewContainer: UIView!
   
   var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-  
   var calendarController:CalendarController!
   var eventTypesController:EventTypesController!
   
@@ -85,13 +72,18 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     visibleMonthFormatter.dateFormat = "MMMM YYYY"
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    calendarController.select(date: Date())
+  }
+  
   func reloadEventTypes () {
     self.eventTypesController.reloadData()
   }
   
-//  @IBAction func unwindToViewController(segue:UIStoryboardSegue) { }
-  
-  @IBAction func unwindToViewController(withSegue:UIStoryboardSegue) { }
+  @IBAction func unwindToViewController(withSegue:UIStoryboardSegue) {
+    reloadEventTypes()
+    calendarController.collectionView?.reloadData()
+  }
   
   @IBAction func toggleQuickDatePicker(_ sender: Any) {
     
@@ -113,6 +105,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     
     self.present(asc, animated: true, completion: nil)
   }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "calendarEmbedView" {
       self.calendarController = segue.destination as! CalendarController
@@ -126,11 +119,28 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     }
   }
   
+  // todo in ext
+  
   func eventTypesController(_ eventTypesController: EventTypesController, didSelectEventType eventType: EventType) {
+    let etColor:UIColor! = DynamicColor(hexString: eventType.color ?? "000000")
     selectedEventType = eventType
     selectedEventTypeLabel.text = eventType.name!
-    selectedEventTypeLabel.textColor = DynamicColor(hexString: eventType.color ?? "000000")
+    selectedEventTypeLabel.textColor = etColor.darkened(amount: 0.3)
+   // toolbarView.backgroundColor = etColor.darkened(amount: 0.1)
+   // visibleMonthView.backgroundColor = etColor.lighter(amount:  0.2)
+   // visibleMonthView.borderColor = etColor(amount:  0.2)
+    weekDayHeader.backgroundColor = etColor.darkened(amount: 0.1)
+    weekDayHeader.borderColor = etColor.darkened(amount: 0.15)
+    weekDayHeader.labels.forEach { (label) in
+      label.layer.shadowColor = etColor.darkened(amount: 0.2).cgColor
+      label.setNeedsDisplay()
+    }
     calendarController.selectedEventType = eventType
+    
+    quickAddButton.color = etColor.isLight() ? etColor.darkened() : etColor
+    tickButton.color = etColor.isLight() ? etColor.darkened() : etColor
+    daySummaryButton.color = etColor.isLight() ? etColor.darkened() : etColor
+    
   }
   
   func calendarController(_ calendarController: CalendarController, didSelectDate date: Date) {
@@ -139,5 +149,26 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   
   func calendarController(_ calendarController: CalendarController, setVisibleMonth monthAndYear: DateComponents) {
     visibleMonthLabel.text = visibleMonthFormatter.string(from: Calendar.current.date(from: monthAndYear)!)
+  }
+}
+
+
+class QuickDatePickerItem : NSObject {
+  
+  var date:Date!
+  var label:String!
+  var handler: ((UIAlertAction, Date) -> Swift.Void)?
+  
+  init(date:Date, label:String, handler:((UIAlertAction, Date) -> Swift.Void)? = nil) {
+    super.init()
+    self.date = date
+    self.label = label
+    self.handler = handler
+  }
+  
+  func asAlertAction() -> UIAlertAction {
+    return UIAlertAction(title: label, style: .default, handler: {
+      self.handler?($0, self.date)
+    })
   }
 }
