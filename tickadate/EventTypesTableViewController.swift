@@ -21,8 +21,10 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   var cancelButtonItem: UIBarButtonItem!
   
   func reload(){
-    self.eventTypes = dataController.fetchActiveEventTypes()
-    tableView.reloadData()
+    dataController.fetchActiveEventTypes(completion: { (eventTypes) in
+      self.eventTypes = eventTypes
+      self.tableView.reloadData()
+    })
   }
   
   override func viewDidLoad() {
@@ -52,9 +54,9 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
       self.navigationItem.leftBarButtonItem = cancelButtonItem
       self.isEditingCancelled = false
     } else {
-      self.navigationItem.leftBarButtonItem = backButtonItem
+      self.navigationItem.leftBarButtonItem = self.backButtonItem
       if !self.isEditingCancelled {
-        self.dataController.save(activeEventTypes: self.eventTypes)
+        self.dataController.save(activeEventTypes: self.eventTypes, completion: {})
       }
     }
   }
@@ -121,7 +123,9 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
       }
       
       if segue.identifier == "createEventTypeSegue" {
-        formVC.eventType = self.dataController.createEventType()
+        self.dataController.createEventType(completion: { (et) in
+          formVC.eventType = et
+        })
       }
     }
   }

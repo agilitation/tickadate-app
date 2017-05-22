@@ -44,6 +44,7 @@ struct CalendarDate {
   var formatted:String!
   var isToday:Bool! = false
   var isCurrentMonth:Bool! = false
+  var monthAndYear:DateComponents!
 }
 
 class DateUtils: NSObject {
@@ -67,7 +68,8 @@ class DateUtils: NSObject {
         date: tempDate,
         formatted: formatter.string(from: tempDate),
         isToday: calendar.isDateInToday(tempDate),
-        isCurrentMonth: tempDateComps == todayComps
+        isCurrentMonth: tempDateComps == todayComps,
+        monthAndYear: calendar.dateComponents([.month, .year], from: tempDate)
       )
       
       dates.append(calDate)

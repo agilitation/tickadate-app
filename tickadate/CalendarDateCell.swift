@@ -12,14 +12,16 @@ import DynamicColor
 class CalendarDateCell: UICollectionViewCell {
   
   static let borderColor:UIColor = DynamicColor(hexString: "EEEEEE")
-  static let currentMonthDateColor:UIColor = DynamicColor(hexString: "444444")
+  static let currentMonthDateColor:UIColor = DynamicColor(hexString: "222222")
   static let dateColor:UIColor = DynamicColor(hexString: "A9A9A9")
   static let todayDateColor:UIColor = UIColor.black
   
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var stack: EventDotsStack!
   
-
+  var calendarDate:CalendarDate!
+  var visibleMonth:DateComponents!
+  
   override func prepareForReuse() {
     super.prepareForReuse()
     stack.dots = []
@@ -52,19 +54,32 @@ class CalendarDateCell: UICollectionViewCell {
   
   func setDate(_ cd:CalendarDate){
     self.label.text = cd.formatted
-    
-    if cd.isCurrentMonth {
-      label.textColor = CalendarDateCell.currentMonthDateColor
-    } else  {
-      label.textColor = CalendarDateCell.dateColor
-    }
-    
+    self.calendarDate = cd
+   
     if cd.isToday {
       label.textColor = CalendarDateCell.todayDateColor
       label.font = UIFont.systemFont(ofSize: UIFont.labelFontSize, weight: 900)
 //      UIFont.systemFont(ofSize: UIFont.labelFontSize, weight: 900)
     } else {
       label.font = UIFont.systemFont(ofSize: UIFont.labelFontSize)
+    }
+    
+    if visibleMonth != nil {
+    updateVisibleMonth()
+    }
+    
+  }
+  
+  func setVisibleMonth(dateComponents dc: DateComponents){
+    self.visibleMonth = dc
+    self.updateVisibleMonth();
+  }
+  
+  func updateVisibleMonth(){
+    if calendarDate.monthAndYear == visibleMonth {
+      self.label.textColor = CalendarDateCell.currentMonthDateColor
+    } else {
+      self.label.textColor = CalendarDateCell.dateColor
     }
   }
   

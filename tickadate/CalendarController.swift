@@ -33,12 +33,14 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
   var dataController:DataController! = DataController()
   var visibleMonthAndYear:DateComponents!
   var cellSize:CGSize! = CGSize(width: 45, height: 60)
+  var ready:Bool = false
   
   
   var events: [Event] = []
-  {
-    didSet {
-      collectionView?.reloadItems(at: [selectedIndexPath])
+  
+  func reloadCell(forDate date:Date) {
+    if let ip = self.indexPath(forDate: date) {
+      collectionView?.reloadItems(at: [ip])
     }
   }
   
@@ -52,10 +54,17 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
   }
   
   func select(date:Date){
+    print("select date", date)
+    
     if let ip = indexPath(forDate: date){
-      collectionView?.selectItem(at: ip, animated: true, scrollPosition: .centeredVertically)
+      
+      if ready {
+        collectionView?.selectItem(at: ip, animated: true, scrollPosition: .centeredVertically)
+      }
+      
       selectedIndexPath = ip
       self.delegate?.calendarController(self, didSelectDate: date)
+      
     }
   }
   
@@ -71,23 +80,33 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
     super.viewDidLoad()
     
     viewportSize = collectionView?.bounds.size
-    self.generateDates()
-    self.scrollToToday(animated: false)
+    self.generateDates {
+      self.collectionView?.reloadData()
+      self.scrollToToday(animated: false)
+      self.ready = true
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
     viewportSize = collectionView?.bounds.size
   }
   
-  func generateDates(){
-    dates = DateUtils.generateDates(DateRange(rangeAround: Date(), component: .year, value: 1))
-    for (index, cd) in dates.enumerated() {
-      if cd.isToday {
-        todayIndex = index
-        if selectedIndexPath == nil {
-          selectedIndexPath = IndexPath(item: index, section:0)
+  func generateDates(_ completion: @escaping ()->Void){
+    
+    let dataController = DataController()
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      self.events = dataController.fetchEventsSync()
+      self.dates = DateUtils.generateDates(DateRange(rangeAround: Date(), component: .year, value: 1))
+      for (index, cd) in self.dates.enumerated() {
+        if cd.isToday {
+          self.todayIndex = index
+          if self.selectedIndexPath == nil {
+            self.selectedIndexPath = IndexPath(item: index, section:0)
+          }
         }
       }
+      DispatchQueue.main.async(execute: { completion() })
     }
   }
   
@@ -109,13 +128,14 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! CalendarDateCell
     let events:[Event] = getEvents(forDate: self.dates[indexPath.item].date)
+    let calendarDate = self.dates[indexPath.item]
     var dots:[String] = []
     
     events.forEach({
       dots.append($0.type?.color ?? "000000")
     })
     
-    cell.setDate(self.dates[indexPath.item])
+    cell.setDate(calendarDate)
     cell.setEventDots(dots)
     return cell
   }
@@ -135,6 +155,13 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
     self.delegate?.calendarController(self, didSelectDate: self.dates[indexPath.item].date)
   }
   
+  func updateVisibleMonth() {
+    for cell in collectionView!.visibleCells {
+      let calendarCell = cell as! CalendarDateCell
+      calendarCell.setVisibleMonth(dateComponents: visibleMonthAndYear)
+    }
+  }
+  
   override func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if let cv = collectionView {
       var visibleRect = CGRect()
@@ -146,10 +173,9 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
       
       self.visibleMonthAndYear = calendar.dateComponents([.month, .year], from: visibleDate)
       self.delegate?.calendarController(self, setVisibleMonth: visibleMonthAndYear)
+      updateVisibleMonth()
     }
   }
-  
-  // todo scrollviewendscrollanimation => change visible month
   
   func scrollToToday(animated:Bool = true) {
     self.collectionView?.layoutIfNeeded()

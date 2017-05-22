@@ -33,11 +33,18 @@ class DataController: NSObject, CLLocationManagerDelegate {
   
   
   var context:NSManagedObjectContext!
+  var nc:NotificationCenter!
+
   
   override init() {
     super.init()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     context = appDelegate.persistentContainer.viewContext
+    // TODO Fix background thread / core data
+    // https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/InitializingtheCoreDataStack.html#//apple_ref/doc/uid/TP40001075-CH4-SW1
+    
+    nc = NotificationCenter.default
+    
   }
   
   func deleteAllEventTypes() {
@@ -52,88 +59,112 @@ class DataController: NSObject, CLLocationManagerDelegate {
     try! context.execute(request)
   }
   
-  func fetchActiveEventTypes() -> [EventType] {
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EventType")
-    let predicate = NSPredicate(format: "isActive == TRUE")
-    
-    fetchRequest.predicate = predicate
-    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "order", ascending: true)]
-    
-    do {
-      let results = try context.fetch(fetchRequest) as! [EventType]
-      return results
-      
-    } catch let error as NSError {
-      print(error.userInfo)
+  
+  func fetchEvents(completion: @escaping ([Event])->Void){
+    var results:[Event] = []
+    DispatchQueue.global(qos: .userInitiated).async {
+      results = self.fetchEventsSync()
+      DispatchQueue.main.async(execute: { completion(results) })
     }
-    
-    return []
   }
   
-  func fetchEvents() -> [Event] {
+  func fetchEvents(forDay date: Date, completion: @escaping([Event]) -> ()) {
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      
+      let cal = Calendar.current
+      let comps = cal.dateComponents([.day, .month, .year], from: date)
+      let start = cal.date(from: comps)!
+      var add = DateComponents()
+      add.day = 1
+      let end = cal.date(byAdding: add, to: start)!
+      
+      let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+      let predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", start as NSDate, end as NSDate)
+      var results:[Event] = []
+      fetchRequest.predicate = predicate
+      fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+      
+      do {
+        results = try self.context.fetch(fetchRequest) as! [Event]
+      } catch let error as NSError {
+        print(error.userInfo)
+      }
+      
+      DispatchQueue.main.async(execute: { completion(results) })
+    }
+  }
+  
+  func fetchEventsSync(forEventType eventType:EventType) -> [Event]{
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
-    //        let predicate = NSPredicate(format: "type.isActive == TRUE")
-    //        fetchRequest.predicate = predicate
-    do {
-      let results = try context.fetch(fetchRequest) as! [Event]
-      return results
-    } catch let error as NSError {
-      print(error.userInfo)
-    }
-    return []
+    let predicate = NSPredicate(format: "type = %@", eventType)
+    fetchRequest.predicate = predicate
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+    return try! self.context.fetch(fetchRequest) as! [Event]
   }
   
-  func createEvent(ofType type: EventType, onDate date: Date, withDetails details: String?) {
-    let event = Event(context: context)
+  func fetchEventsSync() -> [Event] {
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+    return try! self.context.fetch(fetchRequest) as! [Event]
+  }
+  
+  func createEvent(ofType type: EventType, onDate date: Date, withDetails details: String?, completion: @escaping (Event) -> ()) {
     
-    event.type = type
     
+    var event:Event!
+    let cal:Calendar = Calendar.current
     
-    if let defaultValues = type.defaultValues {
-      event.date = Calendar.current.date(
-        byAdding: .minute,
-        value: Int(defaultValues.time),
-        to: date
-        )! as NSDate
-      event.duration = Int16(defaultValues.duration)
-      
-    } else {
-      let todayComps = Calendar.current.dateComponents([.hour, .minute], from: Date())
-      event.date = Calendar.current.date(
-        byAdding: .minute,
-        value: Int(todayComps.hour! * 60 + todayComps.minute!),
-        to: date
-        )! as NSDate
-      event.duration = 60
-    }
-    
-    event.isAllDay = type.isAllDay
-    event.details = details
     
     func finishCreationOfEvent(){
       context.insert(event)
       save()
       
-      print("Event created", event)
+      DispatchQueue.main.async {
+        self.nc.post(name: Notification.Name("event.create"), object: event)
+        completion(event)
+      }
       
       if type.shouldCreateEventInCalendar && type.ekCalendarIdentifier != nil {
         createCalendarEvent(fromEvent: event)
       }
     }
     
-    if(type.shouldAskForLocation){
-      self.getLocation(forEvent: event, completionHandler: finishCreationOfEvent)
-    } else {
-      finishCreationOfEvent()
+    DispatchQueue.global(qos: .userInitiated).async {
+      event = Event(context: self.context)
+      event.type = type
+      event.isAllDay = type.isAllDay
+      event.details = details
+      
+      if let defaultValues = type.defaultValues {
+        event.duration = Int16(defaultValues.duration)
+        event.date = cal.date(byAdding: .minute,
+                              value: Int(defaultValues.time),
+                              to: date)! as NSDate
+        
+      } else {
+        let todayComps = cal.dateComponents([.hour, .minute], from: Date())
+        event.duration = 60 // todo const
+        event.date = cal.date(byAdding: .minute,
+                              value: Int(todayComps.hour! * 60 + todayComps.minute!),
+                              to: date)! as NSDate
+      }
+      
+      if(type.shouldAskForLocation){
+        DispatchQueue.main.async {
+          self.getLocation(forEvent: event, completionHandler: finishCreationOfEvent)
+        }
+      } else {
+        finishCreationOfEvent()
+      }
     }
   }
   
   func getLocation(forEvent event:Event, completionHandler: @escaping () -> Void) {
-    let manager = CLLocationManager()
-    manager.delegate = self
-    manager.requestLocation()
+    let locationManager:CLLocationManager! = CLLocationManager()
+    locationManager.delegate = self
+    locationManager.requestLocation()
     
-    if let location = manager.location {
+    if let location = locationManager.location {
       
       event.hasLocation = true
       event.locationLatitude = location.coordinate.latitude as Double
@@ -212,12 +243,57 @@ class DataController: NSObject, CLLocationManagerDelegate {
       }
     }
   }
-  func createEventType() -> EventType {
-    let eventType = EventType(context: context)
-    eventType.isActive = true
-    eventType.color = "000000"
-    context.insert(eventType)
-    return eventType
+  
+  func deleteSync(event:Event){
+    context.delete(event)
+    self.nc.post(name: Notification.Name("event.delete"), object: event)
+    save()
+  }
+  
+  /***
+   EVENT TYPES
+   ****/
+  
+  private func fetchActiveEventTypesSync() -> [EventType]{
+    var results:[EventType] = []
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EventType")
+    let predicate = NSPredicate(format: "isActive == TRUE")
+    
+    fetchRequest.predicate = predicate
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "order", ascending: true)]
+    
+    do {
+      results = try self.context.fetch(fetchRequest) as! [EventType]
+    } catch let error as NSError {
+      print(error.userInfo)
+    }
+    
+    return results
+  }
+  
+  func fetchActiveEventTypes(completion: @escaping ([EventType])->Void) {
+    var results:[EventType] = []
+    DispatchQueue.global().async {
+      results = self.fetchActiveEventTypesSync()
+      DispatchQueue.main.async(execute: { completion(results) })
+    }
+  }
+  
+  func createEventType(completion: @escaping (EventType)->Void){
+    
+    DispatchQueue.global().async {
+      let activeEventTypes = self.fetchActiveEventTypesSync()
+      let eventType = EventType(context: self.context)
+      eventType.isActive = true
+      eventType.color = "000000"
+      eventType.order = Int16(activeEventTypes.count)
+      self.context.insert(eventType)
+      DispatchQueue.main.async(execute: {
+        self.nc.post(name: Notification.Name("eventType.create"), object: eventType)
+        self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
+        completion(eventType)
+      })
+    }
   }
   
   func getDefaultValues(forEventType et: EventType) -> DefaultValues {
@@ -230,27 +306,34 @@ class DataController: NSObject, CLLocationManagerDelegate {
     return et.defaultValues!
   }
   
-  func save(activeEventTypes: [EventType]) {
-    for existingActiveEventsType in fetchActiveEventTypes() {
-      if activeEventTypes.contains(existingActiveEventsType){
-        existingActiveEventsType.order = Int16(activeEventTypes.index(of: existingActiveEventsType)!)
-      } else {
-        existingActiveEventsType.isActive = false
+  // Crash Here after deletion in UITableViewController
+  func save(activeEventTypes: [EventType], completion: @escaping () -> Void) {
+    DispatchQueue.global().async {
+      for existingActiveEventsType in self.fetchActiveEventTypesSync() {
+        if activeEventTypes.contains(existingActiveEventsType){
+          existingActiveEventsType.order = Int16(activeEventTypes.index(of: existingActiveEventsType)!)
+        } else {
+          existingActiveEventsType.isActive = false
+        }
       }
+      self.save()
+      DispatchQueue.main.async(execute: {
+        completion()
+        self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
+      })
     }
-    self.save()
   }
   
   func save(){
-    if context.hasChanges {
+    /*if context.hasChanges {
       do {
         try context.save()
       } catch {
         let nserror = error as NSError
         fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        
+
       }
-    }
+    }*/
   }
   
   func bootstrapEventTypes() {

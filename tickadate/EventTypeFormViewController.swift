@@ -220,4 +220,12 @@ class EventTypeFormViewController: FormViewController {
       return calendar.allowsContentModifications
     })
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showEventTypeStats" {
+      let statsVC:StatsTableViewController = segue.destination as! StatsTableViewController
+      statsVC.eventType = self.eventType
+      print("prepare segue showEventTypeStats")
+    }
+  }
 }

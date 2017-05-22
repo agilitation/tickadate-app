@@ -27,6 +27,13 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   
   @IBAction func onTick(_ sender: Any) {
     
+    let eventCreated:(Event) -> () = { (event) in
+      self.dataController.fetchEvents(completion: { (events) in
+        self.calendarController.events = events
+        self.calendarController.reloadCell(forDate: event.date! as Date)
+      })
+    }
+    
     if selectedEventType!.promptForDetails {
       let alert = UIAlertController(
         title: "Event details",
@@ -42,15 +49,15 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
       alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
         self.dataController.createEvent(ofType: self.selectedEventType!,
                                         onDate: self.selectedDate!,
-                                        withDetails: alert.textFields![0].text!)
-        self.calendarController.events = self.dataController.fetchEvents()
+                                        withDetails: alert.textFields![0].text!,
+                                        completion: eventCreated)
       }))
       
       self.present(alert, animated: true, completion: nil)
-      return
+      
+    } else {
+      dataController.createEvent(ofType: selectedEventType!, onDate: selectedDate!, withDetails: nil, completion: eventCreated)
     }
-    dataController.createEvent(ofType: selectedEventType!, onDate: selectedDate!, withDetails: nil)
-    calendarController.events = dataController.fetchEvents()
   }
   
   @IBAction func scrollToToday(_ sender: UIBarButtonItem) {
@@ -61,19 +68,27 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
   var calendarController:CalendarController!
   var eventTypesController:EventTypesController!
+  //var eventsOfDayController:EventsOfDayTableViewController!
   
   var selectedEventType:EventType!
-  var selectedDate:Date!
+  var selectedDate:Date! = Date()
   var dataController:DataController = DataController()
   var visibleMonthFormatter:DateFormatter! = DateFormatter()
+  
+  var nc:NotificationCenter = NotificationCenter.default
   
   override func viewDidLoad() {
     super.viewDidLoad()
     visibleMonthFormatter.dateFormat = "MMMM YYYY"
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    calendarController.select(date: Date())
+    calendarController.select(date: self.selectedDate)
+    
+    nc.addObserver(forName: NSNotification.Name("event.delete"), object: nil, queue: nil) { (notif) in
+      let event:Event = notif.object as! Event
+      self.dataController.fetchEvents(completion: { (events) in
+        self.calendarController.events = events
+        self.calendarController.reloadCell(forDate: event.date! as Date)
+      })
+    }
   }
   
   func reloadEventTypes () {
@@ -103,6 +118,8 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     asc.addAction(QuickDatePickerItem(date: Date(), label: "Today", handler: handler).asAlertAction())
     asc.addAction(QuickDatePickerItem(date: RelativeDate.yesterday(), label: "Yesterday", handler: handler).asAlertAction())
     
+    asc.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    
     self.present(asc, animated: true, completion: nil)
   }
   
@@ -110,12 +127,17 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     if segue.identifier == "calendarEmbedView" {
       self.calendarController = segue.destination as! CalendarController
       self.calendarController.delegate = self
-      self.calendarController.events = dataController.fetchEvents()
     }
     
     if segue.identifier == "eventTypesEmbedView" {
       self.eventTypesController = segue.destination as! EventTypesController
       self.eventTypesController.delegate = self
+    }
+    
+    if segue.identifier == "showEventsOfDay" {
+      let navCont = segue.destination as! UINavigationController
+      let eventsOfDayController = navCont.topViewController as! EventsOfDayTableViewController
+       eventsOfDayController.setDay(self.selectedDate)
     }
   }
   

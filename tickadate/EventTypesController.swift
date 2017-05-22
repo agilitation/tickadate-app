@@ -11,78 +11,114 @@ import CoreData
 import DynamicColor
 
 protocol EventTypesControllerDelegate {
-    func eventTypesController(_ eventTypesController: EventTypesController, didSelectEventType eventType: EventType)
+  func eventTypesController(_ eventTypesController: EventTypesController, didSelectEventType eventType: EventType)
 }
+
+
 
 class EventTypesController: UICollectionViewController {
-
-    var delegate:EventTypesControllerDelegate?
-    var context:NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var eventTypes:[EventType] = []
-    var dataController:DataController!
-    var selectedEventType:EventType!
+  
+  var delegate:EventTypesControllerDelegate?
+  var context:NSManagedObjectContext! = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  var eventTypes:[EventType] = []
+  var dataController:DataController!
+  var selectedEventType:EventType!
+  var addEventTypeCellCount:Int = 3
+  
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.dataController = DataController()
+    dataController.fetchActiveEventTypes(completion: { (eventTypes) in
+      self.eventTypes = eventTypes
+      self.reloadData()
+    })
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+    return false
+  }
+  
+  override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 3
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.dataController = DataController()
-        self.eventTypes = dataController.fetchActiveEventTypes()
+    dataController.fetchActiveEventTypes(completion: { (eventTypes) in
+      if eventTypes.count == 0 {
+        return
+      }
+      
+      let index:Int = (self.selectedEventType != nil) ? eventTypes.index(of: self.selectedEventType) ?? 0 : 0
+      let indexPath = IndexPath(item: index, section: 1)
+      
+      self.collectionView?.reloadData()
+      self.selectEventTypeAt(indexPath: indexPath, animated: animated)
+    })
+    
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    if indexPath.section == 0 {
+      return collectionView.dequeueReusableCell(withReuseIdentifier: "settingsCell", for: indexPath)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        eventTypes = dataController.fetchActiveEventTypes()
-        if eventTypes.count == 0 {
-            return
-        }
-        
-        let index:Int = (selectedEventType != nil) ? eventTypes.index(of: selectedEventType) ?? 0 : 0
-        let indexPath = IndexPath(item: index, section: 0)
-        
-        collectionView?.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
-        selectEventTypeAt(indexPath: indexPath)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if eventTypes.count == indexPath.item {
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "addEventTypeCell", for: indexPath) 
-        }
-        
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "eventTypeCell",
-            for: indexPath as IndexPath
-            ) as! EventTypeCollectionViewCell
-        
-        cell.color = DynamicColor(hexString: eventTypes[indexPath.item].color ?? "000000")
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataController.fetchActiveEventTypes().count + 1
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // in case we're selecting a placeholder, do nothing
-        if indexPath.item >= eventTypes.count {
-            return
-        }
-        selectEventTypeAt(indexPath: indexPath)
+    if indexPath.section == 2 {
+      return collectionView.dequeueReusableCell(withReuseIdentifier: "addEventTypeCell", for: indexPath)
     }
     
     
-    func selectEventTypeAt(indexPath: IndexPath){
-        selectedEventType = eventTypes[indexPath.item]
-        self.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        self.delegate?.eventTypesController(self, didSelectEventType: selectedEventType)
-    }
+    let cell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: "eventTypeCell",
+      for: indexPath
+      ) as! EventTypeCollectionViewCell
     
-    func reloadData() {
-        eventTypes = dataController.fetchActiveEventTypes()
-        collectionView!.reloadData()
+    cell.color = DynamicColor(hexString: eventTypes[indexPath.item].color ?? "000000")
+    return cell
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    switch section {
+    case 0: return 1
+    case 1: return eventTypes.count
+    case 2: return addEventTypeCellCount
+    default: return 0
     }
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    // in case we're selecting a placeholder, do nothing
+    if indexPath.section != 1 {
+      return
+    }
+    selectEventTypeAt(indexPath: indexPath)
+  }
+  
+  
+  func selectEventTypeAt(indexPath: IndexPath, animated: Bool = true){
+    selectedEventType = eventTypes[indexPath.item]
+    self.collectionView?.selectItem(at: indexPath, animated: animated, scrollPosition: .centeredHorizontally)
+    self.delegate?.eventTypesController(self, didSelectEventType: selectedEventType)
+  }
+  
+  func reloadData() {
+    dataController.fetchActiveEventTypes { (eventTypes) in
+      self.eventTypes = eventTypes
+      self.collectionView!.reloadData()
+    }
+  }
 }
+
+
+@IBDesignable
+class SettingsCogWheel: UIView {
+  
+  override func draw(_ rect: CGRect) {
+    StyleKit.drawCogWheel()
+  }
+}
+
