@@ -40,7 +40,6 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     self.cancelEditMode(nil)
     self.navigationItem.rightBarButtonItem = self.editButtonItem
     
-    
   }
   
   // Only one that works

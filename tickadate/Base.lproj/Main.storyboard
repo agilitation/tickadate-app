@@ -32,23 +32,16 @@
                                     <segue destination="i1x-9i-drD" kind="embed" identifier="eventTypesEmbedView" id="yDS-Vj-u6F"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Event Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tct-hI-42A">
-                                <rect key="frame" x="0.0" y="80" width="375" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKz-e5-tlC">
+                                <rect key="frame" x="16" y="80" width="343" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="syP-dq-Qq4"/>
+                                    <constraint firstAttribute="height" constant="50" id="px3-qo-Hy2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="1" height="1"/>
-                            </label>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOs-XN-t5A">
-                                <rect key="frame" x="0.0" y="110" width="375" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="aOM-l6-yok"/>
-                                </constraints>
-                            </view>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="TW6-K3-yEX" kind="presentation" identifier="showEventTypeStats" id="2qW-Yi-TbM"/>
+                                </connections>
+                            </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-tD-xBf" userLabel="Days of the week" customClass="WeekDayHeader" customModule="tickadate" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="130" width="375" height="30"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +56,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="value" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnTopSide" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="borderOnBottomSide" value="YES"/>
@@ -162,26 +155,23 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YIU-Du-t9E" firstAttribute="top" secondItem="PuR-09-ekx" secondAttribute="bottom" constant="1" id="39J-iC-1Aj"/>
-                            <constraint firstItem="hIb-tD-xBf" firstAttribute="top" secondItem="rOs-XN-t5A" secondAttribute="bottom" id="56h-mI-fjr"/>
                             <constraint firstItem="PuR-09-ekx" firstAttribute="top" secondItem="vD8-hG-vF3" secondAttribute="bottom" id="5cn-yZ-RZY"/>
                             <constraint firstItem="hIb-tD-xBf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="631-Wg-66A"/>
                             <constraint firstItem="vD8-hG-vF3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7dA-AR-vkM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hKz-e5-tlC" secondAttribute="trailing" id="AgT-0T-kVN"/>
                             <constraint firstItem="vD8-hG-vF3" firstAttribute="top" secondItem="hIb-tD-xBf" secondAttribute="bottom" constant="1" id="HGB-i0-7RG"/>
                             <constraint firstAttribute="trailing" secondItem="yUU-1M-bRY" secondAttribute="trailing" id="Jci-nu-WUq"/>
                             <constraint firstItem="yUU-1M-bRY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LBz-Eo-y3f"/>
                             <constraint firstAttribute="trailing" secondItem="hIb-tD-xBf" secondAttribute="trailing" id="M3Y-Uh-H6t"/>
                             <constraint firstAttribute="trailing" secondItem="vD8-hG-vF3" secondAttribute="trailing" id="Nuj-aa-vaW"/>
-                            <constraint firstItem="Tct-hI-42A" firstAttribute="top" secondItem="yUU-1M-bRY" secondAttribute="bottom" id="OJk-2D-Vii"/>
                             <constraint firstItem="yUU-1M-bRY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="T8A-NC-8R9"/>
                             <constraint firstAttribute="trailing" secondItem="PuR-09-ekx" secondAttribute="trailing" id="aRk-PQ-VCB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YIU-Du-t9E" secondAttribute="bottom" id="biN-5Z-1SX"/>
-                            <constraint firstItem="rOs-XN-t5A" firstAttribute="top" secondItem="Tct-hI-42A" secondAttribute="bottom" id="dYa-g4-BQT"/>
+                            <constraint firstItem="hKz-e5-tlC" firstAttribute="top" secondItem="yUU-1M-bRY" secondAttribute="bottom" id="dOX-vM-qbc"/>
                             <constraint firstItem="PuR-09-ekx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fDi-LR-6aE"/>
-                            <constraint firstItem="rOs-XN-t5A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fEg-yK-8uD"/>
-                            <constraint firstItem="Tct-hI-42A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kuS-Qb-ZUj"/>
-                            <constraint firstAttribute="trailing" secondItem="Tct-hI-42A" secondAttribute="trailing" id="mjZ-FZ-QLT"/>
                             <constraint firstAttribute="trailing" secondItem="YIU-Du-t9E" secondAttribute="trailing" id="odY-gO-0tV"/>
-                            <constraint firstAttribute="trailing" secondItem="rOs-XN-t5A" secondAttribute="trailing" id="suI-wJ-IrW"/>
+                            <constraint firstItem="hIb-tD-xBf" firstAttribute="top" secondItem="hKz-e5-tlC" secondAttribute="bottom" id="x4p-cd-dDj"/>
+                            <constraint firstItem="hKz-e5-tlC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yp9-QN-eES"/>
                             <constraint firstItem="YIU-Du-t9E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yus-9r-cJQ"/>
                         </constraints>
                     </view>
@@ -194,7 +184,7 @@
                         <outlet property="daySummaryButton" destination="ZZZ-Qs-xn5" id="vu1-NP-M0E"/>
                         <outlet property="quickAddButton" destination="oar-5E-0yP" id="FOl-Bm-FdN"/>
                         <outlet property="quickSelectionButton" destination="oar-5E-0yP" id="mEv-gi-Ld3"/>
-                        <outlet property="selectedEventTypeLabel" destination="Tct-hI-42A" id="COY-Zp-oWR"/>
+                        <outlet property="selectedEventTypeButton" destination="hKz-e5-tlC" id="WAB-3O-g8k"/>
                         <outlet property="tickButton" destination="FhE-FZ-yXH" id="TmP-hb-Q0f"/>
                         <outlet property="toolbarView" destination="YIU-Du-t9E" id="lid-Ks-xcj"/>
                         <outlet property="visibleMonthLabel" destination="7EG-bN-2GJ" id="mok-Qy-ASb"/>
@@ -316,7 +306,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2a-6e-Nyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086.9565217391305" y="-182.60869565217394"/>
+            <point key="canvasLocation" x="2084" y="-214"/>
         </scene>
         <!--Events of day-->
         <scene sceneID="HSs-C3-Vcq">
@@ -483,7 +473,15 @@
                 <viewControllerPlaceholder storyboardName="EventTypes" id="gw7-B3-Nah" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ol-0d-AGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086.231884057971" y="136.95652173913044"/>
+            <point key="canvasLocation" x="2085" y="97"/>
+        </scene>
+        <!--EventTypesStats-->
+        <scene sceneID="p8f-G4-IUT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EventTypesStats" id="TW6-K3-yEX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nag-7w-iLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MbI-yh-4oF">
@@ -509,6 +507,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aeL-fu-QF4"/>
+        <segue reference="o4l-EL-csX"/>
     </inferredMetricsTieBreakers>
 </document>

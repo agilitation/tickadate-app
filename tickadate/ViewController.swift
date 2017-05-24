@@ -16,7 +16,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   
   @IBOutlet weak var quickSelectionButton: UIButton!
   @IBOutlet weak var visibleMonthLabel: UILabel!
-  @IBOutlet weak var selectedEventTypeLabel: UILabel!
+  @IBOutlet weak var selectedEventTypeButton: UIButton!
   @IBOutlet weak var calendarViewContainer: UIView!
   @IBOutlet weak var weekDayHeader: WeekDayHeader!
   @IBOutlet weak var visibleMonthView: BorderedView!
@@ -139,6 +139,13 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
       let eventsOfDayController = navCont.topViewController as! EventsOfDayTableViewController
        eventsOfDayController.setDay(self.selectedDate)
     }
+    
+    if segue.identifier == "showEventTypeStats" {
+      let nav:UINavigationController =  segue.destination as! UINavigationController
+      let statsVC:StatsTableViewController = nav.viewControllers.first as! StatsTableViewController
+      statsVC.eventType = self.selectedEventType
+    }
+
   }
   
   // todo in ext
@@ -146,8 +153,8 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   func eventTypesController(_ eventTypesController: EventTypesController, didSelectEventType eventType: EventType) {
     let etColor:UIColor! = DynamicColor(hexString: eventType.color ?? "000000")
     selectedEventType = eventType
-    selectedEventTypeLabel.text = eventType.name!
-    selectedEventTypeLabel.textColor = etColor.darkened(amount: 0.3)
+    selectedEventTypeButton.setTitle(eventType.name!, for: .normal)
+    selectedEventTypeButton.tintColor = etColor.darkened(amount: 0.3)
    // toolbarView.backgroundColor = etColor.darkened(amount: 0.1)
    // visibleMonthView.backgroundColor = etColor.lighter(amount:  0.2)
    // visibleMonthView.borderColor = etColor(amount:  0.2)
