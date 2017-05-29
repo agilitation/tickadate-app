@@ -73,3 +73,12 @@
 
 /* Label for times per weekday stat */
 "stats/timesPerWeekday/label" = "Par jour de la semaine";
+
+/* Label for interval stat */
+"stats/interval/label" = "";
+
+/* Unit for interval stat */
+"stats/interval/unit" = "";
+
+/* Unit for times stat (multiplication symbol) */
+"stats/times/unit" = "";

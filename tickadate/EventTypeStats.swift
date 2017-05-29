@@ -34,6 +34,7 @@ class EventTypeStats: NSObject {
   var counts:[String : Int] = [:]
   var countsSeries:[String : SerieStat] =  [:]
   var countsProportions:[String: [DateComponents : Float]] = [:]
+  var intervalsSerie:SerieStat?
   
   var prevDate:Date?
   var nextDate:Date?
@@ -60,7 +61,12 @@ class EventTypeStats: NSObject {
       let events:[Event] = self.data.fetchEventsSync(forEventType: self.eventType)
       var counts:[String:[DateComponents : Int]] = [:]
       var isDatePast:Bool = false
+      var intervals:[DateInterval] = []
+      var previousDate:Date?
+      var d:Date!
+      
       let now:Date = Date()
+      
       
       self.groups.forEach({ (label, comps) in
         counts[label] = [:]
@@ -68,17 +74,25 @@ class EventTypeStats: NSObject {
       
       for e in events {
         
+        d = e.date! as Date
+        
+        if previousDate == nil {
+          previousDate = d
+        } else {
+          intervals.append(DateInterval(start: previousDate!, end: d))
+        }
+        
         if e.date! as Date > now && !isDatePast {
-          self.nextDate = e.date! as Date
+          self.nextDate = d
           isDatePast = true
         }
         
         if !isDatePast {
-          self.prevDate = e.date! as Date
+          self.prevDate = d
         }
         
         self.groups.forEach({ (label, comps) in
-          let dc:DateComponents = cal.dateComponents(comps, from: e.date! as Date)
+          let dc:DateComponents = cal.dateComponents(comps, from: d)
           
           if counts[label]![dc] == nil {
             counts[label]![dc] = 1
@@ -93,14 +107,15 @@ class EventTypeStats: NSObject {
         self.countsProportions[label] = [:]
         group.forEach({ (key, count) in
           floats.append(Float(count))
-          self.countsProportions[label]?.updateValue(Float(count).divided(by: Float(events.count))
-, forKey: key)
+          self.countsProportions[label]?.updateValue(Float(count).divided(by: Float(events.count)), forKey: key)
         })
         self.countsSeries.updateValue(SerieStat(serie: floats), forKey: label)
       })
       
       
-      print(self.countsSeries)
+      self.intervalsSerie = SerieStat(serie: intervals.map({ (interval) -> Float in
+        return Float(interval.duration)
+      }))
     }
   }
 }

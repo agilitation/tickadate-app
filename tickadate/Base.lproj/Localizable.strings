@@ -70,3 +70,12 @@
 
 /* No comment provided by engineer. */
 "Clear Photo" = "";
+
+/* Label for interval stat */
+"stats/interval/label" = "";
+
+/* Unit for interval stat */
+"stats/interval/unit" = "";
+
+/* Unit for times stat (multiplication symbol) */
+"stats/times/unit" = "";

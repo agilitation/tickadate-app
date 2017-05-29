@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SerieStatTableViewCell: StatTableViewCell {
 
+
+class SerieStatTableViewCell: StatTableViewCell {
+  
   @IBOutlet weak var backBox: BorderedView!
   @IBOutlet weak var centerBox: BorderedView!
   @IBOutlet weak var minValue: UILabel!
@@ -21,7 +23,7 @@ class SerieStatTableViewCell: StatTableViewCell {
   @IBOutlet weak var label: UILabel!
   
   override func layoutSubviews() {
-    super.layoutSubviews()    
+    super.layoutSubviews()
     let c = isNegate ? UIColor.white : color
     let valColor = isNegate ? UIColor.white : UIColor.black
     
@@ -41,36 +43,62 @@ class SerieStatTableViewCell: StatTableViewCell {
     if isNegate {
       backBox.backgroundColor = color
       centerBox.backgroundColor = color
-      
-      
     }
   }
   
-  func setStat(label:String, stats:SerieStat, unit:String = ""){
-    
-    self.minValue.attributedText = format(stats.min, withUnit: unit)
-    self.avgValue.attributedText = format(stats.avg, withUnit: unit)
-    self.maxValue.attributedText = format(stats.max, withUnit: unit)
-    
-    self.label.text = label
-  }
   
-  func format(_ value: NSNumber, withUnit unit: String) -> NSAttributedString{
+  static let timesFormatter:SerieStatValueFormatter = { value in
     let nbf = NumberFormatter()
-    return makeAttributedString(for: nbf.string(from: value)!, withUnit: unit)
-    
-  }
-  
-  
-  func makeAttributedString(for value:String, withUnit unit:String) -> NSMutableAttributedString {
-    
-    let astr = NSMutableAttributedString(string: value.appending(unit))
-    astr.addAttribute(NSFontAttributeName,
-                 value: UIFont.systemFont(ofSize: 30, weight: UIFontWeightThin),
-                 range: NSRange(
-                  location: astr.length - 1,
-                  length: 1))
+    let unit = NSLocalizedString("stats/times/unit", comment: "Unit for times stat (multiplication symbol)")
+    let formattedValue = nbf.string(from: value) ?? "0"
+    let astr = NSMutableAttributedString(string: formattedValue.appending(unit))
+    astr.addAttribute(
+      NSFontAttributeName,
+      value: UIFont.systemFont(
+        ofSize: 16,
+        weight: UIFontWeightThin
+      ),
+      range: NSRange(
+        location: astr.length - 1,
+        length: 1
+      )
+    )
     return astr
-    
   }
+  
+  static let timeIntervalFormatter:SerieStatValueFormatter = { value in
+    let duration = TimeInterval(value)
+    let formatter = DateComponentsFormatter()
+    formatter.unitsStyle = .abbreviated
+    formatter.allowedUnits = [ .day ]
+    formatter.allowsFractionalUnits = true
+    formatter.zeroFormattingBehavior = [ .pad ]
+    
+    let formattedDuration = formatter.string(from: duration)
+    
+    return NSMutableAttributedString(string: formattedDuration!)
+  }
+  
+  
+  typealias SerieStatValueFormatter = ((NSNumber)->(NSMutableAttributedString))
+  
+  
+  var formatter:SerieStatValueFormatter = SerieStatTableViewCell.timesFormatter
+  
+  var stats:SerieStat? {
+    didSet {
+      self.updateValues()
+    }
+  }
+  
+  func updateValues(){
+    if let s = self.stats {
+      self.minValue.attributedText = self.formatter(s.min)
+      self.avgValue.attributedText = self.formatter(s.avg)
+      self.maxValue.attributedText = self.formatter(s.max)
+    }
+  }
+  
+  
+  
 }

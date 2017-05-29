@@ -37,6 +37,7 @@
 		7A901CB61EC20C8600CF0002 /* EventDotsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CB51EC20C8600CF0002 /* EventDotsStack.swift */; };
 		7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A901CF91EC22E6100CF0002 /* DynamicColor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		7A901D021EC23AB600CF0002 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901D011EC23AB600CF0002 /* CircleView.swift */; };
+		7A9791931EDC5A5F00D910B6 /* StatCellDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */; };
 		7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9A1ECC66A4001B6520 /* RAL.plist */; };
 		7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628ED1ECCF04400834FAD /* StyleKit.swift */; };
 		7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */; };
@@ -120,6 +121,8 @@
 		7A901CB51EC20C8600CF0002 /* EventDotsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDotsStack.swift; sourceTree = "<group>"; };
 		7A901CF91EC22E6100CF0002 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
 		7A901D011EC23AB600CF0002 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		7A9791911EDC434F00D910B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCellDefinitions.swift; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
 		7AA628ED1ECCF04400834FAD /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtons.swift; sourceTree = "<group>"; };
@@ -310,6 +313,7 @@
 				7AD7BC561ED33CC3005AA9EF /* EventTypeStats.swift */,
 				7AD7BC541ED33B6F005AA9EF /* StatsTableViewController.swift */,
 				7AE4EF631ED43C8C00F3082C /* StatTableViewCells */,
+				7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */,
 			);
 			name = Stats;
 			sourceTree = "<group>";
@@ -628,6 +632,7 @@
 				7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */,
 				7A39963E1ECAF6DB002E3255 /* ColorPalette.swift in Sources */,
 				7AE4EF621ED43C8800F3082C /* LabelStatTableViewCell.swift in Sources */,
+				7A9791931EDC5A5F00D910B6 /* StatCellDefinitions.swift in Sources */,
 				7A04FB9B1EC651EF00407E5C /* VisibleMonthTooltipView.swift in Sources */,
 				7ACDED181EDC232D004CDB9D /* RelativeDateAlertController.swift in Sources */,
 				7AF97EDC1EC4548900DD5AC1 /* WeekDayHeader.swift in Sources */,
@@ -693,6 +698,7 @@
 			children = (
 				7A1C13B81EDC3F40007A6D75 /* Base */,
 				7A1C13BA1EDC3F45007A6D75 /* fr */,
+				7A9791911EDC434F00D910B6 /* en */,
 			);
 			name = Info.plist;
 			sourceTree = "<group>";

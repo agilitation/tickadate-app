@@ -325,7 +325,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
   }
   
   func save(){
-    /*if context.hasChanges {
+    if context.hasChanges {
       do {
         try context.save()
       } catch {
@@ -333,7 +333,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
         fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 
       }
-    }*/
+    }
   }
   
   func bootstrapEventTypes() {
