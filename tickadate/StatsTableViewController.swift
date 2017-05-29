@@ -51,7 +51,8 @@ class StatsTableViewController: UITableViewController {
       LastTimeStatCell(),
       NextTimeStatCell(),
       HoursOfDayStatCell(),
-      TimeIntervalStatCell()
+      TimeIntervalStatCell(),
+//      DayOfYearStatCell()
     ]
   }()
   
@@ -68,15 +69,14 @@ class StatsTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 180
+    return self.statsRowDefs[indexPath.item].getHeight(forViewController: self, atIndexPath: indexPath)
   }
-  
-  typealias RowDef = (IndexPath, EventTypeStats)->StatTableViewCell
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = self.statsRowDefs[indexPath.item].getCell(forViewController: self, atIndexPath: indexPath)
     cell.color = DynamicColor(hexString: eventType?.color ?? "000000")
     cell.isNegate = (indexPath.item % 2 == 0)
+    cell.setNeedsLayout()
     return cell
   }
 }

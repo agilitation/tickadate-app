@@ -14,15 +14,29 @@ struct GridStatValue {
   var value:Float
 }
 
+struct GridStatLayoutDirection {
+  var first:LayoutDirection
+  var second:LayoutDirection
+}
+
+enum LayoutDirection {
+  case ltr
+  case rtl
+  case ttb
+  case btt
+}
+
 @IBDesignable
 class GridStatView: UIView {
   
+  var direction:GridStatLayoutDirection = GridStatLayoutDirection(first: .ltr, second: .ttb)
+  var offset:Int = 0
   var numberOfRows:Int = 4
   var numberOfCols:Int = 10
   var space:CGFloat = 6
   var values:[Float] = [0.3, 0.5, 0.8, 0.9, 1] {
     didSet {
-      self.max = values.max()!
+      self.max = values.max() ?? 0
       self.setNeedsDisplay()
     }
   }
@@ -40,6 +54,7 @@ class GridStatView: UIView {
       
       for rowIndex in 0 ... numberOfRows - 1 {
         for colIndex in 0 ... numberOfCols - 1 {
+          
           let index = rowIndex * numberOfCols + colIndex
           var value:Float = 0
           if(values.count > index){

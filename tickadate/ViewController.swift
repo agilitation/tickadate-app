@@ -120,13 +120,16 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     }
     
     if segue.identifier == "showEventsOfDay" {
-      let navCont = segue.destination as! UINavigationController
-      let eventsOfDayController = navCont.topViewController as! EventsOfDayTableViewController
+      let nav = segue.destination as! UINavigationController
+//      nav.navigationBar.barTintColor = DynamicColor(hexString: selectedEventType.color ?? "000000")
+      let eventsOfDayController = nav.topViewController as! EventsOfDayTableViewController
        eventsOfDayController.setDay(self.selectedDate)
+      
     }
     
     if segue.identifier == "showEventTypeStats" {
       let nav:UINavigationController =  segue.destination as! UINavigationController
+//      nav.navigationBar.barTintColor = DynamicColor(hexString: selectedEventType.color ?? "000000")
       let statsVC:StatsTableViewController = nav.viewControllers.first as! StatsTableViewController
       statsVC.eventType = self.selectedEventType
     }
@@ -150,11 +153,13 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
       label.setNeedsDisplay()
     }
     calendarController.selectedEventType = eventType
+    let uiColor:UIColor! = etColor.isLight() ? etColor.darkened() : etColor
     
-    quickAddButton.color = etColor.isLight() ? etColor.darkened() : etColor
-    tickButton.color = etColor.isLight() ? etColor.darkened() : etColor
-    daySummaryButton.color = etColor.isLight() ? etColor.darkened() : etColor
+    quickAddButton.color = uiColor
+    tickButton.color  = uiColor
+    daySummaryButton.color  = uiColor
     
+    appDelegate.window?.tintColor = uiColor
   }
   
   func calendarController(_ calendarController: CalendarController, didSelectDate date: Date) {

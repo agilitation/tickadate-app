@@ -28,10 +28,15 @@ class SerieStatTableViewCell: StatTableViewCell {
     let valColor = isNegate ? UIColor.white : UIColor.black
     
     label.textColor = valColor
+    label.adjustsFontSizeToFitWidth = true
     
     self.minValue.textColor = valColor
     self.avgValue.textColor = valColor
     self.maxValue.textColor = valColor
+    
+    self.minValue.adjustsFontSizeToFitWidth = true
+    self.maxValue.adjustsFontSizeToFitWidth = true
+    self.avgValue.adjustsFontSizeToFitWidth = true
     
     self.minLabel.textColor = c
     self.avgLabel.textColor = c
@@ -43,6 +48,9 @@ class SerieStatTableViewCell: StatTableViewCell {
     if isNegate {
       backBox.backgroundColor = color
       centerBox.backgroundColor = color
+    } else {
+      centerBox.backgroundColor = UIColor.clear
+      backBox.backgroundColor = UIColor.clear
     }
   }
   
@@ -55,7 +63,7 @@ class SerieStatTableViewCell: StatTableViewCell {
     astr.addAttribute(
       NSFontAttributeName,
       value: UIFont.systemFont(
-        ofSize: 16,
+        ofSize: 30,
         weight: UIFontWeightThin
       ),
       range: NSRange(
@@ -69,8 +77,21 @@ class SerieStatTableViewCell: StatTableViewCell {
   static let timeIntervalFormatter:SerieStatValueFormatter = { value in
     let duration = TimeInterval(value)
     let formatter = DateComponentsFormatter()
+    let fval = Float(value)
     formatter.unitsStyle = .abbreviated
-    formatter.allowedUnits = [ .day ]
+    formatter.unitsStyle = .brief
+    
+    
+    if fval > 3600*24 {
+      formatter.allowedUnits = [ .day ]
+    } else if fval > 3600 {
+      formatter.allowedUnits = [ .hour, .minute ]
+    } else {
+      formatter.allowedUnits = [.minute]
+    }
+    
+    formatter.collapsesLargestUnit = true
+    formatter.maximumUnitCount = 5
     formatter.allowsFractionalUnits = true
     formatter.zeroFormattingBehavior = [ .pad ]
     
@@ -83,7 +104,11 @@ class SerieStatTableViewCell: StatTableViewCell {
   typealias SerieStatValueFormatter = ((NSNumber)->(NSMutableAttributedString))
   
   
-  var formatter:SerieStatValueFormatter = SerieStatTableViewCell.timesFormatter
+  var formatter:SerieStatValueFormatter = SerieStatTableViewCell.timesFormatter {
+    didSet {
+      self.updateValues()
+    }
+  }
   
   var stats:SerieStat? {
     didSet {

@@ -56,15 +56,15 @@ class EventTypeFormViewController: FormViewController {
     
     form +++ Section("Base")
       <<< TextRow("name"){
-        $0.title = "Name"
-        $0.placeholder = "Enter text here"
+        $0.title = NSLocalizedString("eventType/form/base/name/label", comment: "Label for the event type name textfield row")
+        $0.placeholder = NSLocalizedString("eventType/form/base/name/placeholder", comment: "Placeholder inviting user to name its event type")
         $0.value = eventType?.name ?? ""
         }.onChange({ (row) in
           self.eventType?.name = row.value
           self.dc.save()
         })
       <<< ColorPickerPushRow("color"){
-        $0.title = "Color"
+        $0.title = NSLocalizedString("eventType/form/base/color/label", comment: "Label for the event type color picker row")
         $0.options = self.colors
         $0.value = getColorPaletteItem(fromHexString: self.eventType?.color ?? "000000")
         }.onChange({ (row) in
@@ -74,21 +74,21 @@ class EventTypeFormViewController: FormViewController {
           }
         })
       <<< SwitchRow("promptForDetails"){
-        $0.title = "Prompt for details"
+        $0.title = NSLocalizedString("eventType/form/base/promptForDetails/label", comment: "Label for the 'prompt for details' Switch row")
         $0.value = eventType?.promptForDetails ?? false
         }.onChange({ (row) in
           self.eventType!.promptForDetails = row.value ?? false
           self.dc.save()
         })
       <<< SwitchRow("isAllDay"){
-        $0.title = "All day"
+        $0.title = NSLocalizedString("eventType/form/base/isAllDay/label", comment: "Label for the 'All day' Switch row")
         $0.value = eventType?.isAllDay ?? false
         }.onChange({ (row) in
           self.eventType!.isAllDay = row.value ?? false
           self.dc.save()
         })
       <<< SwitchRow("shoudAskForLocation"){
-        $0.title = "Save current location"
+        $0.title = NSLocalizedString("eventType/form/base/shouldAskForLocation/label", comment: "Label for the 'request location' Switch row")
         $0.value = eventType?.shouldAskForLocation ?? false
         }.onChange({ (row) in
           if(row.value ?? false){
@@ -100,8 +100,9 @@ class EventTypeFormViewController: FormViewController {
       
       +++ Section("Default values")
       <<< TextRow("defaultValues.title"){
-        $0.title = "Title"
-        $0.placeholder = "Same as type name"
+        $0.title = NSLocalizedString("eventType/form/defaultValues/title/label", comment: "Label for the 'DefaultValues / Title' textfield row")
+        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/title/placeholder",
+                                           comment: "Placeholder for the 'DefaultValues / Title' textfield row")
         $0.value = eventType?.defaultValues?.title ?? nil
         }.onChange({ (row) in
           self.dc.getDefaultValues(forEventType: self.eventType!).title = row.value ?? ""
@@ -111,7 +112,7 @@ class EventTypeFormViewController: FormViewController {
         $0.hidden = Condition.function(["isAllDay"], { form in
           return ((form.rowBy(tag: "isAllDay") as? SwitchRow)?.value ?? false)
         })
-        $0.title = "Start Time"
+        $0.title = NSLocalizedString("eventType/form/defaultValues/time/label", comment: "Label for the 'DefaultValues / Time' time row")
         if let time = eventType?.defaultValues?.time {
           var comps:DateComponents = DateComponents()
           comps.minute = Int(time)
@@ -126,8 +127,8 @@ class EventTypeFormViewController: FormViewController {
         $0.hidden = Condition.function(["isAllDay"], { form in
           return ((form.rowBy(tag: "isAllDay") as? SwitchRow)?.value ?? false)
         })
-        $0.title = "Duration"
-        $0.placeholder = "60"
+        $0.title = NSLocalizedString("eventType/form/defaultValues/duration/label", comment: "Label for the 'DefaultValues / Duration' int row")
+        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/duration/placeholder", comment: "Placeholder for the 'DefaultValues / Duration' int row")
         if let duration = eventType?.defaultValues?.duration {
           $0.value = Int(duration)
         }
@@ -136,8 +137,8 @@ class EventTypeFormViewController: FormViewController {
           self.dc.save()
         })
       <<< TextAreaRow("defaultValues.notes") {
-        $0.title = "Notes"
-        $0.placeholder = "Notes"
+        $0.title = NSLocalizedString("eventType/form/defaultValues/notes/label", comment: "Label for the 'DefaultValues / Notes' textarea row")
+        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/notes/placeholder", comment: "Placeholder for the 'DefaultValues / Notes' textarea row")
         $0.value = eventType?.defaultValues?.notes ?? nil
         }.onChange({ ( row) in
           self.dc.getDefaultValues(forEventType: self.eventType!).notes = row.value ?? ""
@@ -146,7 +147,7 @@ class EventTypeFormViewController: FormViewController {
       
       +++ Section("Publish")
       <<< SwitchRow("shouldCreateEventInCalendar"){
-        $0.title = "Create event in calendar"
+        $0.title = NSLocalizedString("eventType/form/publish/shouldCreateEventInCalendar/label", comment: "Label for the 'Publish / shouldCreateEventInCalendar' switch row")
         $0.value = eventType?.shouldCreateEventInCalendar ?? false
         }.onChange({ (row) in
           let shouldCreateEventInCalendar:Bool = row.value ?? false
@@ -171,7 +172,7 @@ class EventTypeFormViewController: FormViewController {
           return !((form.rowBy(tag: "shouldCreateEventInCalendar") as? SwitchRow)?.value ?? false)
         })
         
-        $0.title = "Calendars"
+        $0.title = NSLocalizedString("eventType/form/publish/calendar/label", comment: "Title for the 'Publish / calendar' push row")
         $0.options = calendarsAllowingContentModifications()
         
         if let selectedCalendar = eventType?.ekCalendarIdentifier {
@@ -219,13 +220,5 @@ class EventTypeFormViewController: FormViewController {
     return EKEventStore().calendars(for: .event).filter({ (calendar) -> Bool in
       return calendar.allowsContentModifications
     })
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showEventTypeStats" {
-      let statsVC:StatsTableViewController = segue.destination as! StatsTableViewController
-      statsVC.eventType = self.eventType
-      print("prepare segue showEventTypeStats")
-    }
   }
 }

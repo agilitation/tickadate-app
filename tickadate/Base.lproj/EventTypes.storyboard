@@ -154,13 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Type" id="xMd-4V-DZw">
-                        <barButtonItem key="rightBarButtonItem" title="Stats" id="mPZ-OK-M5h">
-                            <connections>
-                                <segue destination="tpe-QY-n11" kind="show" identifier="showEventTypeStats" id="hEN-5Q-dc5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Event Type" id="xMd-4V-DZw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hsc-x1-5Se" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

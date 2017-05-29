@@ -238,7 +238,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCa-Ab-L0a" customClass="BarChartView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="59.5" width="304" height="82.5"/>
+                                            <rect key="frame" x="8" y="68" width="304" height="58"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bar Chart" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dL0-BL-N4b">
@@ -249,13 +249,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="trailing" secondItem="vIV-vZ-Y58" secondAttribute="trailingMargin" id="5t0-h8-Ucb"/>
-                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="leading" secondItem="vIV-vZ-Y58" secondAttribute="leadingMargin" id="Fi8-ZC-Pnf"/>
+                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="leading" secondItem="vIV-vZ-Y58" secondAttribute="leadingMargin" id="HDV-U7-aMv"/>
                                         <constraint firstItem="dL0-BL-N4b" firstAttribute="top" secondItem="vIV-vZ-Y58" secondAttribute="top" constant="20" id="KXB-8e-a7o"/>
                                         <constraint firstItem="dL0-BL-N4b" firstAttribute="leading" secondItem="vIV-vZ-Y58" secondAttribute="leading" constant="8" id="P1s-p8-xJK"/>
-                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="top" secondItem="dL0-BL-N4b" secondAttribute="bottom" constant="8" id="VZH-Yd-ST5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vCa-Ab-L0a" secondAttribute="bottom" constant="16" id="PAX-qF-Thc"/>
                                         <constraint firstAttribute="trailing" secondItem="dL0-BL-N4b" secondAttribute="trailing" constant="8" id="byG-2e-5Q6"/>
-                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="bottom" secondItem="vIV-vZ-Y58" secondAttribute="bottomMargin" id="nrD-fh-jRj"/>
+                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="trailing" secondItem="vIV-vZ-Y58" secondAttribute="trailingMargin" id="sOL-GO-2QF"/>
+                                        <constraint firstItem="vCa-Ab-L0a" firstAttribute="top" secondItem="dL0-BL-N4b" secondAttribute="bottom" constant="16" id="vuD-8a-nry"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -277,17 +277,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aQ-dt-kWA" customClass="GridStatView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="60" width="304" height="82"/>
+                                            <rect key="frame" x="8" y="60" width="304" height="66"/>
                                         </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="2aQ-dt-kWA" firstAttribute="top" secondItem="czz-e9-nvk" secondAttribute="bottom" constant="8" id="MPy-Lu-cma"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2aQ-dt-kWA" secondAttribute="bottom" constant="16" id="OeT-In-4Pi"/>
                                         <constraint firstItem="2aQ-dt-kWA" firstAttribute="leading" secondItem="IDo-X7-5vn" secondAttribute="leadingMargin" id="RPU-qe-oha"/>
                                         <constraint firstAttribute="trailing" secondItem="czz-e9-nvk" secondAttribute="trailing" constant="8" id="To6-Wb-59b"/>
                                         <constraint firstItem="2aQ-dt-kWA" firstAttribute="trailing" secondItem="IDo-X7-5vn" secondAttribute="trailingMargin" id="bBg-32-waZ"/>
                                         <constraint firstItem="czz-e9-nvk" firstAttribute="leading" secondItem="IDo-X7-5vn" secondAttribute="leading" constant="8" id="dfz-4Y-O09"/>
                                         <constraint firstItem="czz-e9-nvk" firstAttribute="top" secondItem="IDo-X7-5vn" secondAttribute="top" constant="20" id="eXU-C2-ZBx"/>
-                                        <constraint firstItem="2aQ-dt-kWA" firstAttribute="bottom" secondItem="IDo-X7-5vn" secondAttribute="bottomMargin" id="xEJ-oF-vDN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

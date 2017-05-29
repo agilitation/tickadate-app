@@ -38,6 +38,9 @@
  */
 "stats/frequency/hoursOfday" = "Frequency By Hours";
 
+/* Label for interval stat */
+"stats/interval/label" = "Time between two consecutive events";
+
 /* Label for last time stat */
 "stats/lastTime/label" = "Last time";
 
@@ -71,8 +74,50 @@
 /* No comment provided by engineer. */
 "Clear Photo" = "";
 
-/* Label for interval stat */
-"stats/interval/label" = "";
+/* Label for the event type color picker row */
+"eventType/form/base/color/label" = "";
+
+/* Label for the 'All day' Switch row */
+"eventType/form/base/isAllDay/label" = "";
+
+/* Label for the event type name textfield row */
+"eventType/form/base/name/label" = "";
+
+/* Placeholder inviting user to name its event type */
+"eventType/form/base/name/placeholder" = "";
+
+/* Label for the 'prompt for details' Switch row */
+"eventType/form/base/promptForDetails/label" = "";
+
+/* Label for the 'request location' Switch row */
+"eventType/form/base/shouldAskForLocation/label" = "";
+
+/* Label for the 'DefaultValues / Duration' int row */
+"eventType/form/defaultValues/duration/label" = "";
+
+/* Placeholder for the 'DefaultValues / Duration' int row */
+"eventType/form/defaultValues/duration/placeholder" = "";
+
+/* Label for the 'DefaultValues / Notes' textarea row */
+"eventType/form/defaultValues/notes/label" = "";
+
+/* Placeholder for the 'DefaultValues / Notes' textarea row */
+"eventType/form/defaultValues/notes/placeholder" = "";
+
+/* Label for the 'DefaultValues / Time' time row */
+"eventType/form/defaultValues/time/label" = "";
+
+/* Label for the 'DefaultValues / Title' textfield row */
+"eventType/form/defaultValues/title/label" = "";
+
+/* Placeholder for the 'DefaultValues / Title' textfield row */
+"eventType/form/defaultValues/title/placeholder" = "";
+
+/* Title for the 'Publish / calendar' push row */
+"eventType/form/publish/calendar/label" = "";
+
+/* Label for the 'Publish / shouldCreateEventInCalendar' switch row */
+"eventType/form/publish/shouldCreateEventInCalendar/label" = "";
 
 /* Unit for interval stat */
 "stats/interval/unit" = "";
