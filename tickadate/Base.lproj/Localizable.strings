@@ -1,12 +1,54 @@
 
-/* 
-  App.strings
-  tickadate
+/* Generic 'cancel' action */
+"common/cancel" = "Cancel";
 
-  Created by Romain Bessuges-Meusy on 29/05/2017.
-  Copyright © 2017 Agilitation. All rights reserved.
-*/
+/* Generic 'confirm' action */
+"common/confirm" = "Confirm";
+
+/* Message for the event details prompt */
+"eventDetailsPrompt/message" = "Enter details about this event";
+
+/* Placeholder text in the texfield of the event details prompt */
+"eventDetailsPrompt/placeholder" = "Participant, location, etc.";
+
+/* Title for the event details prompt */
+"eventDetailsPrompt/title" = "Details";
+
+/* 'In a week' action from the quick date picker, +7d */
+"quickDatePicker/inAWeek" = "In a week";
+
+/* 'Next week' action from the quick date picker, 1st day of next week */
+"quickDatePicker/nextWeek" = "Next Week";
+
+/* 'Today' action from the quick date picker, +0d */
+"quickDatePicker/today" = "Today";
+
+/* 'Tomorrow' action from the quick date picker, +1d */
+"quickDatePicker/tomorrow" = "Tomorrow";
+
+/* 'Yesterday' action from the quick date picker, -1d */
+"quickDatePicker/yesterday" = "Yesterday";
+
+/*
+ App.strings
+ tickadate
+ 
+ Created by Romain Bessuges-Meusy on 29/05/2017.
+ Copyright © 2017 Agilitation. All rights reserved.
+ */
 "stats/frequency/hoursOfday" = "Frequency By Hours";
+
+/* Label for last time stat */
+"stats/lastTime/label" = "Last time";
+
+/* Placeholder used when no event of this type have happened yet */
+"stats/lastTime/none" = "None";
+
+/* Label for next time stat */
+"stats/nextTime/label" = "Next time";
+
+/* Placeholder used when no event of this type are note expected yet */
+"stats/nextTime/none" = "None";
 
 /* Label for times per day stat */
 "stats/timesPerDay/label" = "Times per day";
@@ -14,48 +56,17 @@
 /* Unit for times per day stat */
 "stats/timesPerDay/unit" = "×";
 
-/* Generic cancel action */
-"app/cancel" = "";
+/* Label for times per week stat */
+"stats/timesPerWeek/label" = "Times per week";
+
+/* Unit for times per week stat */
+"stats/timesPerWeek/unit" = "×";
+
+/* Label for times per weekday stat */
+"stats/timesPerWeekday/label" = "Times per weekday";
 
 /* No comment provided by engineer. */
 "Cancel" = "";
 
 /* No comment provided by engineer. */
 "Clear Photo" = "";
-
-/* 'In a week' action from the quick date picker, +7d
-   'Next week' action from the quick date picker, 1st day of next week */
-"quickDatePicker/inAWeek" = "";
-
-/* 'Next week' action from the quick date picker, 1st day of next week */
-"quickDatePicker/nextWeek" = "";
-
-/* 'Today' action from the quick date picker, +0d */
-"quickDatePicker/today" = "";
-
-/* 'Tomorrow' action from the quick date picker, +1d */
-"quickDatePicker/tomorrow" = "";
-
-/* 'Yesterday' action from the quick date picker, -1d */
-"quickDatePicker/yesterday" = "";
-
-/* Label for last time stat */
-"stats/lastTime/label" = "";
-
-/* Placeholder used when no event of this type have happened yet */
-"stats/lastTime/none" = "";
-
-/* Label for next time stat */
-"stats/nextTime/label" = "";
-
-/* Placeholder used when no event of this type are note expected yet */
-"stats/nextTime/none" = "";
-
-/* Label for times per week stat */
-"stats/timesPerWeek/label" = "";
-
-/* Unit for times per week stat */
-"stats/timesPerWeek/unit" = "";
-
-/* Label for times per weekday stat */
-"stats/timesPerWeekday/label" = "";

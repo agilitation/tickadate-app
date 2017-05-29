@@ -12,6 +12,7 @@
 		7A11F9511ED4E9CC00ECCD94 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11F9501ED4E9CC00ECCD94 /* BarChartView.swift */; };
 		7A1C13A91EDC3B12007A6D75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */; };
 		7A1C13AC1EDC3B42007A6D75 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */; };
+		7A1C13BD1EDC4063007A6D75 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1C13BC1EDC4063007A6D75 /* Default-568h@2x.png */; };
 		7A2BD9451EC273EE002E3FE8 /* EventTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */; };
 		7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */; };
 		7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */; };
@@ -62,7 +63,6 @@
 		7AE4EF601ED430D700F3082C /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4EF5F1ED430D700F3082C /* StatTableViewCell.swift */; };
 		7AE4EF621ED43C8800F3082C /* LabelStatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4EF611ED43C8800F3082C /* LabelStatTableViewCell.swift */; };
 		7AE4EF661ED43CFB00F3082C /* EventTypesStats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4EF641ED43CFB00F3082C /* EventTypesStats.storyboard */; };
-		7AF7A3B21ECA035700043690 /* EventTypeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A3B11ECA035700043690 /* EventTypeNavigationController.swift */; };
 		7AF7A3B41ECA2B4100043690 /* RelativeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A3B31ECA2B4100043690 /* RelativeDate.swift */; };
 		7AF97EDC1EC4548900DD5AC1 /* WeekDayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */; };
 		7AF97EDE1EC454B400DD5AC1 /* DrawUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF97EDD1EC454B400DD5AC1 /* DrawUtils.swift */; };
@@ -93,6 +93,9 @@
 		7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7A1C13AA1EDC3B42007A6D75 /* tickadate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tickadate.entitlements; sourceTree = "<group>"; };
 		7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		7A1C13B81EDC3F40007A6D75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		7A1C13BA1EDC3F45007A6D75 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/Info.plist; sourceTree = "<group>"; };
+		7A1C13BC1EDC4063007A6D75 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeViewController.swift; sourceTree = "<group>"; };
 		7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesTableViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +132,6 @@
 		7AB0B0D21EC07D4600BEC76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AB0B0D41EC07D4600BEC76C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AB0B0D71EC07D4600BEC76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7AB0B0D91EC07D4600BEC76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB0B0DE1EC07D4600BEC76C /* tickadateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tickadateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB0B0E21EC07D4600BEC76C /* tickadateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tickadateTests.swift; sourceTree = "<group>"; };
 		7AB0B0E41EC07D4600BEC76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,7 +159,6 @@
 		7AE4EF5F1ED430D700F3082C /* StatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
 		7AE4EF611ED43C8800F3082C /* LabelStatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelStatTableViewCell.swift; sourceTree = "<group>"; };
 		7AE4EF651ED43CFB00F3082C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventTypesStats.storyboard; sourceTree = "<group>"; };
-		7AF7A3B11ECA035700043690 /* EventTypeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeNavigationController.swift; sourceTree = "<group>"; };
 		7AF7A3B31ECA2B4100043690 /* RelativeDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDate.swift; sourceTree = "<group>"; };
 		7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDayHeader.swift; sourceTree = "<group>"; };
 		7AF97EDD1EC454B400DD5AC1 /* DrawUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtils.swift; sourceTree = "<group>"; };
@@ -194,6 +195,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A1C13AE1EDC3DAD007A6D75 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7A1C13AA1EDC3B42007A6D75 /* tickadate.entitlements */,
+				7AA628ED1ECCF04400834FAD /* StyleKit.swift */,
+				7ACDED191EDC2DD2004CDB9D /* CommonStrings.swift */,
+				7A4865251EC6F41A00456BDF /* BorderedView.swift */,
+				7A901D011EC23AB600CF0002 /* CircleView.swift */,
+				7A4865271EC701C500456BDF /* DateUtils.swift */,
+				7AF97EDD1EC454B400DD5AC1 /* DrawUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		7A1C13AF1EDC3DF1007A6D75 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7AB0B0D61EC07D4600BEC76C /* LaunchScreen.storyboard */,
+				7A1C13B11EDC3E10007A6D75 /* Calendar */,
+				7AE4EF671ED43F7600F3082C /* ColorPicker */,
+				7A1C13B41EDC3E72007A6D75 /* DatePicker */,
+				7A1C13B61EDC3EE1007A6D75 /* Debug */,
+				7A1C13B31EDC3E50007A6D75 /* EventsOfDay */,
+				7A1C13B21EDC3E45007A6D75 /* EventTypes */,
+				7A1C13B51EDC3E8B007A6D75 /* EventTypesChooser */,
+				7A443EFC1ED5800C00B40475 /* Stats */,
+				7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */,
+				7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */,
+				7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		7A1C13B11EDC3E10007A6D75 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7A901CAB1EC11A7300CF0002 /* CalendarController.swift */,
+				7AB0B1031EC1065500BEC76C /* CalendarDateCell.swift */,
+				7A901CB51EC20C8600CF0002 /* EventDotsStack.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		7A1C13B21EDC3E45007A6D75 /* EventTypes */ = {
+			isa = PBXGroup;
+			children = (
+				7A48652B1EC7563E00456BDF /* EventTypeFormViewController.swift */,
+				7AA628F61ECF458E00834FAD /* EventTypes.storyboard */,
+				7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */,
+				7A2BD94A1EC2FA5A002E3FE8 /* EventTypeTableViewCell.swift */,
+				7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */,
+			);
+			name = EventTypes;
+			sourceTree = "<group>";
+		};
+		7A1C13B31EDC3E50007A6D75 /* EventsOfDay */ = {
+			isa = PBXGroup;
+			children = (
+				7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */,
+				7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */,
+			);
+			name = EventsOfDay;
+			sourceTree = "<group>";
+		};
+		7A1C13B41EDC3E72007A6D75 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				7AF7A3B31ECA2B4100043690 /* RelativeDate.swift */,
+				7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */,
+			);
+			name = DatePicker;
+			sourceTree = "<group>";
+		};
+		7A1C13B51EDC3E8B007A6D75 /* EventTypesChooser */ = {
+			isa = PBXGroup;
+			children = (
+				7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */,
+				7A901CA51EC112B800CF0002 /* EventTypesController.swift */,
+			);
+			name = EventTypesChooser;
+			sourceTree = "<group>";
+		};
+		7A1C13B61EDC3EE1007A6D75 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				7A748DB81EC9ACA600E3F682 /* DebugViewController.swift */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		7A1C13B71EDC3F18007A6D75 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7AB0B0D11EC07D4600BEC76C /* Main.storyboard */,
+				7AB0B0CF1EC07D4600BEC76C /* ViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		7A1C13BB1EDC3FE3007A6D75 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7AF97EDF1EC48A3300DD5AC1 /* DataController.swift */,
+				7A901CAD1EC1BEEE00CF0002 /* TickADate.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		7A443EFC1ED5800C00B40475 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +339,7 @@
 		7AB0B0C11EC07D4500BEC76C = {
 			isa = PBXGroup;
 			children = (
+				7A1C13BC1EDC4063007A6D75 /* Default-568h@2x.png */,
 				7A901CF61EC22BED00CF0002 /* Frameworks */,
 				7AB0B0CB1EC07D4500BEC76C /* Products */,
 				7AB0B0CC1EC07D4500BEC76C /* tickadate */,
@@ -251,43 +361,14 @@
 		7AB0B0CC1EC07D4500BEC76C /* tickadate */ = {
 			isa = PBXGroup;
 			children = (
-				7A1C13AA1EDC3B42007A6D75 /* tickadate.entitlements */,
+				7A1C13B91EDC3F40007A6D75 /* Info.plist */,
+				7ACDED131EDC17A5004CDB9D /* Localizable.strings */,
 				7AB0B0CD1EC07D4500BEC76C /* AppDelegate.swift */,
 				7AB0B0D41EC07D4600BEC76C /* Assets.xcassets */,
-				7A4865251EC6F41A00456BDF /* BorderedView.swift */,
-				7A901CAB1EC11A7300CF0002 /* CalendarController.swift */,
-				7AB0B1031EC1065500BEC76C /* CalendarDateCell.swift */,
-				7A901D011EC23AB600CF0002 /* CircleView.swift */,
-				7AE4EF671ED43F7600F3082C /* ColorPicker */,
-				7AF97EDF1EC48A3300DD5AC1 /* DataController.swift */,
-				7A4865271EC701C500456BDF /* DateUtils.swift */,
-				7A748DB81EC9ACA600E3F682 /* DebugViewController.swift */,
-				7AF97EDD1EC454B400DD5AC1 /* DrawUtils.swift */,
-				7A901CB51EC20C8600CF0002 /* EventDotsStack.swift */,
-				7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */,
-				7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */,
-				7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */,
-				7A48652B1EC7563E00456BDF /* EventTypeFormViewController.swift */,
-				7AF7A3B11ECA035700043690 /* EventTypeNavigationController.swift */,
-				7AA628F61ECF458E00834FAD /* EventTypes.storyboard */,
-				7A443EFC1ED5800C00B40475 /* Stats */,
-				7A901CA51EC112B800CF0002 /* EventTypesController.swift */,
-				7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */,
-				7A2BD94A1EC2FA5A002E3FE8 /* EventTypeTableViewCell.swift */,
-				7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */,
-				7AB0B0D91EC07D4600BEC76C /* Info.plist */,
-				7AB0B0D61EC07D4600BEC76C /* LaunchScreen.storyboard */,
-				7AB0B0D11EC07D4600BEC76C /* Main.storyboard */,
-				7AF7A3B31ECA2B4100043690 /* RelativeDate.swift */,
-				7AA628ED1ECCF04400834FAD /* StyleKit.swift */,
-				7A901CAD1EC1BEEE00CF0002 /* TickADate.xcdatamodeld */,
-				7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */,
-				7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */,
-				7AB0B0CF1EC07D4600BEC76C /* ViewController.swift */,
-				7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */,
-				7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */,
-				7ACDED131EDC17A5004CDB9D /* Localizable.strings */,
-				7ACDED191EDC2DD2004CDB9D /* CommonStrings.swift */,
+				7A1C13AF1EDC3DF1007A6D75 /* Components */,
+				7A1C13BB1EDC3FE3007A6D75 /* Data */,
+				7A1C13B71EDC3F18007A6D75 /* Main */,
+				7A1C13AE1EDC3DAD007A6D75 /* Utils */,
 			);
 			path = tickadate;
 			sourceTree = "<group>";
@@ -466,6 +547,7 @@
 				7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */,
 				7ACDED1B1EDC370A004CDB9D /* CrayolaBright.plist in Resources */,
 				7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */,
+				7A1C13BD1EDC4063007A6D75 /* Default-568h@2x.png in Resources */,
 				7AB0B0D51EC07D4600BEC76C /* Assets.xcassets in Resources */,
 				7AAD59F71ECC6BD6003D2DA5 /* CrayolaFluorescent.plist in Resources */,
 				7AB0B0D31EC07D4600BEC76C /* Main.storyboard in Resources */,
@@ -542,7 +624,6 @@
 				7A443F001ED58D0300B40475 /* GridStatView.swift in Sources */,
 				7A748DB61EC76D1500E3F682 /* ColorRow.swift in Sources */,
 				7AB0B0D01EC07D4600BEC76C /* ViewController.swift in Sources */,
-				7AF7A3B21ECA035700043690 /* EventTypeNavigationController.swift in Sources */,
 				7A48652C1EC7563E00456BDF /* EventTypeFormViewController.swift in Sources */,
 				7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */,
 				7A39963E1ECAF6DB002E3255 /* ColorPalette.swift in Sources */,
@@ -607,6 +688,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7A1C13B91EDC3F40007A6D75 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A1C13B81EDC3F40007A6D75 /* Base */,
+				7A1C13BA1EDC3F45007A6D75 /* fr */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
 		7AA628F31ECF456100834FAD /* ColorPicker.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

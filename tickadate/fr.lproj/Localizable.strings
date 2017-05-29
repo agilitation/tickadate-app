@@ -1,9 +1,42 @@
 
+/* Generic cancel action */
+"app/cancel" = "Annuler";
+
 /* No comment provided by engineer. */
 "Cancel" = "Annuler";
 
 /* No comment provided by engineer. */
 "Clear Photo" = "Supprimer la photo";
+
+/* Generic 'cancel' action */
+"common/cancel" = "Annuler";
+
+/* Generic 'confirm' action */
+"common/confirm" = "Confirmer";
+
+/* Message for the event details prompt */
+"eventDetailsPrompt/message" = "Entrez le détail de l'événement";
+
+/* Placeholder text in the texfield of the event details prompt */
+"eventDetailsPrompt/placeholder" = "invités, lieu, etc.";
+
+/* Title for the event details prompt */
+"eventDetailsPrompt/title" = "Détails";
+
+/* 'In a week' action from the quick date picker, +7d */
+"quickDatePicker/inAWeek" = "Dans une semaine";
+
+/* 'Next week' action from the quick date picker, 1st day of next week */
+"quickDatePicker/nextWeek" = "La semaine prochaine";
+
+/* 'Today' action from the quick date picker, +0d */
+"quickDatePicker/today" = "Aujourd'hui";
+
+/* 'Tomorrow' action from the quick date picker, +1d */
+"quickDatePicker/tomorrow" = "Demain";
+
+/* 'Yesterday' action from the quick date picker, -1d */
+"quickDatePicker/yesterday" = "Hier";
 
 /* 
   App.strings
@@ -40,22 +73,3 @@
 
 /* Label for times per weekday stat */
 "stats/timesPerWeekday/label" = "Par jour de la semaine";
-
-/* Generic cancel action */
-"app/cancel" = "";
-
-/* 'In a week' action from the quick date picker, +7d
-   'Next week' action from the quick date picker, 1st day of next week */
-"quickDatePicker/inAWeek" = "";
-
-/* 'Next week' action from the quick date picker, 1st day of next week */
-"quickDatePicker/nextWeek" = "";
-
-/* 'Today' action from the quick date picker, +0d */
-"quickDatePicker/today" = "";
-
-/* 'Tomorrow' action from the quick date picker, +1d */
-"quickDatePicker/tomorrow" = "";
-
-/* 'Yesterday' action from the quick date picker, -1d */
-"quickDatePicker/yesterday" = "";
