@@ -15,7 +15,7 @@ class RelativeDateAlertController: UIAlertController {
   override func viewDidLoad() {
     let labels:[String:String] = [
       "inAWeek": NSLocalizedString("quickDatePicker/inAWeek", comment: "'In a week' action from the quick date picker, +7d"),
-      "nextWeek": NSLocalizedString("quickDatePicker/inAWeek", comment: "'Next week' action from the quick date picker, 1st day of next week"),
+      "nextWeek": NSLocalizedString("quickDatePicker/nextWeek", comment: "'Next week' action from the quick date picker, 1st day of next week"),
       "tomorrow": NSLocalizedString("quickDatePicker/tomorrow", comment: "'Tomorrow' action from the quick date picker, +1d"),
       "today": NSLocalizedString("quickDatePicker/today", comment: "'Today' action from the quick date picker, +0d"),
       "yesterday": NSLocalizedString("quickDatePicker/yesterday", comment: "'Yesterday' action from the quick date picker, -1d"),
