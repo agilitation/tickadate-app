@@ -15,7 +15,7 @@ class LabelStatTableViewCell: StatTableViewCell {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    label.textColor = isNegate ? UIColor.white : color
+    label.textColor = isNegate ? UIColor.white : UIColor.black
     value.textColor = isNegate ? UIColor.white : color
   }
 }

@@ -1,0 +1,10 @@
+/* 
+  App.strings
+  tickadate
+
+  Created by Romain Bessuges-Meusy on 29/05/2017.
+  Copyright © 2017 Agilitation. All rights reserved.
+*/
+
+
+"stats/frequency/hoursOfday" = "Frequency By Hours";

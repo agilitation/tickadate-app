@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "12x"; ObjectID = "6gb-x9-mm6"; */
+"6gb-x9-mm6.text" = "12x";
+
+/* Class = "UILabel"; text = "Label Stat"; ObjectID = "Bfd-84-NLF"; */
+"Bfd-84-NLF.text" = "Label Stat";
+
+/* Class = "UILabel"; text = "12x"; ObjectID = "DDG-2a-Wuh"; */
+"DDG-2a-Wuh.text" = "12x";
+
+/* Class = "UILabel"; text = "12x"; ObjectID = "IAu-k3-QMf"; */
+"IAu-k3-QMf.text" = "12x";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "RTs-DW-C2W"; */
+"RTs-DW-C2W.title" = "Fermer";
+
+/* Class = "UILabel"; text = "Thursday, the 21st of January 2017"; ObjectID = "YWD-qn-cBY"; */
+"YWD-qn-cBY.text" = "Thursday, the 21st of January 2017";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "b3K-A1-BD0"; */
+"b3K-A1-BD0.title" = "Close";
+
+/* Class = "UILabel"; text = "Grid Stat"; ObjectID = "czz-e9-nvk"; */
+"czz-e9-nvk.text" = "Grid Stat";
+
+/* Class = "UILabel"; text = "Bar Chart"; ObjectID = "dL0-BL-N4b"; */
+"dL0-BL-N4b.text" = "Bar Chart";
+
+/* Class = "UILabel"; text = "maximum"; ObjectID = "daU-Cr-Wk8"; */
+"daU-Cr-Wk8.text" = "maximum";
+
+/* Class = "UILabel"; text = "Serie Values"; ObjectID = "dsJ-NJ-lCj"; */
+"dsJ-NJ-lCj.text" = "Serie Values";
+
+/* Class = "UILabel"; text = "average"; ObjectID = "lvE-TP-0OK"; */
+"lvE-TP-0OK.text" = "moyenne";
+
+/* Class = "UINavigationItem"; title = "Stats"; ObjectID = "ssk-n7-AHD"; */
+"ssk-n7-AHD.title" = "Stats";
+
+/* Class = "UILabel"; text = "minimum"; ObjectID = "yqC-aO-VQJ"; */
+"yqC-aO-VQJ.text" = "minimum";

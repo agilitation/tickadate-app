@@ -12,27 +12,13 @@ import UIKit
 @IBDesignable
 class BorderedView: UIView {
   
-  @IBInspectable var borderWidth:CGFloat = 1 {
-    didSet { setNeedsDisplay() }
-  }
-  @IBInspectable var borderColor:UIColor = UIColor.black {
-    didSet { setNeedsDisplay() }
-  }
-  @IBInspectable var borderRadius:CGFloat = 0 {
-    didSet { setNeedsDisplay() }
-  }
-  @IBInspectable var borderOnLeftSide:Bool = true {
-    didSet { setNeedsDisplay() }
-  }
-  @IBInspectable var borderOnTopSide:Bool = true {
-    didSet { setNeedsDisplay() }
-  }
-  @IBInspectable var borderOnRightSide:Bool = true {
-    didSet { setNeedsDisplay() }
-  }
-  @IBInspectable var borderOnBottomSide:Bool = true {
-    didSet { setNeedsDisplay() }
-  }
+  @IBInspectable var borderWidth:CGFloat = 1
+  @IBInspectable var borderColor:UIColor = UIColor.black
+  @IBInspectable var borderRadius:CGFloat = 0
+  @IBInspectable var borderOnLeftSide:Bool = true
+  @IBInspectable var borderOnTopSide:Bool = true
+  @IBInspectable var borderOnRightSide:Bool = true
+  @IBInspectable var borderOnBottomSide:Bool = true
   
   override func draw(_ rect: CGRect) {
     self.layer.borderWidth = self.borderWidth

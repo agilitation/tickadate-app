@@ -23,6 +23,13 @@ class SerieStatTableViewCell: StatTableViewCell {
   override func layoutSubviews() {
     super.layoutSubviews()    
     let c = isNegate ? UIColor.white : color
+    let valColor = isNegate ? UIColor.white : UIColor.black
+    
+    label.textColor = valColor
+    
+    self.minValue.textColor = valColor
+    self.avgValue.textColor = valColor
+    self.maxValue.textColor = valColor
     
     self.minLabel.textColor = c
     self.avgLabel.textColor = c
@@ -30,15 +37,40 @@ class SerieStatTableViewCell: StatTableViewCell {
     
     self.backBox.borderColor = c
     self.centerBox.borderColor = c
+    
+    if isNegate {
+      backBox.backgroundColor = color
+      centerBox.backgroundColor = color
+      
+      
+    }
   }
   
   func setStat(label:String, stats:SerieStat, unit:String = ""){
-    let nbf = NumberFormatter()
-  
-    self.minValue.text = nbf.string(from: stats.min)?.appending(unit)
-    self.avgValue.text = nbf.string(from: stats.avg)?.appending(unit)
-    self.maxValue.text = nbf.string(from: stats.max)?.appending(unit)
+    
+    self.minValue.attributedText = format(stats.min, withUnit: unit)
+    self.avgValue.attributedText = format(stats.avg, withUnit: unit)
+    self.maxValue.attributedText = format(stats.max, withUnit: unit)
     
     self.label.text = label
+  }
+  
+  func format(_ value: NSNumber, withUnit unit: String) -> NSAttributedString{
+    let nbf = NumberFormatter()
+    return makeAttributedString(for: nbf.string(from: value)!, withUnit: unit)
+    
+  }
+  
+  
+  func makeAttributedString(for value:String, withUnit unit:String) -> NSMutableAttributedString {
+    
+    let astr = NSMutableAttributedString(string: value.appending(unit))
+    astr.addAttribute(NSFontAttributeName,
+                 value: UIFont.systemFont(ofSize: 30, weight: UIFontWeightThin),
+                 range: NSRange(
+                  location: astr.length - 1,
+                  length: 1))
+    return astr
+    
   }
 }

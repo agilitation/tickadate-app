@@ -14,11 +14,11 @@ class StatTableViewCell: UITableViewCell {
   var color:UIColor = UIColor.black
   
   @IBInspectable
-  var isNegate:Bool = false {
-    didSet {
-      self.contentView.backgroundColor = isNegate ? color : UIColor.white
-    }
-  }
+  var isNegate:Bool = false
   
+  override func layoutSubviews() {
+    //super.layoutSubviews()
+    contentView.backgroundColor = isNegate ? color : UIColor.white
+  } 
 
 }

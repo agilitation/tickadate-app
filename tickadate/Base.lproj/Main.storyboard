@@ -37,7 +37,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="px3-qo-Hy2"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title=" "/>
                                 <connections>
                                     <segue destination="TW6-K3-yEX" kind="presentation" identifier="showEventTypeStats" id="2qW-Yi-TbM"/>
                                 </connections>

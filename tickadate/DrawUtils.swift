@@ -63,5 +63,15 @@ class DrawUtils: NSObject {
     }
   }
   
+  static func drawRect(
+    onContext context:CGContext,
+    inRect rect: CGRect,
+    color: CGColor = UIColor.black.cgColor
+    ) {
+    context.addRect(rect)
+    context.setFillColor(color)
+    context.fillPath()
+  }
+  
   
 }

@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "7EG-bN-2GJ"; */
+"7EG-bN-2GJ.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "←"; ObjectID = "8bd-3W-ijl"; */
+"8bd-3W-ijl.title" = "←";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "BsI-Ql-chK"; */
+"BsI-Ql-chK.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "→"; ObjectID = "GVs-wm-PWU"; */
+"GVs-wm-PWU.title" = "→";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "GnI-AT-cnW"; */
+"GnI-AT-cnW.title" = "Retour";
+
+/* Class = "UITableViewController"; title = "Events of day"; ObjectID = "Of2-hf-jGC"; */
+"Of2-hf-jGC.title" = "Évenements du jour";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "h57-pV-ldS"; */
+"h57-pV-ldS.text" = "Heure";
+
+/* Class = "UIView"; accessibilityLabel = "Days of the week"; ObjectID = "hIb-tD-xBf"; */
+"hIb-tD-xBf.accessibilityLabel" = "Jours de la semaine";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hKz-e5-tlC"; */
+"hKz-e5-tlC.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Event Type"; ObjectID = "jka-vw-tRK"; */
+"jka-vw-tRK.text" = "Type d'événement";

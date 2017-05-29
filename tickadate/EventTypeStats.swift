@@ -87,9 +87,7 @@ class EventTypeStats: NSObject {
           }
         })
       }
-      
-      
-
+    
       counts.forEach({ (label, group) in
         var floats:[Float] = []
         self.countsProportions[label] = [:]

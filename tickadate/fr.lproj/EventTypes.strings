@@ -1,0 +1,33 @@
+
+/* Class = "UIBarButtonItem"; title = "Debug"; ObjectID = "3Rq-Mi-AYA"; */
+"3Rq-Mi-AYA.title" = "Debug";
+
+/* Class = "UINavigationItem"; title = "Event Types"; ObjectID = "3zO-D4-lgs"; */
+"3zO-D4-lgs.title" = "Types d'événements";
+
+/* Class = "UIButton"; normalTitle = "Remove Event Types"; ObjectID = "B0X-6e-eSd"; */
+"B0X-6e-eSd.normalTitle" = "Supprimer les types d'événements";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Bnw-29-hC0"; */
+"Bnw-29-hC0.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Remove Events"; ObjectID = "eih-8q-evS"; */
+"eih-8q-evS.normalTitle" = "Supprimer les événements";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "fCy-fa-fM1"; */
+"fCy-fa-fM1.title" = "Retour";
+
+/* Class = "UIBarButtonItem"; title = "Stats"; ObjectID = "mPZ-OK-M5h"; */
+"mPZ-OK-M5h.title" = "Stats";
+
+/* Class = "UIButton"; normalTitle = "Create default event types"; ObjectID = "ng8-qt-oYR"; */
+"ng8-qt-oYR.normalTitle" = "Créer les types d'événements par défaut";
+
+/* Class = "UIButton"; normalTitle = "Color Picker"; ObjectID = "pi1-CI-8HF"; */
+"pi1-CI-8HF.normalTitle" = "Color Picker";
+
+/* Class = "UINavigationController"; title = "Event Types"; ObjectID = "seh-Xh-ugV"; */
+"seh-Xh-ugV.title" = "Types d'événements";
+
+/* Class = "UINavigationItem"; title = "Event Type"; ObjectID = "xMd-4V-DZw"; */
+"xMd-4V-DZw.title" = "Type d'événement";

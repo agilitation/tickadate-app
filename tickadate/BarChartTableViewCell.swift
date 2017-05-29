@@ -13,15 +13,10 @@ class BarChartTableViewCell: StatTableViewCell {
   @IBOutlet weak var barChartView: BarChartView!
   @IBOutlet weak var label: UILabel!
   
-  var bars:[String : Float] = [ "A" : 0.5, "B" : 0.3, "C" : 0.15, "E": 0.05] {
-    didSet {
-      self.barChartView.bars = bars
-    }
-  }
-  
   override func layoutSubviews() {
     super.layoutSubviews()
     self.barChartView.color = isNegate ? UIColor.white : color
+    self.label.textColor = isNegate ? UIColor.white : UIColor.black
   }
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

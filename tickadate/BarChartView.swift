@@ -40,6 +40,12 @@ extension NSLayoutConstraint {
   }
 }
 
+struct BarChartValue {
+  var label:String
+  var value:Float
+}
+
+
 @IBDesignable
 class BarChartBar : UIView {
   
@@ -76,7 +82,7 @@ class BarChartBar : UIView {
     track = UIView()
     label = UILabel()
     label.textAlignment = .center
-    label.font = UIFont.systemFont(ofSize: 10, weight: 200)
+    label.font = UIFont.systemFont(ofSize: 11, weight: UIFontWeightThin)
     
     bar.translatesAutoresizingMaskIntoConstraints = false
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -228,48 +234,56 @@ class BarChartBar : UIView {
 
 @IBDesignable
 class BarChartView: UIStackView {
-
-  var bars:[String : Float] = [ "A" : 0.5, "B" : 0.3, "C" : 0.15, "E": 0.05] {
-    didSet {
-      self.needsUpdateConstraints()
-    }
+  
+  var values:[BarChartValue] = []
+  var labels:[String] = []
+  var color:UIColor = UIColor.black
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setup()
   }
   
-  var color:UIColor = UIColor.black
-
-  override func layoutSubviews() {
+  required init(coder: NSCoder) {
+    super.init(coder: coder)
+    setup()
+  }
   
+  func setup () {
+    
     alignment = .center
     axis = .horizontal
     distribution = .fillEqually
     spacing = 8
+  }
+  
+  
+  override func layoutSubviews() {
     
-    
-    while arrangedSubviews.count < bars.count {
+    while arrangedSubviews.count < values.count {
       addArrangedSubview(BarChartBar(frame: self.bounds))
     }
     
-    while arrangedSubviews.count > bars.count {
+    while arrangedSubviews.count > values.count {
       arrangedSubviews.first?.removeFromSuperview()
     }
     
-    var i = 0
-    
-    var max:Float = 0.0
-    
-    bars.forEach { (label, value) in
-      if value > max {
-        max = value
+    var maxValue:Float = 0.0
+    var weightedValue:Float = 0.0
+    for value in values {
+      if value.value > maxValue {
+        maxValue = value.value
       }
     }
     
-    bars.forEach { (label, value) in
-      let bar = arrangedSubviews[i] as! BarChartBar
-      bar.label.text = label
-      bar.percent = value / max
+    for (index, value) in values.enumerated() {
+      weightedValue = maxValue > 0 ? value.value / maxValue : 0
+      let bar = arrangedSubviews[index] as! BarChartBar
+      bar.label.text = value.label
+      bar.percent = weightedValue
       bar.color = self.color
-      i += 1
+      bar.alpha = CGFloat(Float(0.5) + weightedValue / 2)
     }
   }
-
+  
 }
