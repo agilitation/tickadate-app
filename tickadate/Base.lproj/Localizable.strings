@@ -1,3 +1,4 @@
+
 /* 
   App.strings
   tickadate
@@ -5,8 +6,53 @@
   Created by Romain Bessuges-Meusy on 29/05/2017.
   Copyright © 2017 Agilitation. All rights reserved.
 */
-
-
 "stats/frequency/hoursOfday" = "Frequency By Hours";
+
+/* Label for times per day stat */
 "stats/timesPerDay/label" = "Times per day";
+
+/* Unit for times per day stat */
 "stats/timesPerDay/unit" = "×";
+
+/* Generic cancel action */
+"app/cancel" = "";
+
+/* No comment provided by engineer. */
+"Cancel" = "";
+
+/* No comment provided by engineer. */
+"Clear Photo" = "";
+
+/* 'In a week' action from the quick date picker, +7d
+   'Next week' action from the quick date picker, 1st day of next week */
+"quickDatePicker/inAWeek" = "";
+
+/* 'Today' action from the quick date picker, +0d */
+"quickDatePicker/today" = "";
+
+/* 'Tomorrow' action from the quick date picker, +1d */
+"quickDatePicker/tomorrow" = "";
+
+/* 'Yesterday' action from the quick date picker, -1d */
+"quickDatePicker/yesterday" = "";
+
+/* Label for last time stat */
+"stats/lastTime/label" = "";
+
+/* Placeholder used when no event of this type have happened yet */
+"stats/lastTime/none" = "";
+
+/* Label for next time stat */
+"stats/nextTime/label" = "";
+
+/* Placeholder used when no event of this type are note expected yet */
+"stats/nextTime/none" = "";
+
+/* Label for times per week stat */
+"stats/timesPerWeek/label" = "";
+
+/* Unit for times per week stat */
+"stats/timesPerWeek/unit" = "";
+
+/* Label for times per weekday stat */
+"stats/timesPerWeekday/label" = "";

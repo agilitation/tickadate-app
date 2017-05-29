@@ -50,6 +50,7 @@
 		7AB0B0EE1EC07D4600BEC76C /* tickadateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0B0ED1EC07D4600BEC76C /* tickadateUITests.swift */; };
 		7AB0B1041EC1065500BEC76C /* CalendarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0B1031EC1065500BEC76C /* CalendarDateCell.swift */; };
 		7ACDED111EDC17A5004CDB9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ACDED131EDC17A5004CDB9D /* Localizable.strings */; };
+		7ACDED181EDC232D004CDB9D /* RelativeDateAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */; };
 		7AD7BC511ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */; };
 		7AD7BC531ED1D322005AA9EF /* EventsOfDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */; };
 		7AD7BC551ED33B6F005AA9EF /* StatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7BC541ED33B6F005AA9EF /* StatsTableViewController.swift */; };
@@ -139,6 +140,7 @@
 		7ACDED121EDC17A5004CDB9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ACDED141EDC17C6004CDB9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ACDED151EDC19F8004CDB9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDateAlertController.swift; sourceTree = "<group>"; };
 		7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsOfDayTableViewController.swift; sourceTree = "<group>"; };
 		7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsOfDayTableViewCell.swift; sourceTree = "<group>"; };
 		7AD7BC541ED33B6F005AA9EF /* StatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				7AA628ED1ECCF04400834FAD /* StyleKit.swift */,
 				7A901CAD1EC1BEEE00CF0002 /* TickADate.xcdatamodeld */,
 				7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */,
+				7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */,
 				7AB0B0CF1EC07D4600BEC76C /* ViewController.swift */,
 				7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */,
 				7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */,
@@ -523,6 +526,7 @@
 				7A39963E1ECAF6DB002E3255 /* ColorPalette.swift in Sources */,
 				7AE4EF621ED43C8800F3082C /* LabelStatTableViewCell.swift in Sources */,
 				7A04FB9B1EC651EF00407E5C /* VisibleMonthTooltipView.swift in Sources */,
+				7ACDED181EDC232D004CDB9D /* RelativeDateAlertController.swift in Sources */,
 				7AF97EDC1EC4548900DD5AC1 /* WeekDayHeader.swift in Sources */,
 				7A443EFE1ED58C6E00B40475 /* GridStatTableViewCell.swift in Sources */,
 				7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */,

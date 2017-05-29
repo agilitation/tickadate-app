@@ -1,3 +1,10 @@
+
+/* No comment provided by engineer. */
+"Cancel" = "Annuler";
+
+/* No comment provided by engineer. */
+"Clear Photo" = "Supprimer la photo";
+
 /* 
   App.strings
   tickadate
@@ -5,6 +12,47 @@
   Created by Romain Bessuges-Meusy on 29/05/2017.
   Copyright © 2017 Agilitation. All rights reserved.
 */
-
-
 "stats/frequency/hoursOfday" = "Fréquence par heure";
+
+/* Label for last time stat */
+"stats/lastTime/label" = "Dernière fois";
+
+/* Placeholder used when no event of this type have happened yet */
+"stats/lastTime/none" = "Aucun événement";
+
+/* Label for next time stat */
+"stats/nextTime/label" = "Prochaine fois";
+
+/* Placeholder used when no event of this type are note expected yet */
+"stats/nextTime/none" = "Pas d'événement prévu";
+
+/* Label for times per day stat */
+"stats/timesPerDay/label" = "Par jour";
+
+/* Unit for times per day stat */
+"stats/timesPerDay/unit" = "×";
+
+/* Label for times per week stat */
+"stats/timesPerWeek/label" = "Par semaine";
+
+/* Unit for times per week stat */
+"stats/timesPerWeek/unit" = "×";
+
+/* Label for times per weekday stat */
+"stats/timesPerWeekday/label" = "Par jour de la semaine";
+
+/* Generic cancel action */
+"app/cancel" = "";
+
+/* 'In a week' action from the quick date picker, +7d
+   'Next week' action from the quick date picker, 1st day of next week */
+"quickDatePicker/inAWeek" = "";
+
+/* 'Today' action from the quick date picker, +0d */
+"quickDatePicker/today" = "";
+
+/* 'Tomorrow' action from the quick date picker, +1d */
+"quickDatePicker/tomorrow" = "";
+
+/* 'Yesterday' action from the quick date picker, -1d */
+"quickDatePicker/yesterday" = "";

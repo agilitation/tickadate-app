@@ -101,25 +101,10 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   }
   
   @IBAction func toggleQuickDatePicker(_ sender: Any) {
-    
-    let asc = UIAlertController(
-      title: nil,
-      message: nil,
-      preferredStyle: .actionSheet
-    )
-    
-    let handler = { (action:UIAlertAction, date:Date) in
+    let asc = RelativeDateAlertController()
+    asc.handler = { (action:UIAlertAction, date:Date) in
       self.calendarController.select(date: date)
     }
-    
-    asc.addAction(QuickDatePickerItem(date: RelativeDate.inAWeek(), label: "In a week", handler: handler).asAlertAction())
-    asc.addAction(QuickDatePickerItem(date: RelativeDate.nextWeek(), label: "Next week", handler: handler).asAlertAction())
-    asc.addAction(QuickDatePickerItem(date: RelativeDate.tomorrow(), label: "Tomorrow", handler: handler).asAlertAction())
-    asc.addAction(QuickDatePickerItem(date: Date(), label: "Today", handler: handler).asAlertAction())
-    asc.addAction(QuickDatePickerItem(date: RelativeDate.yesterday(), label: "Yesterday", handler: handler).asAlertAction())
-    
-    asc.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-    
     self.present(asc, animated: true, completion: nil)
   }
   
@@ -182,22 +167,3 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
 }
 
 
-class QuickDatePickerItem : NSObject {
-  
-  var date:Date!
-  var label:String!
-  var handler: ((UIAlertAction, Date) -> Swift.Void)?
-  
-  init(date:Date, label:String, handler:((UIAlertAction, Date) -> Swift.Void)? = nil) {
-    super.init()
-    self.date = date
-    self.label = label
-    self.handler = handler
-  }
-  
-  func asAlertAction() -> UIAlertAction {
-    return UIAlertAction(title: label, style: .default, handler: {
-      self.handler?($0, self.date)
-    })
-  }
-}
