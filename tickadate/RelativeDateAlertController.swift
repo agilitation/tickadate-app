@@ -27,7 +27,7 @@ class RelativeDateAlertController: UIAlertController {
     self.addAction(QuickDatePickerItem(date: Date(), label: labels["today"]!, handler: self.handler).asAlertAction())
     self.addAction(QuickDatePickerItem(date: RelativeDate.yesterday(), label: labels["yesterday"]!, handler: self.handler).asAlertAction())
     
-    self.addAction(UIAlertAction(title: NSLocalizedString("app/cancel", comment: "Generic cancel action"), style: .cancel, handler: nil))
+    self.addAction(UIAlertAction(title: CommonStrings.cancel, style: .cancel, handler: nil))
   
   }
 }

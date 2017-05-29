@@ -54,7 +54,6 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
   }
   
   func select(date:Date){
-    print("select date", date)
     
     if let ip = indexPath(forDate: date){
       

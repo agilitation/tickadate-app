@@ -36,17 +36,17 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     
     if selectedEventType!.promptForDetails {
       let alert = UIAlertController(
-        title: "Event details",
-        message: "Should display a prompt",
+        title: NSLocalizedString("eventDetailsPrompt/title", comment: "Title for the event details prompt"),
+        message: NSLocalizedString("eventDetailsPrompt/message", comment: "Message for the event details prompt"),
         preferredStyle: .alert
       )
       
       alert.addTextField(configurationHandler: { (textField) in
-        textField.placeholder = "Enter event details"
+        textField.placeholder = NSLocalizedString("eventDetailsPrompt/placeholder", comment: "Placeholder text in the texfield of the event details prompt")
       })
       
-      alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-      alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
+      alert.addAction(UIAlertAction(title: CommonStrings.cancel, style: .cancel, handler: nil))
+      alert.addAction(UIAlertAction(title: CommonStrings.confirm, style: .default, handler: { (action) in
         self.dataController.createEvent(ofType: self.selectedEventType!,
                                         onDate: self.selectedDate!,
                                         withDetails: alert.textFields![0].text!,

@@ -10,6 +10,8 @@
 		7A04FB9B1EC651EF00407E5C /* VisibleMonthTooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */; };
 		7A11F94F1ED4AB8B00ECCD94 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11F94E1ED4AB8B00ECCD94 /* BarChartTableViewCell.swift */; };
 		7A11F9511ED4E9CC00ECCD94 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11F9501ED4E9CC00ECCD94 /* BarChartView.swift */; };
+		7A1C13A91EDC3B12007A6D75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */; };
+		7A1C13AC1EDC3B42007A6D75 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */; };
 		7A2BD9451EC273EE002E3FE8 /* EventTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */; };
 		7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */; };
 		7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */; };
@@ -35,7 +37,6 @@
 		7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A901CF91EC22E6100CF0002 /* DynamicColor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		7A901D021EC23AB600CF0002 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901D011EC23AB600CF0002 /* CircleView.swift */; };
 		7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9A1ECC66A4001B6520 /* RAL.plist */; };
-		7A9CCD9F1ECC6B3C001B6520 /* CrayolaBright.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9E1ECC6B3C001B6520 /* CrayolaBright.plist */; };
 		7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628ED1ECCF04400834FAD /* StyleKit.swift */; };
 		7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */; };
 		7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA628F31ECF456100834FAD /* ColorPicker.storyboard */; };
@@ -51,6 +52,8 @@
 		7AB0B1041EC1065500BEC76C /* CalendarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB0B1031EC1065500BEC76C /* CalendarDateCell.swift */; };
 		7ACDED111EDC17A5004CDB9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7ACDED131EDC17A5004CDB9D /* Localizable.strings */; };
 		7ACDED181EDC232D004CDB9D /* RelativeDateAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */; };
+		7ACDED1A1EDC2DD2004CDB9D /* CommonStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACDED191EDC2DD2004CDB9D /* CommonStrings.swift */; };
+		7ACDED1B1EDC370A004CDB9D /* CrayolaBright.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ACDED1D1EDC370A004CDB9D /* CrayolaBright.plist */; };
 		7AD7BC511ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */; };
 		7AD7BC531ED1D322005AA9EF /* EventsOfDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */; };
 		7AD7BC551ED33B6F005AA9EF /* StatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7BC541ED33B6F005AA9EF /* StatsTableViewController.swift */; };
@@ -87,6 +90,9 @@
 		7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisibleMonthTooltipView.swift; sourceTree = "<group>"; };
 		7A11F94E1ED4AB8B00ECCD94 /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
 		7A11F9501ED4E9CC00ECCD94 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7A1C13AA1EDC3B42007A6D75 /* tickadate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tickadate.entitlements; sourceTree = "<group>"; };
+		7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeViewController.swift; sourceTree = "<group>"; };
 		7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesTableViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +118,6 @@
 		7A901CF91EC22E6100CF0002 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
 		7A901D011EC23AB600CF0002 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
-		7A9CCD9E1ECC6B3C001B6520 /* CrayolaBright.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CrayolaBright.plist; sourceTree = "<group>"; };
 		7AA628ED1ECCF04400834FAD /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtons.swift; sourceTree = "<group>"; };
 		7AA628F41ECF456100834FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ColorPicker.storyboard; sourceTree = "<group>"; };
@@ -141,6 +146,9 @@
 		7ACDED141EDC17C6004CDB9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ACDED151EDC19F8004CDB9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDateAlertController.swift; sourceTree = "<group>"; };
+		7ACDED191EDC2DD2004CDB9D /* CommonStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
+		7ACDED1C1EDC370A004CDB9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/CrayolaBright.plist; sourceTree = "<group>"; };
+		7ACDED1E1EDC371A004CDB9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/CrayolaBright.plist; sourceTree = "<group>"; };
 		7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsOfDayTableViewController.swift; sourceTree = "<group>"; };
 		7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsOfDayTableViewCell.swift; sourceTree = "<group>"; };
 		7AD7BC541ED33B6F005AA9EF /* StatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +172,8 @@
 				7A48652A1EC73C4200456BDF /* SwiftIconFont.framework in Frameworks */,
 				7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */,
 				7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */,
+				7A1C13A91EDC3B12007A6D75 /* StoreKit.framework in Frameworks */,
+				7A1C13AC1EDC3B42007A6D75 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +208,8 @@
 		7A901CF61EC22BED00CF0002 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */,
+				7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */,
 				7A4865291EC73C4200456BDF /* SwiftIconFont.framework */,
 				7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */,
 				7A901CF91EC22E6100CF0002 /* DynamicColor.framework */,
@@ -208,7 +220,7 @@
 		7A9CCD9D1ECC6B25001B6520 /* ColorSwatches */ = {
 			isa = PBXGroup;
 			children = (
-				7A9CCD9E1ECC6B3C001B6520 /* CrayolaBright.plist */,
+				7ACDED1D1EDC370A004CDB9D /* CrayolaBright.plist */,
 				7AAD59F61ECC6BD6003D2DA5 /* CrayolaFluorescent.plist */,
 				7A9CCD9A1ECC66A4001B6520 /* RAL.plist */,
 			);
@@ -239,6 +251,7 @@
 		7AB0B0CC1EC07D4500BEC76C /* tickadate */ = {
 			isa = PBXGroup;
 			children = (
+				7A1C13AA1EDC3B42007A6D75 /* tickadate.entitlements */,
 				7AB0B0CD1EC07D4500BEC76C /* AppDelegate.swift */,
 				7AB0B0D41EC07D4600BEC76C /* Assets.xcassets */,
 				7A4865251EC6F41A00456BDF /* BorderedView.swift */,
@@ -274,6 +287,7 @@
 				7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */,
 				7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */,
 				7ACDED131EDC17A5004CDB9D /* Localizable.strings */,
+				7ACDED191EDC2DD2004CDB9D /* CommonStrings.swift */,
 			);
 			path = tickadate;
 			sourceTree = "<group>";
@@ -400,6 +414,14 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 5DS79WMFEL;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					7AB0B0DD1EC07D4600BEC76C = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -442,7 +464,7 @@
 				7AB0B0D81EC07D4600BEC76C /* LaunchScreen.storyboard in Resources */,
 				7A748DB21EC7668000E3F682 /* ColorCell.xib in Resources */,
 				7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */,
-				7A9CCD9F1ECC6B3C001B6520 /* CrayolaBright.plist in Resources */,
+				7ACDED1B1EDC370A004CDB9D /* CrayolaBright.plist in Resources */,
 				7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */,
 				7AB0B0D51EC07D4600BEC76C /* Assets.xcassets in Resources */,
 				7AAD59F71ECC6BD6003D2DA5 /* CrayolaFluorescent.plist in Resources */,
@@ -540,6 +562,7 @@
 				7AF97EDE1EC454B400DD5AC1 /* DrawUtils.swift in Sources */,
 				7A2BD9451EC273EE002E3FE8 /* EventTypeViewController.swift in Sources */,
 				7A11F94F1ED4AB8B00ECCD94 /* BarChartTableViewCell.swift in Sources */,
+				7ACDED1A1EDC2DD2004CDB9D /* CommonStrings.swift in Sources */,
 				7AD7BC531ED1D322005AA9EF /* EventsOfDayTableViewCell.swift in Sources */,
 				7A901CAC1EC11A7300CF0002 /* CalendarController.swift in Sources */,
 				7AD7BC511ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift in Sources */,
@@ -628,6 +651,15 @@
 				7ACDED151EDC19F8004CDB9D /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7ACDED1D1EDC370A004CDB9D /* CrayolaBright.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7ACDED1C1EDC370A004CDB9D /* Base */,
+				7ACDED1E1EDC371A004CDB9D /* fr */,
+			);
+			name = CrayolaBright.plist;
 			sourceTree = "<group>";
 		};
 		7AE4EF641ED43CFB00F3082C /* EventTypesStats.storyboard */ = {
@@ -741,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = tickadate/tickadate.entitlements;
 				DEVELOPMENT_TEAM = 5DS79WMFEL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = tickadate/tickadate.entitlements;
 				DEVELOPMENT_TEAM = 5DS79WMFEL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

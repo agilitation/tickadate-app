@@ -48,6 +48,9 @@
    'Next week' action from the quick date picker, 1st day of next week */
 "quickDatePicker/inAWeek" = "";
 
+/* 'Next week' action from the quick date picker, 1st day of next week */
+"quickDatePicker/nextWeek" = "";
+
 /* 'Today' action from the quick date picker, +0d */
 "quickDatePicker/today" = "";
 
