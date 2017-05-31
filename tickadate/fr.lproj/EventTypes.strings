@@ -14,9 +14,6 @@
 /* Class = "UIButton"; normalTitle = "Remove Events"; ObjectID = "eih-8q-evS"; */
 "eih-8q-evS.normalTitle" = "Supprimer les événements";
 
-/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "fCy-fa-fM1"; */
-"fCy-fa-fM1.title" = "Retour";
-
 /* Class = "UIBarButtonItem"; title = "Stats"; ObjectID = "mPZ-OK-M5h"; */
 "mPZ-OK-M5h.title" = "Stats";
 

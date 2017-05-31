@@ -18,6 +18,8 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
   // IBOutlets or whatever you need for your cell
   public override func setup() {
     
+    height = { BaseRow.estimatedRowHeight }
+
     self.circle = CircleView(frame: CGRect(
       x: 0,
       y: 0,
@@ -27,7 +29,9 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
     
     circle.isOpaque = false
     circle.translatesAutoresizingMaskIntoConstraints = false
+    
     self.detailTextLabel?.translatesAutoresizingMaskIntoConstraints = false
+    
     self.contentView.addSubview(circle)
     self.contentView.addConstraints([
       NSLayoutConstraint(
@@ -38,6 +42,7 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
         attribute: .centerY,
         multiplier: 1,
         constant: 0),
+      
       NSLayoutConstraint(
         item: circle,
         attribute: .height,
@@ -62,14 +67,14 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
         attribute: .trailing,
         multiplier: 1,
         constant: -10),
-      NSLayoutConstraint(
-        item: self.contentView,
-        attribute: .height,
-        relatedBy: .greaterThanOrEqual,
-        toItem: circle,
-        attribute: .height,
-        multiplier: 1,
-        constant: 20),
+//      NSLayoutConstraint(
+//        item: self.contentView,
+//        attribute: .height,
+//        relatedBy: .equal,
+//        toItem: nil,
+//        attribute: .notAnAttribute,
+//        multiplier: 1,
+//        constant: 44),
       NSLayoutConstraint(
         item: self.detailTextLabel!,
         attribute: .trailing,
@@ -85,7 +90,16 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
         toItem: self.textLabel,
         attribute: .firstBaseline,
         multiplier: 1,
-        constant: 0)
+        constant: 0),
+      NSLayoutConstraint(
+        item: self.detailTextLabel!,
+        attribute: .centerY,
+        relatedBy: .equal,
+        toItem: self.contentView,
+        attribute: .centerY,
+        multiplier: 1,
+        constant: 0),
+      
       ])
   }
   

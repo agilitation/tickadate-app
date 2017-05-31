@@ -175,20 +175,30 @@ class DayOfYearStatCell : EventTypeStatCellBuilder {
     cell.grid.numberOfCols = 52
     cell.grid.numberOfRows = 7
     cell.grid.space = 1
+    cell.grid.direction = GridStatLayoutDirection(first: .ttb, second: .ltr)
     
     let cal = Calendar.current
     let components = cal.dateComponents([.year], from: Date())
     let firstDayOfCurrentYear:Date = cal.date(from: components)!
     let firstDayOfNextYear:Date = cal.date(byAdding:.year, value: 1, to: firstDayOfCurrentYear)!
-    let dates = DateUtils.generateDates(DateRange(from: firstDayOfCurrentYear, to: firstDayOfNextYear))
-    var values:[Float] = []
+    let lastDayOfCurrentYear:Date = cal.date(byAdding: .day, value: -1, to: firstDayOfNextYear)!
+    let dates = DateUtils.generateDates(DateRange(from: firstDayOfCurrentYear, to: lastDayOfCurrentYear))
     
+    var values:[Float] = []
+    var offsets:[Int] = []
+    var dayIndex:Int = 0
     dates.forEach { (cd) in
       let cdComps = cal.dateComponents([.year, .month, .day], from: cd.date)
       values.append(vc.stats!.countsProportions["dayOfYear"]![cdComps] ?? 0)
+      
+      if offsets.count < cdComps.month! {
+        offsets.append(dayIndex)
+      }
+      
+      dayIndex = dayIndex + 1
     }
     
-    print(values)
+    cell.grid.offsets = offsets
     cell.grid.values = values
     
     return cell

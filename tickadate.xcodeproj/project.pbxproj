@@ -26,9 +26,6 @@
 		7A4865281EC701C500456BDF /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4865271EC701C500456BDF /* DateUtils.swift */; };
 		7A48652A1EC73C4200456BDF /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4865291EC73C4200456BDF /* SwiftIconFont.framework */; };
 		7A48652C1EC7563E00456BDF /* EventTypeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A48652B1EC7563E00456BDF /* EventTypeFormViewController.swift */; };
-		7A748DB21EC7668000E3F682 /* ColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A748DB11EC7668000E3F682 /* ColorCell.xib */; };
-		7A748DB41EC7679100E3F682 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A748DB31EC7679100E3F682 /* ColorCell.swift */; };
-		7A748DB61EC76D1500E3F682 /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A748DB51EC76D1500E3F682 /* ColorRow.swift */; };
 		7A748DB91EC9ACA600E3F682 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A748DB81EC9ACA600E3F682 /* DebugViewController.swift */; };
 		7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA51EC112B800CF0002 /* EventTypesController.swift */; };
 		7A901CA81EC1135200CF0002 /* EventTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */; };
@@ -38,6 +35,9 @@
 		7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A901CF91EC22E6100CF0002 /* DynamicColor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		7A901D021EC23AB600CF0002 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901D011EC23AB600CF0002 /* CircleView.swift */; };
 		7A9791931EDC5A5F00D910B6 /* StatCellDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */; };
+		7A9791951EDCC5E000D910B6 /* DemoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9791941EDCC5E000D910B6 /* DemoData.plist */; };
+		7A9791961EDCC5E000D910B6 /* DemoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9791941EDCC5E000D910B6 /* DemoData.plist */; };
+		7A9791971EDCC5E000D910B6 /* DemoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9791941EDCC5E000D910B6 /* DemoData.plist */; };
 		7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9A1ECC66A4001B6520 /* RAL.plist */; };
 		7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628ED1ECCF04400834FAD /* StyleKit.swift */; };
 		7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */; };
@@ -110,9 +110,6 @@
 		7A4865271EC701C500456BDF /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		7A4865291EC73C4200456BDF /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
 		7A48652B1EC7563E00456BDF /* EventTypeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeFormViewController.swift; sourceTree = "<group>"; };
-		7A748DB11EC7668000E3F682 /* ColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorCell.xib; sourceTree = "<group>"; };
-		7A748DB31EC7679100E3F682 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
-		7A748DB51EC76D1500E3F682 /* ColorRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRow.swift; sourceTree = "<group>"; };
 		7A748DB81EC9ACA600E3F682 /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		7A901CA51EC112B800CF0002 /* EventTypesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesController.swift; sourceTree = "<group>"; };
 		7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +120,7 @@
 		7A901D011EC23AB600CF0002 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		7A9791911EDC434F00D910B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCellDefinitions.swift; sourceTree = "<group>"; };
+		7A9791941EDCC5E000D910B6 /* DemoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DemoData.plist; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
 		7AA628ED1ECCF04400834FAD /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtons.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 		7ACDED0E1EDC0E5F004CDB9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		7ACDED121EDC17A5004CDB9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ACDED141EDC17C6004CDB9D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7ACDED151EDC19F8004CDB9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7ACDED171EDC232D004CDB9D /* RelativeDateAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDateAlertController.swift; sourceTree = "<group>"; };
 		7ACDED191EDC2DD2004CDB9D /* CommonStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
 		7ACDED1C1EDC370A004CDB9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/CrayolaBright.plist; sourceTree = "<group>"; };
@@ -224,9 +221,6 @@
 				7A1C13B21EDC3E45007A6D75 /* EventTypes */,
 				7A1C13B51EDC3E8B007A6D75 /* EventTypesChooser */,
 				7A443EFC1ED5800C00B40475 /* Stats */,
-				7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */,
-				7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */,
-				7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -234,6 +228,8 @@
 		7A1C13B11EDC3E10007A6D75 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				7A04FB9A1EC651EF00407E5C /* VisibleMonthTooltipView.swift */,
+				7AF97EDB1EC4548900DD5AC1 /* WeekDayHeader.swift */,
 				7A901CAB1EC11A7300CF0002 /* CalendarController.swift */,
 				7AB0B1031EC1065500BEC76C /* CalendarDateCell.swift */,
 				7A901CB51EC20C8600CF0002 /* EventDotsStack.swift */,
@@ -291,6 +287,7 @@
 		7A1C13B71EDC3F18007A6D75 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */,
 				7AB0B0D11EC07D4600BEC76C /* Main.storyboard */,
 				7AB0B0CF1EC07D4600BEC76C /* ViewController.swift */,
 			);
@@ -302,6 +299,7 @@
 			children = (
 				7AF97EDF1EC48A3300DD5AC1 /* DataController.swift */,
 				7A901CAD1EC1BEEE00CF0002 /* TickADate.xcdatamodeld */,
+				7A9791941EDCC5E000D910B6 /* DemoData.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -412,13 +410,10 @@
 		7AE4EF671ED43F7600F3082C /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				7A748DB31EC7679100E3F682 /* ColorCell.swift */,
-				7A748DB11EC7668000E3F682 /* ColorCell.xib */,
 				7A39963D1ECAF6DB002E3255 /* ColorPalette.swift */,
 				7AA628F31ECF456100834FAD /* ColorPicker.storyboard */,
 				7A3996431ECB3310002E3255 /* ColorPickerCollectionViewCell.swift */,
 				7A39963F1ECB0418002E3255 /* ColorPickerViewController.swift */,
-				7A748DB51EC76D1500E3F682 /* ColorRow.swift */,
 				7A9CCD9D1ECC6B25001B6520 /* ColorSwatches */,
 			);
 			name = ColorPicker;
@@ -547,7 +542,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB0B0D81EC07D4600BEC76C /* LaunchScreen.storyboard in Resources */,
-				7A748DB21EC7668000E3F682 /* ColorCell.xib in Resources */,
 				7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */,
 				7ACDED1B1EDC370A004CDB9D /* CrayolaBright.plist in Resources */,
 				7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */,
@@ -558,6 +552,7 @@
 				7AA628F81ECF458E00834FAD /* EventTypes.storyboard in Resources */,
 				7AE4EF661ED43CFB00F3082C /* EventTypesStats.storyboard in Resources */,
 				7ACDED111EDC17A5004CDB9D /* Localizable.strings in Resources */,
+				7A9791951EDCC5E000D910B6 /* DemoData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9791961EDCC5E000D910B6 /* DemoData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9791971EDCC5E000D910B6 /* DemoData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,14 +616,12 @@
 				7A3996411ECB0418002E3255 /* ColorPickerViewController.swift in Sources */,
 				7AE4EF601ED430D700F3082C /* StatTableViewCell.swift in Sources */,
 				7A11F9511ED4E9CC00ECCD94 /* BarChartView.swift in Sources */,
-				7A748DB41EC7679100E3F682 /* ColorCell.swift in Sources */,
 				7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */,
 				7A748DB91EC9ACA600E3F682 /* DebugViewController.swift in Sources */,
 				7AD7BC571ED33CC3005AA9EF /* EventTypeStats.swift in Sources */,
 				7A4865261EC6F41A00456BDF /* BorderedView.swift in Sources */,
 				7A4865281EC701C500456BDF /* DateUtils.swift in Sources */,
 				7A443F001ED58D0300B40475 /* GridStatView.swift in Sources */,
-				7A748DB61EC76D1500E3F682 /* ColorRow.swift in Sources */,
 				7AB0B0D01EC07D4600BEC76C /* ViewController.swift in Sources */,
 				7A48652C1EC7563E00456BDF /* EventTypeFormViewController.swift in Sources */,
 				7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */,
@@ -744,7 +739,6 @@
 			children = (
 				7ACDED121EDC17A5004CDB9D /* Base */,
 				7ACDED141EDC17C6004CDB9D /* fr */,
-				7ACDED151EDC19F8004CDB9D /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -869,6 +863,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = tickadate/tickadate.entitlements;
 				DEVELOPMENT_TEAM = 5DS79WMFEL;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -887,6 +882,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = tickadate/tickadate.entitlements;
 				DEVELOPMENT_TEAM = 5DS79WMFEL;
 				FRAMEWORK_SEARCH_PATHS = (

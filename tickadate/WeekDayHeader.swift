@@ -10,16 +10,11 @@ import UIKit
 import DynamicColor
 
 @IBDesignable
-class WeekDayHeader: BorderedView {
+class WeekDayHeader: UIView {
   
   var labels:[UILabel] = []
   
   func prepareLabels() {
-    
-    self.borderOnLeftSide = false
-    self.borderOnRightSide = false
-    self.borderOnTopSide = true
-    self.borderOnBottomSide = true
     
     let symbols = Calendar.current.shortWeekdaySymbols
     let first = Calendar.current.firstWeekday - 1

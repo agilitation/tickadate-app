@@ -13,7 +13,7 @@
         <!--Event Types-->
         <scene sceneID="2WJ-eT-Xl4">
             <objects>
-                <tableViewController id="krc-pP-F8w" customClass="EventTypesTableViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="eventTypesTableView" id="krc-pP-F8w" customClass="EventTypesTableViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sBx-6A-liv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,15 +72,8 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Event Types" id="3zO-D4-lgs">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="fCy-fa-fM1">
-                            <connections>
-                                <action selector="onBack:" destination="krc-pP-F8w" id="m9B-id-5gq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Event Types" id="3zO-D4-lgs"/>
                     <connections>
-                        <outlet property="backButtonItem" destination="fCy-fa-fM1" id="yjG-Rj-x8J"/>
                         <segue destination="kgw-fM-dOx" kind="unwind" identifier="unwindToViewController" unwindAction="unwindToViewControllerWithSegue:" id="Owq-N3-YzJ"/>
                     </connections>
                 </tableViewController>
@@ -139,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUI-ac-D3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2066.666666666667" y="1247.2826086956522"/>
+            <point key="canvasLocation" x="1891" y="1157"/>
         </scene>
         <!--Event Type-->
         <scene sceneID="j4Z-Sh-993">
@@ -192,15 +185,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="colorPickerViewController" storyboardName="ColorPicker" referencedIdentifier="colorPickerViewController" id="0WA-og-lrX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4B-Xj-kMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="1573"/>
-        </scene>
-        <!--EventTypesStats-->
-        <scene sceneID="9Gf-p4-ocd">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EventTypesStats" id="tpe-QY-n11" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pRK-Jn-4ZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3475.1999999999998" y="453.37331334332839"/>
+            <point key="canvasLocation" x="1863" y="1612"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EventTypes</key>
+	<array>
+		<dict>
+			<key>Color</key>
+			<string>2243B6</string>
+			<key>Name</key>
+			<string>Bicycle ride</string>
+    </dict>
+    <dict>
+      <key>Color</key>
+      <string>2243B6</string>
+      <key>Name</key>
+      <string>Eat out</string>
+    </dict>
+    <dict>
+      <key>Color</key>
+      <string>2243B6</string>
+      <key>Name</key>
+      <string>Read a book</string>
+    </dict>
+    <dict>
+      <key>Color</key>
+      <string>2243B6</string>
+      <key>Name</key>
+      <string>See a doctor</string>
+    </dict>
+	</array>
+</dict>
+</plist>

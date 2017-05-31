@@ -34,7 +34,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
   
   var context:NSManagedObjectContext!
   var nc:NotificationCenter!
-
+  
   
   override init() {
     super.init()
@@ -62,15 +62,15 @@ class DataController: NSObject, CLLocationManagerDelegate {
   
   func fetchEvents(completion: @escaping ([Event])->Void){
     var results:[Event] = []
-    DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.main.async {
       results = self.fetchEventsSync()
-      DispatchQueue.main.async(execute: { completion(results) })
+      completion(results)
     }
   }
   
   func fetchEvents(forDay date: Date, completion: @escaping([Event]) -> ()) {
     
-    DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.main.async {
       
       let cal = Calendar.current
       let comps = cal.dateComponents([.day, .month, .year], from: date)
@@ -91,7 +91,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
         print(error.userInfo)
       }
       
-      DispatchQueue.main.async(execute: { completion(results) })
+      completion(results)
     }
   }
   
@@ -119,17 +119,15 @@ class DataController: NSObject, CLLocationManagerDelegate {
       context.insert(event)
       save()
       
-      DispatchQueue.main.async {
-        self.nc.post(name: Notification.Name("event.create"), object: event)
-        completion(event)
-      }
+      self.nc.post(name: Notification.Name("event.create"), object: event)
+      completion(event)
       
       if type.shouldCreateEventInCalendar && type.ekCalendarIdentifier != nil {
         createCalendarEvent(fromEvent: event)
       }
     }
     
-    DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.main.async {
       event = Event(context: self.context)
       event.type = type
       event.isAllDay = type.isAllDay
@@ -245,8 +243,9 @@ class DataController: NSObject, CLLocationManagerDelegate {
   }
   
   func deleteSync(event:Event){
+    let date:Date = event.date! as Date
     context.delete(event)
-    self.nc.post(name: Notification.Name("event.delete"), object: event)
+    self.nc.post(name: Notification.Name("event.delete"), object: date)
     save()
   }
   
@@ -273,26 +272,25 @@ class DataController: NSObject, CLLocationManagerDelegate {
   
   func fetchActiveEventTypes(completion: @escaping ([EventType])->Void) {
     var results:[EventType] = []
-    DispatchQueue.global().async {
+    DispatchQueue.main.async {
       results = self.fetchActiveEventTypesSync()
-      DispatchQueue.main.async(execute: { completion(results) })
+      completion(results)
     }
   }
   
   func createEventType(completion: @escaping (EventType)->Void){
     
-    DispatchQueue.global().async {
+    DispatchQueue.main.async {
       let activeEventTypes = self.fetchActiveEventTypesSync()
       let eventType = EventType(context: self.context)
       eventType.isActive = true
       eventType.color = "000000"
       eventType.order = Int16(activeEventTypes.count)
       self.context.insert(eventType)
-      DispatchQueue.main.async(execute: {
-        self.nc.post(name: Notification.Name("eventType.create"), object: eventType)
-        self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
-        completion(eventType)
-      })
+      
+      self.nc.post(name: Notification.Name("eventType.create"), object: eventType)
+      self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
+      completion(eventType)
     }
   }
   
@@ -306,9 +304,9 @@ class DataController: NSObject, CLLocationManagerDelegate {
     return et.defaultValues!
   }
   
-  // Crash Here after deletion in UITableViewController
+  
   func save(activeEventTypes: [EventType], completion: @escaping () -> Void) {
-    DispatchQueue.global().async {
+    DispatchQueue.main.async {
       for existingActiveEventsType in self.fetchActiveEventTypesSync() {
         if activeEventTypes.contains(existingActiveEventsType){
           existingActiveEventsType.order = Int16(activeEventTypes.index(of: existingActiveEventsType)!)
@@ -317,10 +315,8 @@ class DataController: NSObject, CLLocationManagerDelegate {
         }
       }
       self.save()
-      DispatchQueue.main.async(execute: {
-        completion()
-        self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
-      })
+      completion()
+      self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
     }
   }
   
@@ -331,7 +327,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
       } catch {
         let nserror = error as NSError
         fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-
+        
       }
     }
   }

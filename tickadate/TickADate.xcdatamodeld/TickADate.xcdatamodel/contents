@@ -30,6 +30,7 @@
         <attribute name="ekCalendarIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isAllDay" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isDemoEvent" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="promptForDetails" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -41,6 +42,6 @@
     <elements>
         <element name="DefaultValues" positionX="-72" positionY="-81" width="128" height="135"/>
         <element name="Event" positionX="495" positionY="-226" width="128" height="30"/>
-        <element name="EventType" positionX="153" positionY="-331" width="243" height="210"/>
+        <element name="EventType" positionX="153" positionY="-331" width="243" height="225"/>
     </elements>
 </model>

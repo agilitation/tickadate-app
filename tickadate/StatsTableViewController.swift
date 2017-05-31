@@ -52,7 +52,7 @@ class StatsTableViewController: UITableViewController {
       NextTimeStatCell(),
       HoursOfDayStatCell(),
       TimeIntervalStatCell(),
-//      DayOfYearStatCell()
+      DayOfYearStatCell()
     ]
   }()
   

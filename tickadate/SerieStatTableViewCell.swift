@@ -79,7 +79,7 @@ class SerieStatTableViewCell: StatTableViewCell {
     let formatter = DateComponentsFormatter()
     let fval = Float(value)
     formatter.unitsStyle = .abbreviated
-    formatter.unitsStyle = .brief
+//    formatter.unitsStyle = .brief
     
     
     if fval > 3600*24 {

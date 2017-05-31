@@ -83,10 +83,10 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     calendarController.select(date: self.selectedDate)
     
     nc.addObserver(forName: NSNotification.Name("event.delete"), object: nil, queue: nil) { (notif) in
-      let event:Event = notif.object as! Event
+      let date:Date = notif.object as! Date
       self.dataController.fetchEvents(completion: { (events) in
         self.calendarController.events = events
-        self.calendarController.reloadCell(forDate: event.date! as Date)
+        self.calendarController.reloadCell(forDate: date)
       })
     }
   }
@@ -147,7 +147,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
    // visibleMonthView.backgroundColor = etColor.lighter(amount:  0.2)
    // visibleMonthView.borderColor = etColor(amount:  0.2)
     weekDayHeader.backgroundColor = etColor.darkened(amount: 0.1)
-    weekDayHeader.borderColor = etColor.darkened(amount: 0.15)
+    
     weekDayHeader.labels.forEach { (label) in
       label.layer.shadowColor = etColor.darkened(amount: 0.2).cgColor
       label.setNeedsDisplay()
@@ -158,7 +158,38 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     quickAddButton.color = uiColor
     tickButton.color  = uiColor
     daySummaryButton.color  = uiColor
+    visibleMonthView.backgroundColor = uiColor
+    DrawUtils.drawLine(
+      onLayer: toolbarView.layer,
+      fromPoint: CGPoint(x:0, y:0),
+      toPoint: CGPoint(x:toolbarView.bounds.width, y: 0),
+      color: uiColor.cgColor,
+      lineWidth: 1
+    )
     
+    DrawUtils.drawLine(
+      onLayer: visibleMonthView.layer,
+      fromPoint: CGPoint(x:0, y:0),
+      toPoint: CGPoint(x:visibleMonthView.bounds.width, y:0),
+      color: etColor.darkened(amount: 0.15).cgColor,
+      lineWidth: 0.5
+    )
+    
+    DrawUtils.drawLine(
+      onLayer: visibleMonthView.layer,
+      fromPoint: CGPoint(x:0, y:visibleMonthView.bounds.height),
+      toPoint: CGPoint(x:visibleMonthView.bounds.width, y:visibleMonthView.bounds.height),
+      color: etColor.darkened(amount: 0.15).cgColor,
+      lineWidth: 1
+    )
+    
+    DrawUtils.drawLine(
+      onLayer: weekDayHeader.layer,
+      fromPoint: CGPoint(x:0, y:weekDayHeader.bounds.height),
+      toPoint: CGPoint(x:weekDayHeader.bounds.width, y:weekDayHeader.bounds.height),
+      color: etColor.darkened(amount: 0.2).cgColor,
+      lineWidth: 1
+    )
     appDelegate.window?.tintColor = uiColor
   }
   
