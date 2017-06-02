@@ -1,150 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>hex</key>
-		<string>FF3855</string>
-		<key>label</key>
-		<string>Sizzling Red</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FD3A4A</string>
-		<key>label</key>
-		<string>Red Salsa</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FB4D46</string>
-		<key>label</key>
-		<string>Tart Orange</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FA5B3D</string>
-		<key>label</key>
-		<string>Orange Soda</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FFAA1D</string>
-		<key>label</key>
-		<string>Bright Yellow</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FFF700</string>
-		<key>label</key>
-		<string>Yellow Sunshine</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>299617</string>
-		<key>label</key>
-		<string>Slimy Green</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>A7F432</string>
-		<key>label</key>
-		<string>Green Lizard</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>2243B6</string>
-		<key>label</key>
-		<string>Denim Blue</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>5DADEC</string>
-		<key>label</key>
-		<string>Blue Jeans</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>5946B2</string>
-		<key>label</key>
-		<string>Plump Purple</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>9C51B6</string>
-		<key>label</key>
-		<string>Purple Plum</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>A83731</string>
-		<key>label</key>
-		<string>Sweet Brown</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>AF6E4D</string>
-		<key>label</key>
-		<string>Brown Sugar</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>1B1B1B</string>
-		<key>label</key>
-		<string>Eerie Black</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>BFAFB2</string>
-		<key>label</key>
-		<string>Black Shadows</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FF5470</string>
-		<key>label</key>
-		<string>Fiery Rose</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FFDB00</string>
-		<key>label</key>
-		<string>Sizzling Sunrise</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FF7A00</string>
-		<key>label</key>
-		<string>Heat Wave</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FDFF00</string>
-		<key>label</key>
-		<string>Lemon Glacier</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>87FF2A</string>
-		<key>label</key>
-		<string>Spring Frost</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>0048BA</string>
-		<key>label</key>
-		<string>Absolute Zero</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>FF007C</string>
-		<key>label</key>
-		<string>Winter Sky</string>
-	</dict>
-	<dict>
-		<key>hex</key>
-		<string>E936A7</string>
-		<key>label</key>
-		<string>Frostbite</string>
-	</dict>
-</array>
+<dict>
+	<key>label</key>
+	<string>Crayola® Bright</string>
+	<key>colors</key>
+	<array>
+		<dict>
+			<key>hex</key>
+			<string>FF3855</string>
+			<key>label</key>
+			<string>Sizzling Red</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FD3A4A</string>
+			<key>label</key>
+			<string>Red Salsa</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FB4D46</string>
+			<key>label</key>
+			<string>Tart Orange</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FA5B3D</string>
+			<key>label</key>
+			<string>Orange Soda</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FFAA1D</string>
+			<key>label</key>
+			<string>Bright Yellow</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FFF700</string>
+			<key>label</key>
+			<string>Yellow Sunshine</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>299617</string>
+			<key>label</key>
+			<string>Slimy Green</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>A7F432</string>
+			<key>label</key>
+			<string>Green Lizard</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>2243B6</string>
+			<key>label</key>
+			<string>Denim Blue</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>5DADEC</string>
+			<key>label</key>
+			<string>Blue Jeans</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>5946B2</string>
+			<key>label</key>
+			<string>Plump Purple</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>9C51B6</string>
+			<key>label</key>
+			<string>Purple Plum</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>A83731</string>
+			<key>label</key>
+			<string>Sweet Brown</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>AF6E4D</string>
+			<key>label</key>
+			<string>Brown Sugar</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>1B1B1B</string>
+			<key>label</key>
+			<string>Eerie Black</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>BFAFB2</string>
+			<key>label</key>
+			<string>Black Shadows</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FF5470</string>
+			<key>label</key>
+			<string>Fiery Rose</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FFDB00</string>
+			<key>label</key>
+			<string>Sizzling Sunrise</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FF7A00</string>
+			<key>label</key>
+			<string>Heat Wave</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FDFF00</string>
+			<key>label</key>
+			<string>Lemon Glacier</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>87FF2A</string>
+			<key>label</key>
+			<string>Spring Frost</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>0048BA</string>
+			<key>label</key>
+			<string>Absolute Zero</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>FF007C</string>
+			<key>label</key>
+			<string>Winter Sky</string>
+		</dict>
+		<dict>
+			<key>hex</key>
+			<string>E936A7</string>
+			<key>label</key>
+			<string>Frostbite</string>
+		</dict>
+	</array>
+</dict>
 </plist>

@@ -16,7 +16,11 @@ protocol EventTypeFormViewDelegate {
 
 class EventTypeFormViewController: FormViewController {
   
-  var eventType:EventType?
+  var eventType:EventType? {
+    didSet {
+      self.title = eventType?.name
+    }
+  }
   var dc:DataController! = DataController()
   var delegate:EventTypeFormViewDelegate?
   var colors:[ColorPaletteItem] = []
@@ -25,31 +29,9 @@ class EventTypeFormViewController: FormViewController {
     self.delegate?.eventTypeFormView(self, finishedEditingOf: self.eventType!)
   }
   
-  func createColorPalette(){
-    colors = []
-    if let fileUrl = Bundle.main.url(forResource: "CrayolaBright", withExtension: "plist"),
-      let data = try? Data(contentsOf: fileUrl) {
-      if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [Dictionary<String, String>] {
-        colors = result!.map({ (color) -> ColorPaletteItem in
-          return ColorPaletteItem(hexString: color["hex"]!, label: color["label"]!)
-        })
-      }
-    }
-  }
-  
-  func getColorPaletteItem(fromHexString hexString:String) -> ColorPaletteItem? {
-    var ret:ColorPaletteItem?
-    for color in colors {
-      if color.color.toHexString() == hexString {
-        ret = color
-      }
-    }
-    return ret
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    createColorPalette()
     let eventStore : EKEventStore = EKEventStore()
     let locationManager = CLLocationManager()
     
@@ -65,11 +47,11 @@ class EventTypeFormViewController: FormViewController {
         })
       <<< ColorPickerPushRow("color"){
         $0.title = NSLocalizedString("eventType/form/base/color/label", comment: "Label for the event type color picker row")
-        $0.options = self.colors
-        $0.value = getColorPaletteItem(fromHexString: self.eventType?.color ?? "000000")
+        $0.value = ColorPaletteItem(hexString: self.eventType?.color ?? "000000", label: self.eventType?.colorName ?? "Unknown")
         }.onChange({ (row) in
           if let color = row.value?.color {
             self.eventType?.color = color.toHexString()
+            self.eventType?.colorName = row.value?.label
             self.dc.save()
           }
         })

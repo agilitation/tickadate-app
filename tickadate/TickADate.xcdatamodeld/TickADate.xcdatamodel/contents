@@ -27,6 +27,7 @@
     </entity>
     <entity name="EventType" representedClassName="EventType" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="colorName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ekCalendarIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isAllDay" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -42,6 +43,6 @@
     <elements>
         <element name="DefaultValues" positionX="-72" positionY="-81" width="128" height="135"/>
         <element name="Event" positionX="495" positionY="-226" width="128" height="30"/>
-        <element name="EventType" positionX="153" positionY="-331" width="243" height="225"/>
+        <element name="EventType" positionX="153" positionY="-331" width="243" height="240"/>
     </elements>
 </model>

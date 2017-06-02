@@ -10,21 +10,54 @@ import UIKit
 import CoreData
 import DynamicColor
 
+struct EventTypeExample {
+  var name:String = "New event type"
+  var color:String = "000000"
+  
+  init(name:String, color:String) {
+    self.name = name
+    self.color = color
+  }
+}
+
 class EventTypesTableViewController: UITableViewController, EventTypeFormViewDelegate {
   
+  var eventTypeExamples:[EventTypeExample] = []
   var eventTypes:[EventType] = []
   var selectedEventType:EventType!
   var dataController:DataController!
   var isEditingCancelled:Bool! = false
   
   @IBOutlet weak var backButtonItem: UIBarButtonItem!
+  
   var cancelButtonItem: UIBarButtonItem!
   
   func reload(){
+    self.fetchEventTypes {
+      self.fetchEventTypeExamples {
+        self.tableView.reloadData()
+      }
+    }
+  }
+  
+  func fetchEventTypes(completion:@escaping () -> ()){
     dataController.fetchActiveEventTypes(completion: { (eventTypes) in
       self.eventTypes = eventTypes
-      self.tableView.reloadData()
+      completion()
     })
+    
+  }
+  
+  func fetchEventTypeExamples(completion:@escaping () -> ()) {
+    if let fileUrl = Bundle.main.url(forResource: "EventTypeExamples", withExtension: "plist"),
+      let data = try? Data(contentsOf: fileUrl) {
+      if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [Dictionary<String, String>] {
+        self.eventTypeExamples = result!.map({ (color) -> EventTypeExample in
+          return EventTypeExample(name: color["name"]!, color: color["hex"]!)
+        })
+      }
+    }
+    completion()
   }
   
   override func viewDidLoad() {
@@ -53,6 +86,7 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
       self.navigationItem.leftBarButtonItem = cancelButtonItem
       self.isEditingCancelled = false
     } else {
+      
       self.navigationItem.leftBarButtonItem = self.backButtonItem
       if !self.isEditingCancelled {
         self.dataController.save(activeEventTypes: self.eventTypes, completion: {})
@@ -67,21 +101,38 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return 2
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.eventTypes.count
+    switch section {
+    case 0:
+      return self.eventTypes.count
+    case 1:
+      return self.eventTypeExamples.count
+    default:
+      return 0
+    }
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventTypeTableViewCell
-    cell.eventType = eventTypes[indexPath.item]
-    return cell
+    
+    switch indexPath.section {
+    case 0:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventTypeTableViewCell
+      cell.eventType = eventTypes[indexPath.item]
+      return cell
+    case 1:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath) as! EventTypeExampleTableViewCell
+      cell.eventTypeExample = eventTypeExamples[indexPath.item]
+      return cell
+    default :
+      return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    }
   }
   
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return true
+    return indexPath.section == 0
   }
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -96,8 +147,21 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     eventTypes.insert(element, at: to.item)
   }
   
+
+  override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+    if sourceIndexPath.section != proposedDestinationIndexPath.section {
+      var row = 0
+      if sourceIndexPath.section < proposedDestinationIndexPath.section {
+        row = self.tableView(tableView, numberOfRowsInSection: sourceIndexPath.section) - 1
+      }
+      return IndexPath(row: row, section: sourceIndexPath.section)
+    }
+    return proposedDestinationIndexPath
+  }
+  
+  
   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-    return true
+    return indexPath.section == 0
   }
   
   // MARK: - Navigation

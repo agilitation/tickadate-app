@@ -1,3 +1,18 @@
 
+/* Class = "UIButton"; normalTitle = "$1.99"; ObjectID = "W3t-7O-CCA"; */
+"W3t-7O-CCA.normalTitle" = "$1.99";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "c33-RJ-Clp"; */
+"c33-RJ-Clp.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cyu-gj-DzK"; */
+"cyu-gj-DzK.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jiP-RS-6K0"; */
+"jiP-RS-6K0.text" = "Label";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "u8m-ez-vXk"; */
 "u8m-ez-vXk.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Add colors"; ObjectID = "xPh-LJ-ibZ"; */
+"xPh-LJ-ibZ.title" = "Plus de couleurs";

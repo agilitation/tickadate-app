@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Sport training</string>
+		<key>hex</key>
+		<string>68d845</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Swimming pool</string>
+		<key>hex</key>
+		<string>2aaef5</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Sport training</string>
+		<key>hex</key>
+		<string>cb77df</string>
+	</dict>
+</array>
+</plist>

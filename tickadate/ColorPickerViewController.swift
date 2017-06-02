@@ -123,7 +123,7 @@ final class ColorPickerPushRow: SelectorRow<ColorPickerCell, ColorPickerViewCont
       
       let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
       let colorPickerVC =  storyboard.instantiateViewController(withIdentifier: "colorPickerViewController") as! ColorPickerViewController
-      colorPickerVC.colors = self.options
+//      colorPickerVC.colors = self.options
       return colorPickerVC
       }, onDismiss: { vc in
         _ = vc.navigationController?.popViewController(animated: true)
@@ -134,41 +134,82 @@ final class ColorPickerPushRow: SelectorRow<ColorPickerCell, ColorPickerViewCont
 @IBDesignable
 class ColorPickerViewController: UICollectionViewController, TypedRowControllerType {
   
-  var row: RowOf<ColorPaletteItem>! {
+  var row: RowOf<ColorPaletteItem>!
+  {
     didSet {
-      if let cpi = row.value {
+      if let cpi = row.value, let ip = self.indexPath(ofColorPaletteItem: cpi) {
         self.collectionView?.selectItem(
-          at: IndexPath(item: colors.index(of: cpi) ?? 0, section:0),
+          at: ip,
           animated: true,
           scrollPosition: .centeredVertically
         )
       }
     }
   }
+
+  
+  func indexPath(ofColorPaletteItem cpi:ColorPaletteItem) -> IndexPath? {
+    for (section, colorSwatch) in swatches.enumerated() {
+      for (item, color) in colorSwatch.colors.enumerated() {
+        if color == cpi {
+          return IndexPath(item: item, section: section)
+        }
+      }
+    }
+    return nil
+  }
+  
+  var activeSwatches:[String] = ["iOS"/*, "CrayolaBright", "FlatUI"*/]
+  
+  var swatches:[ColorSwatch] = []
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    fetchSwatches {
+      self.collectionView?.reloadData()
+    }
+  }
+  
+  func fetchSwatches(completion: @escaping() -> ()){
+    
+    DispatchQueue.main.async {
+      self.swatches.removeAll(keepingCapacity: true)
+      self.activeSwatches.forEach { (swatchFilename) in
+        if let fileUrl = Bundle.main.url(forResource: swatchFilename, withExtension: "plist"),  let data = try? Data(contentsOf: fileUrl) {
+          if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String:Any] {
+            self.swatches.append(ColorSwatch(fromPList: result!))
+          }
+        }
+      }
+      completion()
+    }
+  }
   
   
-  var colors:[ColorPaletteItem] = []
   
   public var onDismissCallback : ((UIViewController) -> ())?
 
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
+    return swatches.count
   }
   
+  override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath)
+    let label = view.subviews[0] as! UILabel
+    label.text = swatches[indexPath.section].label
+    return view
+  }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return colors.count
+    return swatches[section].colors.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ColorPickerCollectionViewCell
-    
-    
-    cell.label.text = colors[indexPath.item].label
-    cell.circleView.color = colors[indexPath.item].color
-    
-    // Configure the cell
-    
+    let cpi = swatches[indexPath.section].colors[indexPath.item]
+    cell.label.text = cpi.label
+    cell.circleView.color = cpi.color
+    cell.isSelected = cpi == row.value ?? nil
     return cell
   }
   
@@ -178,6 +219,7 @@ class ColorPickerViewController: UICollectionViewController, TypedRowControllerT
   override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
     return true
   }
+
   
   // Uncomment this method to specify if the specified item should be selected
   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -185,7 +227,7 @@ class ColorPickerViewController: UICollectionViewController, TypedRowControllerT
   }
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    row.value = self.colors[indexPath.item]
+    row.value = self.swatches[indexPath.section].colors[indexPath.item]
     self.navigationController?.popViewController(animated: true)
   }
   

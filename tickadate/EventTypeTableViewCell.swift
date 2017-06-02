@@ -20,3 +20,18 @@ class EventTypeTableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var dot: CircleView!
 }
+
+
+class EventTypeExampleTableViewCell:UITableViewCell {
+  
+  var eventTypeExample:EventTypeExample? {
+    didSet {
+      if let example = eventTypeExample {
+        label.text = example.name
+        dot.color = DynamicColor(hexString: example.color).tinted(amount:0.9)
+      }
+    }
+  }
+  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var dot: CircleView!
+}

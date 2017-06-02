@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tyR-2L-nqK">
                             <size key="itemSize" width="80" height="80"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xCS-fg-I5N" customClass="ColorPickerCollectionViewCell" customModule="tickadate">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="0.0" y="50" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -64,6 +64,23 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionHeader" id="00r-Fr-bJm">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyu-gj-DzK">
+                                    <rect key="frame" x="8" y="17" width="304" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="cyu-gj-DzK" secondAttribute="trailing" id="ByZ-c3-aRh"/>
+                                <constraint firstItem="cyu-gj-DzK" firstAttribute="leading" secondItem="00r-Fr-bJm" secondAttribute="leadingMargin" id="N6K-dO-epD"/>
+                                <constraint firstItem="cyu-gj-DzK" firstAttribute="centerY" secondItem="00r-Fr-bJm" secondAttribute="centerY" id="uk0-41-Qqt"/>
+                            </constraints>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="LCt-kZ-ETc" id="sNy-Nx-ryT"/>
                             <outlet property="delegate" destination="LCt-kZ-ETc" id="FKT-nl-SWD"/>
@@ -71,7 +88,7 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="y8X-IA-nbi">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="xPh-LJ-ibZ">
+                        <barButtonItem key="rightBarButtonItem" title="Add colors" id="xPh-LJ-ibZ">
                             <connections>
                                 <segue destination="T72-XD-eNr" kind="show" id="Jch-Qi-XGm"/>
                             </connections>
@@ -86,24 +103,62 @@
             </objects>
             <point key="canvasLocation" x="1281" y="1573"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Color Swatches Table View Controller-->
         <scene sceneID="qwL-8L-LcP">
             <objects>
-                <tableViewController id="T72-XD-eNr" sceneMemberID="viewController">
+                <tableViewController id="T72-XD-eNr" customClass="ColorSwatchesTableViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bf2-xy-MFc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Db0-si-Cca">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Db0-si-Cca" customClass="ColorSwatchTableViewCell" customModule="tickadate" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Db0-si-Cca" id="DLQ-fu-yJv">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiP-RS-6K0">
+                                            <rect key="frame" x="14" y="6" width="243" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c33-RJ-Clp">
+                                            <rect key="frame" x="14" y="25.5" width="243" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3t-7O-CCA" customClass="BuyButton" customModule="tickadate" customModuleProvider="target">
+                                            <rect key="frame" x="265" y="10" width="47" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="wdj-pb-MCj"/>
+                                            </constraints>
+                                            <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                            <state key="normal" title="$1.99"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="W3t-7O-CCA" firstAttribute="leading" secondItem="c33-RJ-Clp" secondAttribute="trailing" constant="8" id="67F-fv-L5n"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="W3t-7O-CCA" secondAttribute="trailing" id="NnA-6j-ril"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="c33-RJ-Clp" secondAttribute="bottom" constant="-4.5" id="PiV-hi-NQw"/>
+                                        <constraint firstItem="W3t-7O-CCA" firstAttribute="leading" secondItem="jiP-RS-6K0" secondAttribute="trailing" constant="8" id="foF-sL-csW"/>
+                                        <constraint firstItem="c33-RJ-Clp" firstAttribute="top" secondItem="jiP-RS-6K0" secondAttribute="bottom" id="gEh-av-9YR"/>
+                                        <constraint firstItem="W3t-7O-CCA" firstAttribute="centerY" secondItem="DLQ-fu-yJv" secondAttribute="centerY" id="k4K-SW-fmv"/>
+                                        <constraint firstItem="c33-RJ-Clp" firstAttribute="leading" secondItem="DLQ-fu-yJv" secondAttribute="leadingMargin" constant="6" id="ouk-dH-gnk"/>
+                                        <constraint firstItem="jiP-RS-6K0" firstAttribute="leading" secondItem="DLQ-fu-yJv" secondAttribute="leadingMargin" constant="6" id="yC3-x5-xYM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="buyButton" destination="W3t-7O-CCA" id="ktN-Tc-a2Q"/>
+                                    <outlet property="descriptionLabel" destination="c33-RJ-Clp" id="4ss-Xb-R9w"/>
+                                    <outlet property="nameLabel" destination="jiP-RS-6K0" id="M3e-Ne-XNX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="T72-XD-eNr" id="1RK-4H-Oub"/>
                             <outlet property="delegate" destination="T72-XD-eNr" id="oIw-PP-ovG"/>
@@ -112,7 +167,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8k-SB-g3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1985" y="1585"/>
+            <point key="canvasLocation" x="2248" y="1571.5142428785609"/>
         </scene>
     </scenes>
 </document>

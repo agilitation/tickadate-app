@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Crayola® Bright</string>
+		<key>productID</key>
+		<string>CS-Crayola-Bright</string>
+		<key>description</key>
+		<string>14 catchy colors to brighten up your daily routines</string>
+		<key>filename</key>
+		<string>CrayolaBright.plist</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Crayola® Fluorescent</string>
+		<key>productID</key>
+		<string>CS-Crayola-Fluorescent</string>
+		<key>description</key>
+		<string>14 catchy colors to brighten up your daily routines</string>
+		<key>filename</key>
+		<string>CrayolaFluorescent.plist</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>RAL</string>
+		<key>productID</key>
+		<string>CS-RAL</string>
+		<key>description</key>
+		<string>The whole 213 tone swatch</string>
+		<key>filename</key>
+		<string>RAL.plist</string>
+	</dict>
+</array>
+</plist>
