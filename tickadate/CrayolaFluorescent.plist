@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>label</key>
-    <string>Crayola® Fluorescent</string>
-    <key>colors</key>
 
 <array>
   <dict><key>hex</key><string>FF355E</string><key>label</key><string>Radical Red</string></dict>
@@ -25,5 +21,4 @@
   <dict><key>hex</key><string>FF00CC</string><key>label</key><string>Purple Pizzazz</string></dict>
 
   </array>
-</dict>
 </plist>

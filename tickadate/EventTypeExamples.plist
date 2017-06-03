@@ -4,21 +4,27 @@
 <array>
 	<dict>
 		<key>name</key>
+		<string>Call mom</string>
+		<key>hex</key>
+		<string>cb77df</string>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Sport training</string>
 		<key>hex</key>
 		<string>68d845</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Swimming pool</string>
+		<string>Go swimming</string>
 		<key>hex</key>
 		<string>2aaef5</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Sport training</string>
+		<string>Coffee</string>
 		<key>hex</key>
-		<string>cb77df</string>
+		<string>a18360</string>
 	</dict>
 </array>
 </plist>

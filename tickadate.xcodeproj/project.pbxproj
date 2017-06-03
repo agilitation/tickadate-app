@@ -16,7 +16,7 @@
 		7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */; };
 		7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */; };
 		7A2BD94B1EC2FA5A002E3FE8 /* EventTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD94A1EC2FA5A002E3FE8 /* EventTypeTableViewCell.swift */; };
-		7A39963E1ECAF6DB002E3255 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39963D1ECAF6DB002E3255 /* ColorPalette.swift */; };
+		7A39963E1ECAF6DB002E3255 /* ColorSwatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39963D1ECAF6DB002E3255 /* ColorSwatches.swift */; };
 		7A3996411ECB0418002E3255 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39963F1ECB0418002E3255 /* ColorPickerViewController.swift */; };
 		7A3996441ECB3310002E3255 /* ColorPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3996431ECB3310002E3255 /* ColorPickerCollectionViewCell.swift */; };
 		7A443EFE1ED58C6E00B40475 /* GridStatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A443EFD1ED58C6E00B40475 /* GridStatTableViewCell.swift */; };
@@ -33,6 +33,9 @@
 		7A873F361EE0A8E000E0A058 /* iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F381EE0A8E000E0A058 /* iOS.plist */; };
 		7A873F3D1EE0B6CB00E0A058 /* FlatUI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F3C1EE0B6CB00E0A058 /* FlatUI.plist */; };
 		7A873F3F1EE1381900E0A058 /* ColorSwatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F3E1EE1381900E0A058 /* ColorSwatchTableViewCell.swift */; };
+		7A873F431EE154FB00E0A058 /* EventsOfDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */; };
+		7A873F461EE15E9600E0A058 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F451EE15E9600E0A058 /* IAPManager.swift */; };
+		7A873F481EE1AB2600E0A058 /* PListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F471EE1AB2600E0A058 /* PListParser.swift */; };
 		7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA51EC112B800CF0002 /* EventTypesController.swift */; };
 		7A901CA81EC1135200CF0002 /* EventTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */; };
 		7A901CAC1EC11A7300CF0002 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CAB1EC11A7300CF0002 /* CalendarController.swift */; };
@@ -106,7 +109,7 @@
 		7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesTableViewController.swift; sourceTree = "<group>"; };
 		7A2BD94A1EC2FA5A002E3FE8 /* EventTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeTableViewCell.swift; sourceTree = "<group>"; };
-		7A39963D1ECAF6DB002E3255 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		7A39963D1ECAF6DB002E3255 /* ColorSwatches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSwatches.swift; sourceTree = "<group>"; };
 		7A39963F1ECB0418002E3255 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		7A3996431ECB3310002E3255 /* ColorPickerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A443EFD1ED58C6E00B40475 /* GridStatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridStatTableViewCell.swift; sourceTree = "<group>"; };
@@ -125,6 +128,9 @@
 		7A873F3C1EE0B6CB00E0A058 /* FlatUI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlatUI.plist; sourceTree = "<group>"; };
 		7A873F3E1EE1381900E0A058 /* ColorSwatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSwatchTableViewCell.swift; sourceTree = "<group>"; };
 		7A873F411EE13D8300E0A058 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ColorPicker.strings; sourceTree = "<group>"; };
+		7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsOfDay.storyboard; sourceTree = "<group>"; };
+		7A873F451EE15E9600E0A058 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		7A873F471EE1AB2600E0A058 /* PListParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListParser.swift; sourceTree = "<group>"; };
 		7A901CA51EC112B800CF0002 /* EventTypesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesController.swift; sourceTree = "<group>"; };
 		7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A901CAB1EC11A7300CF0002 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 				7A4865271EC701C500456BDF /* DateUtils.swift */,
 				7AF97EDD1EC454B400DD5AC1 /* DrawUtils.swift */,
 				7A873F2C1EE00B4900E0A058 /* BuyButton.swift */,
+				7A873F471EE1AB2600E0A058 /* PListParser.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 		7A1C13AF1EDC3DF1007A6D75 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7A873F441EE15E6B00E0A058 /* IAP */,
 				7AB0B0D61EC07D4600BEC76C /* LaunchScreen.storyboard */,
 				7A1C13B11EDC3E10007A6D75 /* Calendar */,
 				7AE4EF671ED43F7600F3082C /* ColorPicker */,
@@ -267,6 +275,7 @@
 		7A1C13B31EDC3E50007A6D75 /* EventsOfDay */ = {
 			isa = PBXGroup;
 			children = (
+				7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */,
 				7AD7BC521ED1D322005AA9EF /* EventsOfDayTableViewCell.swift */,
 				7AD7BC501ED1D2FC005AA9EF /* EventsOfDayTableViewController.swift */,
 			);
@@ -329,6 +338,14 @@
 				7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */,
 			);
 			name = Stats;
+			sourceTree = "<group>";
+		};
+		7A873F441EE15E6B00E0A058 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				7A873F451EE15E9600E0A058 /* IAPManager.swift */,
+			);
+			name = IAP;
 			sourceTree = "<group>";
 		};
 		7A901CF61EC22BED00CF0002 /* Frameworks */ = {
@@ -427,7 +444,7 @@
 		7AE4EF671ED43F7600F3082C /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				7A39963D1ECAF6DB002E3255 /* ColorPalette.swift */,
+				7A39963D1ECAF6DB002E3255 /* ColorSwatches.swift */,
 				7AA628F31ECF456100834FAD /* ColorPicker.storyboard */,
 				7A3996431ECB3310002E3255 /* ColorPickerCollectionViewCell.swift */,
 				7A39963F1ECB0418002E3255 /* ColorPickerViewController.swift */,
@@ -565,6 +582,7 @@
 				7A873F3D1EE0B6CB00E0A058 /* FlatUI.plist in Resources */,
 				7A873F331EE04B2B00E0A058 /* EventTypeExamples.plist in Resources */,
 				7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */,
+				7A873F431EE154FB00E0A058 /* EventsOfDay.storyboard in Resources */,
 				7ACDED1B1EDC370A004CDB9D /* CrayolaBright.plist in Resources */,
 				7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */,
 				7AB0B0D51EC07D4600BEC76C /* Assets.xcassets in Resources */,
@@ -641,13 +659,14 @@
 				7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */,
 				7A748DB91EC9ACA600E3F682 /* DebugViewController.swift in Sources */,
 				7AD7BC571ED33CC3005AA9EF /* EventTypeStats.swift in Sources */,
+				7A873F481EE1AB2600E0A058 /* PListParser.swift in Sources */,
 				7A4865261EC6F41A00456BDF /* BorderedView.swift in Sources */,
 				7A4865281EC701C500456BDF /* DateUtils.swift in Sources */,
 				7A443F001ED58D0300B40475 /* GridStatView.swift in Sources */,
 				7AB0B0D01EC07D4600BEC76C /* ViewController.swift in Sources */,
 				7A48652C1EC7563E00456BDF /* EventTypeFormViewController.swift in Sources */,
 				7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */,
-				7A39963E1ECAF6DB002E3255 /* ColorPalette.swift in Sources */,
+				7A39963E1ECAF6DB002E3255 /* ColorSwatches.swift in Sources */,
 				7AE4EF621ED43C8800F3082C /* LabelStatTableViewCell.swift in Sources */,
 				7A9791931EDC5A5F00D910B6 /* StatCellDefinitions.swift in Sources */,
 				7A04FB9B1EC651EF00407E5C /* VisibleMonthTooltipView.swift in Sources */,
@@ -659,6 +678,7 @@
 				7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */,
 				7A873F2D1EE00B4900E0A058 /* BuyButton.swift in Sources */,
 				7A901CB01EC1C09E00CF0002 /* TickADate.xcdatamodeld in Sources */,
+				7A873F461EE15E9600E0A058 /* IAPManager.swift in Sources */,
 				7AF97EE01EC48A3300DD5AC1 /* DataController.swift in Sources */,
 				7A3996441ECB3310002E3255 /* ColorPickerCollectionViewCell.swift in Sources */,
 				7A873F3F1EE1381900E0A058 /* ColorSwatchTableViewCell.swift in Sources */,

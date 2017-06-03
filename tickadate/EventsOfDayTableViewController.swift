@@ -74,10 +74,18 @@ class EventsOfDayTableViewController: UITableViewController {
     return self.events.count
   }
   
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let event:Event = events[indexPath.item]
+    return event.type?.promptForDetails ?? false ? CGFloat(60) : CGFloat(44)
+  }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventsOfDayTableViewCell
     let event:Event = events[indexPath.item]
+    let reuseIdentifier = event.type?.promptForDetails ?? false ? "cellWithDetails" : "cell"
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! EventsOfDayTableViewCell
+    
+    
+    cell.detailsLabel?.text = event.details
     cell.timeLabel.text = timeFormatter.string(from: event.date! as Date)
     cell.eventTypeLabel.text = event.type?.name!
     cell.border.backgroundColor = DynamicColor(hexString: event.type?.color ?? "000000")

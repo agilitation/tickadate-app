@@ -122,5 +122,8 @@
 /* No comment provided by engineer. */
 "Clear Photo" = "";
 
+/* Detail text in ColorPickerPushRow cell when there's no color matching the saved version */
+"ColorPickerPushRow/cell/noColor" = "";
+
 /* Unit for interval stat */
 "stats/interval/unit" = "";

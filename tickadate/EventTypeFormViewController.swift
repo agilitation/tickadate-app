@@ -21,12 +21,29 @@ class EventTypeFormViewController: FormViewController {
       self.title = eventType?.name
     }
   }
+  var isNewEventType:Bool = false
   var dc:DataController! = DataController()
   var delegate:EventTypeFormViewDelegate?
-  var colors:[ColorPaletteItem] = []
+  var wasChanged:Bool {
+    get {
+      var val:Bool = false
+      
+      form.allRows.forEach({ (row) in
+        if row.wasChanged {
+          val = true
+        }
+      })
+      
+      return val
+    }
+  }
   
   override func viewWillDisappear(_ animated: Bool) {
     self.delegate?.eventTypeFormView(self, finishedEditingOf: self.eventType!)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print("prepare", segue)
   }
   
   
@@ -34,6 +51,7 @@ class EventTypeFormViewController: FormViewController {
     super.viewDidLoad()
     let eventStore : EKEventStore = EKEventStore()
     let locationManager = CLLocationManager()
+    
     
     
     form +++ Section("Base")
@@ -47,7 +65,7 @@ class EventTypeFormViewController: FormViewController {
         })
       <<< ColorPickerPushRow("color"){
         $0.title = NSLocalizedString("eventType/form/base/color/label", comment: "Label for the event type color picker row")
-        $0.value = ColorPaletteItem(hexString: self.eventType?.color ?? "000000", label: self.eventType?.colorName ?? "Unknown")
+        $0.value = ColorPaletteItem(hexString: self.eventType?.color ?? "000000", label: self.eventType?.colorName ?? NSLocalizedString("ColorPickerPushRow/cell/noColor", comment: "Detail text in ColorPickerPushRow cell when there's no color matching the saved version"))
         }.onChange({ (row) in
           if let color = row.value?.color {
             self.eventType?.color = color.toHexString()

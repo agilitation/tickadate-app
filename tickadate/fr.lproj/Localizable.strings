@@ -124,3 +124,6 @@
 
 /* Label for times per weekday stat */
 "stats/timesPerWeekday/label" = "Par jour de la semaine";
+
+/* Detail text in ColorPickerPushRow cell when there's no color matching the saved version */
+"ColorPickerPushRow/cell/noColor" = "";

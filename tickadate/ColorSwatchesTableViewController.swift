@@ -10,21 +10,14 @@ import UIKit
 
 class ColorSwatchesTableViewController: UITableViewController {
   
-  var swatches:[ColorSwatchDescription] = []
+  var swatches:[ColorSwatch] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    if let fileUrl = Bundle.main.url(forResource: "ColorSwatches", withExtension: "plist"),  let data = try? Data(contentsOf: fileUrl) {
-      if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [[String:String]] {
-        result?.forEach({ (colorSwatchPListDict) in
-          self.swatches.append(ColorSwatchDescription(fromPList: colorSwatchPListDict))
-        })
-        
-      }
+    ColorSwatchesManager.shared.fetchActiveColorSwatches { (swatches) in
+      self.swatches = swatches
+      self.tableView.reloadData()
     }
-    
-    tableView.reloadData()
   }
   
   
@@ -40,7 +33,7 @@ class ColorSwatchesTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ColorSwatchTableViewCell
     
-    let csd:ColorSwatchDescription = self.swatches[indexPath.item]
+    let csd:ColorSwatch = self.swatches[indexPath.item]
     cell.nameLabel.text = csd.name
     cell.descriptionLabel.text = csd.description
     //cell.buyButton.titleLabel = GET PRICE FROM productID

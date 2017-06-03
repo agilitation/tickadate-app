@@ -3,7 +3,7 @@
 "3Rq-Mi-AYA.title" = "Debug";
 
 /* Class = "UINavigationItem"; title = "Event Types"; ObjectID = "3zO-D4-lgs"; */
-"3zO-D4-lgs.title" = "Types d'événements";
+"3zO-D4-lgs.title" = "Événements";
 
 /* Class = "UIButton"; normalTitle = "Remove Event Types"; ObjectID = "B0X-6e-eSd"; */
 "B0X-6e-eSd.normalTitle" = "Supprimer les types d'événements";
@@ -24,7 +24,7 @@
 "pi1-CI-8HF.normalTitle" = "Color Picker";
 
 /* Class = "UINavigationController"; title = "Event Types"; ObjectID = "seh-Xh-ugV"; */
-"seh-Xh-ugV.title" = "Types d'événements";
+"seh-Xh-ugV.title" = "Événements";
 
 /* Class = "UINavigationItem"; title = "Event Type"; ObjectID = "xMd-4V-DZw"; */
 "xMd-4V-DZw.title" = "Type d'événement";

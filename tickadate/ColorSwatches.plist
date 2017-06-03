@@ -4,13 +4,33 @@
 <array>
 	<dict>
 		<key>name</key>
+		<string>iOS default palette</string>
+		<key>productID</key>
+		<string>CS-iOS</string>
+		<key>description</key>
+		<string>The default iOS 10 color palette</string>
+		<key>filename</key>
+		<string>iOS</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>FlatUI</string>
+		<key>productID</key>
+		<string>CS-FlatUI</string>
+		<key>description</key>
+		<string>A trendy flat UI palette</string>
+		<key>filename</key>
+		<string>FlatUI</string>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Crayola® Bright</string>
 		<key>productID</key>
 		<string>CS-Crayola-Bright</string>
 		<key>description</key>
 		<string>14 catchy colors to brighten up your daily routines</string>
 		<key>filename</key>
-		<string>CrayolaBright.plist</string>
+		<string>CrayolaBright</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -20,17 +40,7 @@
 		<key>description</key>
 		<string>14 catchy colors to brighten up your daily routines</string>
 		<key>filename</key>
-		<string>CrayolaFluorescent.plist</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>RAL</string>
-		<key>productID</key>
-		<string>CS-RAL</string>
-		<key>description</key>
-		<string>The whole 213 tone swatch</string>
-		<key>filename</key>
-		<string>RAL.plist</string>
+		<string>CrayolaFluorescent</string>
 	</dict>
 </array>
 </plist>

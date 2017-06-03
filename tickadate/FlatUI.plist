@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>label</key>
-    <string>FlatUI</string>
-    <key>colors</key>
     <array>
       <dict><key>label</key><string>TURQUOISE</string><key>hex</key><string>#1abc9c</string></dict><dict><key>label</key><string>EMERALD</string><key>hex</key><string>#2ecc71</string></dict><dict><key>label</key><string>PETER RIVER</string><key>hex</key><string>#3498db</string></dict><dict><key>label</key><string>AMETHYST</string><key>hex</key><string>#9b59b6</string></dict><dict><key>label</key><string>WET ASPHALT</string><key>hex</key><string>#34495e</string></dict><dict><key>label</key><string>GREEN SEA</string><key>hex</key><string>#16a085</string></dict><dict><key>label</key><string>NEPHRITIS</string><key>hex</key><string>#27ae60</string></dict><dict><key>label</key><string>BELIZE HOLE</string><key>hex</key><string>#2980b9</string></dict><dict><key>label</key><string>WISTERIA</string><key>hex</key><string>#8e44ad</string></dict><dict><key>label</key><string>MIDNIGHT BLUE</string><key>hex</key><string>#2c3e50</string></dict><dict><key>label</key><string>SUN FLOWER</string><key>hex</key><string>#f1c40f</string></dict><dict><key>label</key><string>CARROT</string><key>hex</key><string>#e67e22</string></dict><dict><key>label</key><string>ALIZARIN</string><key>hex</key><string>#e74c3c</string></dict><dict><key>label</key><string>CLOUDS</string><key>hex</key><string>#ecf0f1</string></dict><dict><key>label</key><string>CONCRETE</string><key>hex</key><string>#95a5a6</string></dict><dict><key>label</key><string>ORANGE</string><key>hex</key><string>#f39c12</string></dict><dict><key>label</key><string>PUMPKIN</string><key>hex</key><string>#d35400</string></dict><dict><key>label</key><string>POMEGRANATE</string><key>hex</key><string>#c0392b</string></dict><dict><key>label</key><string>SILVER</string><key>hex</key><string>#bdc3c7</string></dict><dict><key>label</key><string>ASBESTOS</string><key>hex</key><string>#7f8c8d</string></dict>
     </array>
-  </dict>
 </plist>

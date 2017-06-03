@@ -123,7 +123,7 @@ final class ColorPickerPushRow: SelectorRow<ColorPickerCell, ColorPickerViewCont
       
       let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
       let colorPickerVC =  storyboard.instantiateViewController(withIdentifier: "colorPickerViewController") as! ColorPickerViewController
-//      colorPickerVC.colors = self.options
+
       return colorPickerVC
       }, onDismiss: { vc in
         _ = vc.navigationController?.popViewController(animated: true)
@@ -158,34 +158,24 @@ class ColorPickerViewController: UICollectionViewController, TypedRowControllerT
     }
     return nil
   }
-  
-  var activeSwatches:[String] = ["iOS"/*, "CrayolaBright", "FlatUI"*/]
-  
+    
   var swatches:[ColorSwatch] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    fetchSwatches {
-      self.collectionView?.reloadData()
+    let dg = DispatchGroup()
+
+    ColorSwatchesManager.shared.fetchActiveColorSwatches { (swatches) in
+      swatches.forEach({ (cs) in
+        dg.enter()
+        cs.load(completion: dg.leave)
+      })
+      dg.notify(queue: DispatchQueue.main, execute: { 
+        self.swatches = swatches
+        self.collectionView?.reloadData()
+      })
     }
   }
-  
-  func fetchSwatches(completion: @escaping() -> ()){
-    
-    DispatchQueue.main.async {
-      self.swatches.removeAll(keepingCapacity: true)
-      self.activeSwatches.forEach { (swatchFilename) in
-        if let fileUrl = Bundle.main.url(forResource: swatchFilename, withExtension: "plist"),  let data = try? Data(contentsOf: fileUrl) {
-          if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String:Any] {
-            self.swatches.append(ColorSwatch(fromPList: result!))
-          }
-        }
-      }
-      completion()
-    }
-  }
-  
-  
   
   public var onDismissCallback : ((UIViewController) -> ())?
 
@@ -196,7 +186,7 @@ class ColorPickerViewController: UICollectionViewController, TypedRowControllerT
   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath)
     let label = view.subviews[0] as! UILabel
-    label.text = swatches[indexPath.section].label
+    label.text = swatches[indexPath.section].name
     return view
   }
   

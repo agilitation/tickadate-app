@@ -320,6 +320,11 @@ class DataController: NSObject, CLLocationManagerDelegate {
     }
   }
   
+  func delete(eventType: EventType) {
+    context.delete(eventType)
+    save()
+  }
+  
   func save(){
     if context.hasChanges {
       do {

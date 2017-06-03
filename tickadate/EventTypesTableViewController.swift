@@ -20,7 +20,7 @@ struct EventTypeExample {
   }
 }
 
-class EventTypesTableViewController: UITableViewController, EventTypeFormViewDelegate {
+class EventTypesTableViewController: UITableViewController, EventTypeFormViewDelegate, UINavigationControllerDelegate {
   
   var eventTypeExamples:[EventTypeExample] = []
   var eventTypes:[EventType] = []
@@ -63,6 +63,7 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   override func viewDidLoad() {
     
     super.viewDidLoad()
+    self.navigationController?.delegate = self
     self.dataController = DataController()
     cancelButtonItem = UIBarButtonItem(
       barButtonSystemItem: UIBarButtonSystemItem.cancel,
@@ -74,6 +75,15 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     self.navigationItem.rightBarButtonItem = self.editButtonItem
     
   }
+  
+//  navigationController
+  func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    if viewController == self {
+      
+    }
+    
+  }
+  
   
   // Only one that works
   @IBAction func onBack (_ sender: Any) {
@@ -182,11 +192,13 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
       
       if segue.identifier == "selectEventTypeSegue" {
         let indexPath = tableView.indexPathForSelectedRow!
+        formVC.isNewEventType = false
         formVC.eventType = eventTypes[indexPath.item]
       }
       
       if segue.identifier == "createEventTypeSegue" {
         self.dataController.createEventType(completion: { (et) in
+          formVC.isNewEventType = true
           formVC.eventType = et
         })
       }
@@ -194,6 +206,12 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   }
   
   func eventTypeFormView(_ controller: EventTypeFormViewController, finishedEditingOf eventType: EventType) {
+    if !controller.wasChanged && controller.isNewEventType {
+      dataController.delete(eventType: eventType)
+    }
+    
     self.reload()
   }
+  
+  
 }

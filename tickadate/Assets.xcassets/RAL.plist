@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>label</key>
-    <string>RAL</string>
-    <key>colors</key>
 
 <array>
   <dict><key>hex</key><string>CCC58F</string><key>label</key><string>Green beige</string></dict>
@@ -223,5 +219,4 @@
   <dict><key>hex</key><string>828282</string><key>label</key><string>Pearl dark grey</string></dict>
 
 </array>
-</dict>
 </plist>

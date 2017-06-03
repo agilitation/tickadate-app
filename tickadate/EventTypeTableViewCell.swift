@@ -28,7 +28,7 @@ class EventTypeExampleTableViewCell:UITableViewCell {
     didSet {
       if let example = eventTypeExample {
         label.text = example.name
-        dot.color = DynamicColor(hexString: example.color).tinted(amount:0.9)
+        dot.color = DynamicColor(hexString: example.color).tinted(amount:0.5)
       }
     }
   }

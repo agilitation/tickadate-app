@@ -14,16 +14,11 @@ class EventsOfDayTableViewCell: UITableViewCell {
   @IBOutlet weak var border: UIView!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var eventTypeLabel: UILabel!
+  @IBOutlet weak var detailsLabel: UILabel?
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    let corners = DrawUtils.getCorners(fromRect: self.bounds)
+    DrawUtils.drawLine(onLayer: self.layer, fromPoint: corners.bottomLeft, toPoint: corners.bottomRight, color: UIColor.black.tinted(amount: 0.8).cgColor)
+  }
 }
