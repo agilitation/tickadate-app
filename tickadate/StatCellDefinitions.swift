@@ -176,7 +176,9 @@ class DayOfYearStatCell : EventTypeStatCellBuilder {
     cell.grid.numberOfRows = 7
     cell.grid.space = 1
     cell.grid.direction = GridStatLayoutDirection(first: .ttb, second: .ltr)
-    
+    cell.label.text = NSLocalizedString("stats/dayOfYear/label",
+                                        comment: "Label for day of year stat")
+
     let cal = Calendar.current
     let components = cal.dateComponents([.year], from: Date())
     let firstDayOfCurrentYear:Date = cal.date(from: components)!

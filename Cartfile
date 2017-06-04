@@ -1,0 +1,3 @@
+github "yannickl/DynamicColor" >= 3.3
+github "xmartlabs/Eureka" ~> 3.0.0
+github "bizz84/SwiftyStoreKit"

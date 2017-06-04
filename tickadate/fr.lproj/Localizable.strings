@@ -8,6 +8,9 @@
 /* No comment provided by engineer. */
 "Clear Photo" = "Supprimer la photo";
 
+/* Generic 'back' action */
+"common/back" = "Retour";
+
 /* Generic 'cancel' action */
 "common/cancel" = "Annuler";
 
@@ -56,6 +59,9 @@
 /* Label for the 'DefaultValues / Time' time row */
 "eventType/form/defaultValues/time/label" = "Heure de démarrage";
 
+/* Title for the default values section */
+"eventType/form/defaultValues/title" = "Valeurs par défaut";
+
 /* Label for the 'DefaultValues / Title' textfield row */
 "eventType/form/defaultValues/title/label" = "Titre";
 
@@ -67,6 +73,9 @@
 
 /* Label for the 'Publish / shouldCreateEventInCalendar' switch row */
 "eventType/form/publish/shouldCreateEventInCalendar/label" = "Publier dans un calendrier";
+
+/* Title for the Publish section */
+"eventType/form/publish/title" = "Publication";
 
 /* 'In a week' action from the quick date picker, +7d */
 "quickDatePicker/inAWeek" = "Dans une semaine";
@@ -82,6 +91,9 @@
 
 /* 'Yesterday' action from the quick date picker, -1d */
 "quickDatePicker/yesterday" = "Hier";
+
+/* Label for day of year stat */
+"stats/dayOfYear/label" = "Fréquence sur l'année";
 
 /* 
   App.strings
@@ -127,3 +139,6 @@
 
 /* Detail text in ColorPickerPushRow cell when there's no color matching the saved version */
 "ColorPickerPushRow/cell/noColor" = "";
+
+/* Title for the base section */
+"eventType/form/base/title" = "";

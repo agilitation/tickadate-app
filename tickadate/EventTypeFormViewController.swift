@@ -54,7 +54,7 @@ class EventTypeFormViewController: FormViewController {
     
     
     
-    form +++ Section("Base")
+    form +++ Section(NSLocalizedString("eventType/form/base/title", comment: "Title for the base section"))
       <<< TextRow("name"){
         $0.title = NSLocalizedString("eventType/form/base/name/label", comment: "Label for the event type name textfield row")
         $0.placeholder = NSLocalizedString("eventType/form/base/name/placeholder", comment: "Placeholder inviting user to name its event type")
@@ -98,7 +98,7 @@ class EventTypeFormViewController: FormViewController {
           self.dc.save()
         })
       
-      +++ Section("Default values")
+      +++ Section(NSLocalizedString("eventType/form/defaultValues/title", comment: "Title for the default values section"))
       <<< TextRow("defaultValues.title"){
         $0.title = NSLocalizedString("eventType/form/defaultValues/title/label", comment: "Label for the 'DefaultValues / Title' textfield row")
         $0.placeholder = NSLocalizedString("eventType/form/defaultValues/title/placeholder",
@@ -145,7 +145,7 @@ class EventTypeFormViewController: FormViewController {
           self.dc.save()
         })
       
-      +++ Section("Publish")
+      +++ Section(NSLocalizedString("eventType/form/publish/title", comment: "Title for the Publish section"))
       <<< SwitchRow("shouldCreateEventInCalendar"){
         $0.title = NSLocalizedString("eventType/form/publish/shouldCreateEventInCalendar/label", comment: "Label for the 'Publish / shouldCreateEventInCalendar' switch row")
         $0.value = eventType?.shouldCreateEventInCalendar ?? false

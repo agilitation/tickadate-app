@@ -20,13 +20,21 @@ struct EventTypeExample {
   }
 }
 
+
 class EventTypesTableViewController: UITableViewController, EventTypeFormViewDelegate, UINavigationControllerDelegate {
+
+  enum sections:Int {
+    case progress = 0
+    case eventTypes =  1
+    case examples = 2
+  }
   
   var eventTypeExamples:[EventTypeExample] = []
   var eventTypes:[EventType] = []
-  var selectedEventType:EventType!
   var dataController:DataController!
   var isEditingCancelled:Bool! = false
+  var nc:NotificationCenter = NotificationCenter.default
+
   
   @IBOutlet weak var backButtonItem: UIBarButtonItem!
   
@@ -73,16 +81,14 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     self.reload()
     self.cancelEditMode(nil)
     self.navigationItem.rightBarButtonItem = self.editButtonItem
+    self.backButtonItem.title = CommonStrings.back
     
+    nc.addObserver(forName: NSNotification.Name("eventTypes.change"), object: nil, queue: nil) { (notif) in
+      let ip = IndexPath(item: 0, section: sections.progress.rawValue)
+      self.tableView.reloadRows(at: [ip], with: .fade)
+    }
   }
   
-//  navigationController
-  func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-    if viewController == self {
-      
-    }
-    
-  }
   
   
   // Only one that works
@@ -111,28 +117,43 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return 3
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch section {
-    case 0:
+    case sections.progress.rawValue:
+      return 1
+    case sections.eventTypes.rawValue:
       return self.eventTypes.count
-    case 1:
+    case sections.examples.rawValue:
       return self.eventTypeExamples.count
     default:
       return 0
     }
   }
   
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    if indexPath.section == sections.progress.rawValue {
+      return 34
+    } else {
+      return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+  }
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     switch indexPath.section {
-    case 0:
+    case sections.progress.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "progress", for: indexPath) as! EventTypeProgressTableViewCell
+      cell.progress.progress = Float(self.eventTypes.count) / Float(IAPManager.shared.eventTypesCount)
+      cell.caption.text = String(format: "%d / %d events", self.eventTypes.count, IAPManager.shared.eventTypesCount)
+      return cell
+    case sections.eventTypes.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventTypeTableViewCell
       cell.eventType = eventTypes[indexPath.item]
       return cell
-    case 1:
+    case sections.examples.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath) as! EventTypeExampleTableViewCell
       cell.eventTypeExample = eventTypeExamples[indexPath.item]
       return cell
@@ -142,7 +163,7 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   }
   
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return indexPath.section == 0
+    return indexPath.section == sections.eventTypes.rawValue
   }
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -157,7 +178,7 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     eventTypes.insert(element, at: to.item)
   }
   
-
+  
   override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
     if sourceIndexPath.section != proposedDestinationIndexPath.section {
       var row = 0
@@ -171,7 +192,20 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   
   
   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-    return indexPath.section == 0
+    return indexPath.section == sections.eventTypes.rawValue
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if indexPath.section != sections.examples.rawValue {
+      return
+    }
+    
+    if eventTypes.count < IAPManager.shared.eventTypesCount {
+      performSegue(withIdentifier: "createEventTypeSegue", sender: self)
+    } else {
+      self.alertForUnsufficientEventTypes()
+    }
+    
   }
   
   // MARK: - Navigation
@@ -203,6 +237,42 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
         })
       }
     }
+  }
+  
+  func alertForUnsufficientEventTypes(){
+    let alert:UIAlertController = UIAlertController(
+      title: "Unsufficient event types",
+      message: "Why dont you give me money", preferredStyle: .alert
+    )
+    
+    alert.addAction(UIAlertAction(
+      title: CommonStrings.cancel,
+      style: .cancel,
+      handler: { (action) in print("cancel") }
+    ))
+    
+    alert.addAction(UIAlertAction(
+      title: "Buy 3",
+      style: .default,
+      handler: { (action) in
+        IAPManager.shared.purchase(.threeAdditionalEventTypes, completion: {
+          self.performSegue(withIdentifier: "createEventTypeSegue", sender: self)
+        })
+    }
+    ))
+    
+    alert.addAction(UIAlertAction(
+      title: "Unlock",
+      style: .default,
+      handler: { (action) in
+        IAPManager.shared.purchase(.unlimitedEventTypes, completion: {
+          self.performSegue(withIdentifier: "createEventTypeSegue", sender: self)
+        })
+    }
+    ))
+
+    self.present(alert, animated: true, completion: nil)
+
   }
   
   func eventTypeFormView(_ controller: EventTypeFormViewController, finishedEditingOf eventType: EventType) {

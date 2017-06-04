@@ -18,6 +18,7 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
   // IBOutlets or whatever you need for your cell
   public override func setup() {
     
+    print("setup")
     height = { BaseRow.estimatedRowHeight }
 
     self.circle = CircleView(frame: CGRect(

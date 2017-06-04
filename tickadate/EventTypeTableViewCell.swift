@@ -8,7 +8,7 @@
 
 import UIKit
 import DynamicColor
-class EventTypeTableViewCell: UITableViewCell {
+class EventTypeTableViewCell: BorderedTableViewCell {
 
     var eventType:EventType? {
         didSet {
@@ -22,7 +22,7 @@ class EventTypeTableViewCell: UITableViewCell {
 }
 
 
-class EventTypeExampleTableViewCell:UITableViewCell {
+class EventTypeExampleTableViewCell:BorderedTableViewCell {
   
   var eventTypeExample:EventTypeExample? {
     didSet {
@@ -34,4 +34,9 @@ class EventTypeExampleTableViewCell:UITableViewCell {
   }
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var dot: CircleView!
+}
+
+class EventTypeProgressTableViewCell:BorderedTableViewCell {
+  @IBOutlet weak var caption: UILabel!
+  @IBOutlet weak var progress: UIProgressView!
 }

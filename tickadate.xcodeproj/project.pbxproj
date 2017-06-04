@@ -23,7 +23,6 @@
 		7A443F001ED58D0300B40475 /* GridStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A443EFF1ED58D0300B40475 /* GridStatView.swift */; };
 		7A4865261EC6F41A00456BDF /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4865251EC6F41A00456BDF /* BorderedView.swift */; };
 		7A4865281EC701C500456BDF /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4865271EC701C500456BDF /* DateUtils.swift */; };
-		7A48652A1EC73C4200456BDF /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4865291EC73C4200456BDF /* SwiftIconFont.framework */; };
 		7A48652C1EC7563E00456BDF /* EventTypeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A48652B1EC7563E00456BDF /* EventTypeFormViewController.swift */; };
 		7A748DB91EC9ACA600E3F682 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A748DB81EC9ACA600E3F682 /* DebugViewController.swift */; };
 		7A873F2D1EE00B4900E0A058 /* BuyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F2C1EE00B4900E0A058 /* BuyButton.swift */; };
@@ -36,6 +35,9 @@
 		7A873F431EE154FB00E0A058 /* EventsOfDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */; };
 		7A873F461EE15E9600E0A058 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F451EE15E9600E0A058 /* IAPManager.swift */; };
 		7A873F481EE1AB2600E0A058 /* PListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F471EE1AB2600E0A058 /* PListParser.swift */; };
+		7A873F4A1EE337AD00E0A058 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F491EE337AD00E0A058 /* Cartfile */; };
+		7A873F4C1EE3862500E0A058 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */; };
+		7A873F4E1EE408A400E0A058 /* BorderedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F4D1EE408A400E0A058 /* BorderedTableViewCell.swift */; };
 		7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA51EC112B800CF0002 /* EventTypesController.swift */; };
 		7A901CA81EC1135200CF0002 /* EventTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */; };
 		7A901CAC1EC11A7300CF0002 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CAB1EC11A7300CF0002 /* CalendarController.swift */; };
@@ -131,6 +133,9 @@
 		7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsOfDay.storyboard; sourceTree = "<group>"; };
 		7A873F451EE15E9600E0A058 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		7A873F471EE1AB2600E0A058 /* PListParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PListParser.swift; sourceTree = "<group>"; };
+		7A873F491EE337AD00E0A058 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyStoreKit.framework; path = Carthage/Build/iOS/SwiftyStoreKit.framework; sourceTree = "<group>"; };
+		7A873F4D1EE408A400E0A058 /* BorderedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedTableViewCell.swift; sourceTree = "<group>"; };
 		7A901CA51EC112B800CF0002 /* EventTypesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesController.swift; sourceTree = "<group>"; };
 		7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A901CAB1EC11A7300CF0002 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -189,7 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A48652A1EC73C4200456BDF /* SwiftIconFont.framework in Frameworks */,
+				7A873F4C1EE3862500E0A058 /* SwiftyStoreKit.framework in Frameworks */,
 				7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */,
 				7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */,
 				7A1C13A91EDC3B12007A6D75 /* StoreKit.framework in Frameworks */,
@@ -226,6 +231,7 @@
 				7AF97EDD1EC454B400DD5AC1 /* DrawUtils.swift */,
 				7A873F2C1EE00B4900E0A058 /* BuyButton.swift */,
 				7A873F471EE1AB2600E0A058 /* PListParser.swift */,
+				7A873F4D1EE408A400E0A058 /* BorderedTableViewCell.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 		7A901CF61EC22BED00CF0002 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */,
 				7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */,
 				7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */,
 				7A4865291EC73C4200456BDF /* SwiftIconFont.framework */,
@@ -376,6 +383,7 @@
 		7AB0B0C11EC07D4500BEC76C = {
 			isa = PBXGroup;
 			children = (
+				7A873F491EE337AD00E0A058 /* Cartfile */,
 				7A901CF61EC22BED00CF0002 /* Frameworks */,
 				7AB0B0CB1EC07D4500BEC76C /* Products */,
 				7AB0B0CC1EC07D4500BEC76C /* tickadate */,
@@ -578,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A873F361EE0A8E000E0A058 /* iOS.plist in Resources */,
+				7A873F4A1EE337AD00E0A058 /* Cartfile in Resources */,
 				7AB0B0D81EC07D4600BEC76C /* LaunchScreen.storyboard in Resources */,
 				7A873F3D1EE0B6CB00E0A058 /* FlatUI.plist in Resources */,
 				7A873F331EE04B2B00E0A058 /* EventTypeExamples.plist in Resources */,
@@ -623,7 +632,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/DynamicColor.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftIconFont.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyStoreKit.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
@@ -659,6 +668,7 @@
 				7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */,
 				7A748DB91EC9ACA600E3F682 /* DebugViewController.swift in Sources */,
 				7AD7BC571ED33CC3005AA9EF /* EventTypeStats.swift in Sources */,
+				7A873F4E1EE408A400E0A058 /* BorderedTableViewCell.swift in Sources */,
 				7A873F481EE1AB2600E0A058 /* PListParser.swift in Sources */,
 				7A4865261EC6F41A00456BDF /* BorderedView.swift in Sources */,
 				7A4865281EC701C500456BDF /* DateUtils.swift in Sources */,

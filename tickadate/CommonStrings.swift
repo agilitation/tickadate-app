@@ -13,4 +13,5 @@ struct CommonStrings {
 
   static let cancel = NSLocalizedString("common/cancel", comment: "Generic 'cancel' action")
   static let confirm = NSLocalizedString("common/confirm", comment: "Generic 'confirm' action")
+  static let back = NSLocalizedString("common/back", comment: "Generic 'back' action")
 }

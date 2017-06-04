@@ -1,4 +1,7 @@
 
+/* Generic 'back' action */
+"common/back" = "Back";
+
 /* Generic 'cancel' action */
 "common/cancel" = "Cancel";
 
@@ -47,6 +50,9 @@
 /* Label for the 'DefaultValues / Time' time row */
 "eventType/form/defaultValues/time/label" = "Start time";
 
+/* Title for the default values section */
+"eventType/form/defaultValues/title" = "Default values";
+
 /* Label for the 'DefaultValues / Title' textfield row */
 "eventType/form/defaultValues/title/label" = "Event title in calendar";
 
@@ -58,6 +64,9 @@
 
 /* Label for the 'Publish / shouldCreateEventInCalendar' switch row */
 "eventType/form/publish/shouldCreateEventInCalendar/label" = "Create events in my calendar";
+
+/* Title for the Publish section */
+"eventType/form/publish/title" = "Publish options";
 
 /* 'In a week' action from the quick date picker, +7d */
 "quickDatePicker/inAWeek" = "In a week";
@@ -73,6 +82,9 @@
 
 /* 'Yesterday' action from the quick date picker, -1d */
 "quickDatePicker/yesterday" = "Yesterday";
+
+/* Label for day of year stat */
+"stats/dayOfYear/label" = "Current year frequency";
 
 /*
  App.strings
@@ -124,6 +136,9 @@
 
 /* Detail text in ColorPickerPushRow cell when there's no color matching the saved version */
 "ColorPickerPushRow/cell/noColor" = "";
+
+/* Title for the base section */
+"eventType/form/base/title" = "";
 
 /* Unit for interval stat */
 "stats/interval/unit" = "";

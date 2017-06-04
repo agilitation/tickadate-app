@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="all" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="seh-Xh-ugV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="seh-Xh-ugV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,27 +14,59 @@
         <scene sceneID="2WJ-eT-Xl4">
             <objects>
                 <tableViewController storyboardIdentifier="eventTypesTableView" id="krc-pP-F8w" customClass="EventTypesTableViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sBx-6A-liv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sBx-6A-liv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gbb-7v-qhs" customClass="EventTypeTableViewCell" customModule="tickadate" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="progress" rowHeight="34" id="hOg-fJ-gIc" customClass="EventTypeProgressTableViewCell" customModule="tickadate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbb-7v-qhs" id="fWa-Hk-vME">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOg-fJ-gIc" id="Nha-qf-uxP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnw-29-hC0">
-                                            <rect key="frame" x="8" y="11" width="315" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iVa-Wh-LFw">
+                                            <rect key="frame" x="16" y="8" width="288" height="2"/>
+                                        </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/3 remaining events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-ZY-But">
+                                            <rect key="frame" x="16" y="10" width="288" height="23.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="iVa-Wh-LFw" firstAttribute="leading" secondItem="Nha-qf-uxP" secondAttribute="leadingMargin" constant="8" id="7nO-rd-nEx"/>
+                                        <constraint firstAttribute="bottom" secondItem="fSP-ZY-But" secondAttribute="bottom" id="93L-of-Nam"/>
+                                        <constraint firstItem="iVa-Wh-LFw" firstAttribute="top" secondItem="Nha-qf-uxP" secondAttribute="topMargin" id="DAn-RX-RoM"/>
+                                        <constraint firstItem="fSP-ZY-But" firstAttribute="leading" secondItem="Nha-qf-uxP" secondAttribute="leadingMargin" constant="8" id="PFD-Qj-edB"/>
+                                        <constraint firstItem="fSP-ZY-But" firstAttribute="top" secondItem="iVa-Wh-LFw" secondAttribute="bottom" id="XU5-iE-v9G"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="iVa-Wh-LFw" secondAttribute="trailing" constant="8" id="fAt-eB-YeK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fSP-ZY-But" secondAttribute="trailing" constant="8" id="rSu-em-Fzz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="caption" destination="fSP-ZY-But" id="l3z-Um-pNE"/>
+                                    <outlet property="progress" destination="iVa-Wh-LFw" id="gFW-po-CvH"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gbb-7v-qhs" customClass="EventTypeTableViewCell" customModule="tickadate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="62" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbb-7v-qhs" id="fWa-Hk-vME">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnw-29-hC0">
+                                            <rect key="frame" x="16" y="11" width="296" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoD-S6-GcS" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="280" y="9" width="24" height="24"/>
+                                            <rect key="frame" x="280" y="10" width="24" height="24"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="4eQ-gO-o3j"/>
@@ -43,8 +75,11 @@
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Bnw-29-hC0" firstAttribute="centerY" secondItem="fWa-Hk-vME" secondAttribute="centerY" id="0WW-mD-Sk3"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="LoD-S6-GcS" secondAttribute="bottom" constant="2" id="QSV-gQ-wEQ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="LoD-S6-GcS" secondAttribute="trailing" constant="8" id="f0m-Fc-gL8"/>
+                                        <constraint firstItem="Bnw-29-hC0" firstAttribute="leading" secondItem="fWa-Hk-vME" secondAttribute="leadingMargin" constant="8" id="xGA-EJ-d2m"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Bnw-29-hC0" secondAttribute="trailing" id="zfR-gd-bSq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -54,21 +89,20 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="placeholderCell" id="ecb-VH-yGg" customClass="EventTypeExampleTableViewCell" customModule="tickadate" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="106" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ecb-VH-yGg" id="HaD-IX-1cW">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCQ-tf-nr7">
-                                            <rect key="frame" x="8" y="11" width="315" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCQ-tf-nr7">
+                                            <rect key="frame" x="16" y="11" width="296" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIz-7g-lsP" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
-                                            <rect key="frame" x="280" y="9" width="24" height="24"/>
+                                            <rect key="frame" x="280" y="10" width="24" height="24"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="Xok-p7-6ye"/>
@@ -78,13 +112,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="OIz-7g-lsP" secondAttribute="bottom" constant="2" id="5hy-Qq-3xa"/>
+                                        <constraint firstItem="LCQ-tf-nr7" firstAttribute="leading" secondItem="HaD-IX-1cW" secondAttribute="leadingMargin" constant="8" id="7V5-cg-N8s"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LCQ-tf-nr7" secondAttribute="trailing" id="9Nb-os-bG7"/>
+                                        <constraint firstItem="LCQ-tf-nr7" firstAttribute="centerY" secondItem="HaD-IX-1cW" secondAttribute="centerY" id="fjD-0d-0Sq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="OIz-7g-lsP" secondAttribute="trailing" constant="8" id="r9P-Mm-qRw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dot" destination="OIz-7g-lsP" id="WdX-aW-bom"/>
                                     <outlet property="label" destination="LCQ-tf-nr7" id="eql-IB-WKC"/>
-                                    <segue destination="OUS-jc-Emm" kind="show" identifier="createEventTypeSegue" id="roF-7U-ozg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -93,19 +129,7 @@
                             <outlet property="delegate" destination="krc-pP-F8w" id="XzZ-nz-Tlm"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Debug" id="3Rq-Mi-AYA">
-                            <connections>
-                                <segue destination="0Q0-Dj-ql4" kind="show" id="x8W-ng-gMc"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="WBE-ej-2A9"/>
-                        <barButtonItem systemItem="add" id="fNU-Po-lnk">
-                            <connections>
-                                <segue destination="OUS-jc-Emm" kind="show" identifier="createEventTypeSegue" id="MWt-1i-8yA"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Event Types" id="3zO-D4-lgs">
                         <barButtonItem key="backBarButtonItem" tag="1" title="Back" id="XrV-9m-tLQ">
                             <connections>
@@ -116,6 +140,7 @@
                     <connections>
                         <outlet property="backButtonItem" destination="XrV-9m-tLQ" id="Iim-Xv-6Lj"/>
                         <segue destination="kgw-fM-dOx" kind="unwind" identifier="unwindToViewController" unwindAction="unwindToViewControllerWithSegue:" id="Owq-N3-YzJ"/>
+                        <segue destination="OUS-jc-Emm" kind="show" identifier="createEventTypeSegue" id="UOm-mU-M4b"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mju-bR-mel" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -126,13 +151,13 @@
         <!--Debug View Controller-->
         <scene sceneID="y0X-0W-hez">
             <objects>
-                <viewController id="0Q0-Dj-ql4" customClass="DebugViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="debugVC" id="0Q0-Dj-ql4" customClass="DebugViewController" customModule="tickadate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NSv-1T-k8t"/>
                         <viewControllerLayoutGuide type="bottom" id="6b3-RL-pRx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="azh-j1-FdH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0X-6e-eSd">
@@ -197,7 +222,7 @@
         <!--Event Types-->
         <scene sceneID="IRW-fM-MUc">
             <objects>
-                <navigationController title="Event Types" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="seh-Xh-ugV" sceneMemberID="viewController">
+                <navigationController title="Event Types" automaticallyAdjustsScrollViewInsets="NO" id="seh-Xh-ugV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <fixedSimulatedSizeMetrics key="simulatedDestinationMetrics">
                         <size key="portraitSize" width="320" height="480"/>
@@ -230,6 +255,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="roF-7U-ozg"/>
+        <segue reference="UOm-mU-M4b"/>
     </inferredMetricsTieBreakers>
 </document>
