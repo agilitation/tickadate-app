@@ -125,6 +125,10 @@ class DataController: NSObject, CLLocationManagerDelegate {
       if type.shouldCreateEventInCalendar && type.ekCalendarIdentifier != nil {
         createCalendarEvent(fromEvent: event)
       }
+      
+      if type.shouldCreateReminder && type.reminderEkCalendarIdentifier != nil {
+        createReminder(fromEvent: event)
+      }
     }
     
     DispatchQueue.main.async {
@@ -134,10 +138,20 @@ class DataController: NSObject, CLLocationManagerDelegate {
       event.details = details
       
       if let defaultValues = type.defaultValues {
+        
+        let dayComps = cal.dateComponents([.day, .month, .year], from: date)
+        let dayDate = cal.date(from: dayComps)!
+        
+        
+        
         event.duration = Int16(defaultValues.duration)
-        event.date = cal.date(byAdding: .minute,
-                              value: Int(defaultValues.time),
-                              to: date)! as NSDate
+        
+        if defaultValues.time != nil {
+          event.date = cal.date(byAdding: .minute,
+                                value: Int(defaultValues.time!),
+                                to: dayDate)! as NSDate
+          
+        }
         
       } else {
         let todayComps = cal.dateComponents([.hour, .minute], from: Date())
@@ -188,6 +202,37 @@ class DataController: NSObject, CLLocationManagerDelegate {
       })
     } else {
       completionHandler()
+    }
+  }
+  
+  
+  
+  func createReminder(fromEvent event:Event){
+    let eventStore : EKEventStore = EKEventStore()
+    let type:EventType = event.type!
+    eventStore.requestAccess(to: .reminder) { (granted, error) in
+      let reminder =  EKReminder(eventStore: eventStore)
+      reminder.title = type.defaultValues?.title ?? type.name!
+      
+      if let calendar = eventStore.calendar(withIdentifier: type.reminderEkCalendarIdentifier!) {
+        reminder.calendar = calendar
+      } else {
+        return
+      }
+      
+      var dueDate = Calendar.current.date(byAdding: .day, value: Int(type.reminderDaysDelay) , to: event.date! as Date)!
+      // todo -> it's flawed
+      if type.reminderTime != nil{
+        dueDate = DateUtils.dateWithFixedTime(fromDate: dueDate, withFixedTimeInMinutes: type.reminderTime!)
+      }
+      
+      reminder.dueDateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: dueDate)
+      do {
+        try eventStore.save(reminder, commit: true)
+        print("Successfully created the reminder")
+      }catch{
+        print("Error creating and saving new reminder : \(error)")
+      }
     }
   }
   

@@ -13,15 +13,24 @@ import DynamicColor
 
 class EventDotsStack: UIView {
   
+  static var drawCount:Int = 0
+  
+  
   let margin:CGFloat! = 2.0
   let diameter:CGFloat! = 6.0
+  var cnt:Int = 0
   var dots:[String] = [] {
     didSet {
-      self.setNeedsDisplay()
+      if (dots.count > 0 || cnt != dots.count) {
+        cnt = dots.count
+        self.setNeedsDisplay()
+      }
     }
   }
   
   override func draw(_ rect: CGRect) {
+    EventDotsStack.drawCount = EventDotsStack.drawCount.advanced(by: 1)
+    print(EventDotsStack.drawCount)
     if let context:CGContext =  UIGraphicsGetCurrentContext() {
       context.clear(rect)
       let existingCircleCount = self.subviews.count

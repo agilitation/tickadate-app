@@ -50,11 +50,11 @@ class EventTypeFormViewController: FormViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     let eventStore : EKEventStore = EKEventStore()
-    let locationManager = CLLocationManager()
+    //    let locationManager = CLLocationManager()
     
     
     
-    form +++ Section(NSLocalizedString("eventType/form/base/title", comment: "Title for the base section"))
+    form +++ Section()
       <<< TextRow("name"){
         $0.title = NSLocalizedString("eventType/form/base/name/label", comment: "Label for the event type name textfield row")
         $0.placeholder = NSLocalizedString("eventType/form/base/name/placeholder", comment: "Placeholder inviting user to name its event type")
@@ -87,27 +87,6 @@ class EventTypeFormViewController: FormViewController {
           self.eventType!.isAllDay = row.value ?? false
           self.dc.save()
         })
-      <<< SwitchRow("shoudAskForLocation"){
-        $0.title = NSLocalizedString("eventType/form/base/shouldAskForLocation/label", comment: "Label for the 'request location' Switch row")
-        $0.value = eventType?.shouldAskForLocation ?? false
-        }.onChange({ (row) in
-          if(row.value ?? false){
-            locationManager.requestWhenInUseAuthorization()
-          }
-          self.eventType!.shouldAskForLocation = row.value ?? false
-          self.dc.save()
-        })
-      
-      +++ Section(NSLocalizedString("eventType/form/defaultValues/title", comment: "Title for the default values section"))
-      <<< TextRow("defaultValues.title"){
-        $0.title = NSLocalizedString("eventType/form/defaultValues/title/label", comment: "Label for the 'DefaultValues / Title' textfield row")
-        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/title/placeholder",
-                                           comment: "Placeholder for the 'DefaultValues / Title' textfield row")
-        $0.value = eventType?.defaultValues?.title ?? nil
-        }.onChange({ (row) in
-          self.dc.getDefaultValues(forEventType: self.eventType!).title = row.value ?? ""
-          self.dc.save()
-        })
       <<< TimeRow("defaultValues.time") {
         $0.hidden = Condition.function(["isAllDay"], { form in
           return ((form.rowBy(tag: "isAllDay") as? SwitchRow)?.value ?? false)
@@ -120,7 +99,7 @@ class EventTypeFormViewController: FormViewController {
         }
         }.onChange({ (row) in
           let comps:DateComponents = Calendar.current.dateComponents([.hour, .minute], from: row.value!)
-          self.dc.getDefaultValues(forEventType: self.eventType!).time = Int16(comps.hour! * 60 + comps.minute!)
+          self.dc.getDefaultValues(forEventType: self.eventType!).time = Int16(comps.hour! * 60 + comps.minute!) as NSNumber
           self.dc.save()
         })
       <<< IntRow("defaultValues.duration"){
@@ -136,16 +115,23 @@ class EventTypeFormViewController: FormViewController {
           self.dc.getDefaultValues(forEventType: self.eventType!).duration = Int16(row.value ?? 0)
           self.dc.save()
         })
-      <<< TextAreaRow("defaultValues.notes") {
-        $0.title = NSLocalizedString("eventType/form/defaultValues/notes/label", comment: "Label for the 'DefaultValues / Notes' textarea row")
-        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/notes/placeholder", comment: "Placeholder for the 'DefaultValues / Notes' textarea row")
-        $0.value = eventType?.defaultValues?.notes ?? nil
-        }.onChange({ ( row) in
-          self.dc.getDefaultValues(forEventType: self.eventType!).notes = row.value ?? ""
-          self.dc.save()
-        })
       
-      +++ Section(NSLocalizedString("eventType/form/publish/title", comment: "Title for the Publish section"))
+      /*
+       <<< SwitchRow("shoudAskForLocation"){
+       $0.title = NSLocalizedString("eventType/form/base/shouldAskForLocation/label", comment: "Label for the 'request location' Switch row")
+       $0.value = eventType?.shouldAskForLocation ?? false
+       }.onChange({ (row) in
+       if(row.value ?? false){
+       locationManager.requestWhenInUseAuthorization()
+       }
+       self.eventType!.shouldAskForLocation = row.value ?? false
+       self.dc.save()
+       })*/
+      
+      
+      +++ Section()
+      
+      
       <<< SwitchRow("shouldCreateEventInCalendar"){
         $0.title = NSLocalizedString("eventType/form/publish/shouldCreateEventInCalendar/label", comment: "Label for the 'Publish / shouldCreateEventInCalendar' switch row")
         $0.value = eventType?.shouldCreateEventInCalendar ?? false
@@ -159,6 +145,11 @@ class EventTypeFormViewController: FormViewController {
                 calendarRow.options = self.calendarsAllowingContentModifications()
                 calendarRow.value = eventStore.defaultCalendarForNewEvents
                 self.eventType!.shouldCreateEventInCalendar = shouldCreateEventInCalendar
+                
+                if self.eventType!.ekCalendarIdentifier == nil {
+                  self.eventType!.ekCalendarIdentifier = eventStore.defaultCalendarForNewEvents.calendarIdentifier
+                }
+                
                 self.dc.save()
               } else {
                 row.value = false
@@ -166,6 +157,7 @@ class EventTypeFormViewController: FormViewController {
             }
           }
         })
+      
       <<< PushRow<EKCalendar>("calendar"){
         
         $0.hidden = Condition.function(["shouldCreateEventInCalendar"], { form in
@@ -188,6 +180,126 @@ class EventTypeFormViewController: FormViewController {
           self.eventType!.ekCalendarIdentifier = row.value?.calendarIdentifier
           self.dc.save()
         })
+      
+      <<< TextRow("defaultValues.title"){
+        
+        $0.hidden = Condition.function(["shouldCreateEventInCalendar"], { form in
+          return !((form.rowBy(tag: "shouldCreateEventInCalendar") as? SwitchRow)?.value ?? false)
+        })
+        
+        $0.title = NSLocalizedString("eventType/form/defaultValues/title/label", comment: "Label for the 'DefaultValues / Title' textfield row")
+        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/title/placeholder",
+                                           comment: "Placeholder for the 'DefaultValues / Title' textfield row")
+        $0.value = eventType?.defaultValues?.title ?? nil
+        }.onChange({ (row) in
+          self.dc.getDefaultValues(forEventType: self.eventType!).title = row.value ?? ""
+          self.dc.save()
+        })
+      
+      <<< TextAreaRow("defaultValues.notes") {
+        
+        $0.hidden = Condition.function(["shouldCreateEventInCalendar"], { form in
+          return !((form.rowBy(tag: "shouldCreateEventInCalendar") as? SwitchRow)?.value ?? false)
+        })
+        
+        $0.title = NSLocalizedString("eventType/form/defaultValues/notes/label", comment: "Label for the 'DefaultValues / Notes' textarea row")
+        $0.placeholder = NSLocalizedString("eventType/form/defaultValues/notes/placeholder", comment: "Placeholder for the 'DefaultValues / Notes' textarea row")
+        $0.value = eventType?.defaultValues?.notes ?? nil
+        }.onChange({ ( row) in
+          self.dc.getDefaultValues(forEventType: self.eventType!).notes = row.value ?? ""
+          self.dc.save()
+        })
+      
+      +++ Section()
+      
+      
+      <<< SwitchRow("shouldCreateReminder"){
+        $0.title = NSLocalizedString("eventType/form/publish/shouldCreateReminder/label", comment: "Label for the 'Publish / shouldCreateReminder' switch row")
+        $0.value = eventType?.shouldCreateReminder ?? false
+        }.onChange({ (row) in
+          let shouldCreateReminder:Bool = row.value ?? false
+          
+          if shouldCreateReminder {
+            eventStore.requestAccess(to: .reminder) { (granted, error) in
+              if granted {
+                let calendarRow = self.form.rowBy(tag: "reminderList") as! PushRow<EKCalendar>
+                calendarRow.options = self.reminderListsAllowingContentModifications()
+                calendarRow.value = eventStore.defaultCalendarForNewReminders()
+                self.eventType!.shouldCreateReminder = shouldCreateReminder
+                if self.eventType!.reminderEkCalendarIdentifier == nil {
+                  self.eventType!.reminderEkCalendarIdentifier = eventStore.defaultCalendarForNewReminders().calendarIdentifier
+                }
+                self.dc.save()
+              } else {
+                row.value = false
+              }
+            }
+          }
+        })
+      
+      <<< PushRow<EKCalendar>("reminderList"){
+        //VISIBLE IF REMINDER CHECKED
+        $0.hidden = Condition.function(["shouldCreateReminder"], { form in
+          return !((form.rowBy(tag: "shouldCreateReminder") as? SwitchRow)?.value ?? false)
+        })
+        
+        $0.title = NSLocalizedString("eventType/form/publish/reminderLists/label", comment: "Title for the 'Publish / reminderLists' push row")
+        $0.options = self.reminderListsAllowingContentModifications()
+        
+        if let selectedCalendar = eventType?.reminderEkCalendarIdentifier {
+          $0.value = eventStore.calendar(withIdentifier: selectedCalendar)
+        } else {
+          $0.value = eventStore.defaultCalendarForNewReminders()
+        }
+        
+        $0.displayValueFor = { calendar in
+          return calendar?.title ?? ""
+        }
+        }.onChange({ (row) in
+          self.eventType!.reminderEkCalendarIdentifier = row.value?.calendarIdentifier
+          self.dc.save()
+        })
+      
+      
+      <<< IntRow("reminder.days"){
+        //VISIBLE IF REMINDER CHECKED
+        $0.hidden = Condition.function(["shouldCreateReminder"], { form in
+          return !((form.rowBy(tag: "shouldCreateReminder") as? SwitchRow)?.value ?? false)
+        })
+        
+        $0.title = NSLocalizedString("eventType/form/reminder/days/label", comment: "Label for the 'createReminder/day' int row")
+        $0.placeholder = NSLocalizedString("eventType/form/reminder/days/placeholder", comment: "Placeholder for the 'createReminder/day' int row")
+        if let duration = eventType?.reminderDaysDelay {
+          $0.value = Int(duration)
+        }
+        }.onChange({ ( row) in
+          self.eventType?.reminderDaysDelay = Int16(row.value ?? 0)
+          self.dc.save()
+          
+        })
+      
+      <<< TimeRow("reminder.time") {
+        //VISIBLE IF REMINDER CHECKED
+        $0.hidden = Condition.function(["shouldCreateReminder"], { form in
+          return !((form.rowBy(tag: "shouldCreateReminder") as? SwitchRow)?.value ?? false)
+        })
+        
+        $0.title = NSLocalizedString("eventType/form/reminder/time/label", comment: "Label for the 'reminder / Time' time row")
+        $0.noValueDisplayText = NSLocalizedString("eventType/form/reminder/time/placeholder", comment: "Placeholder for the 'reminder / Time' time row")
+        
+        if let time = eventType?.reminderTime {
+          var comps:DateComponents = DateComponents()
+          comps.minute = Int(time)
+          $0.value = Calendar.current.date(from: comps)
+        }
+        }.onChange({ (row) in
+          let comps:DateComponents = Calendar.current.dateComponents([.hour, .minute], from: row.value!)
+          self.eventType?.reminderTime = Int16(comps.hour! * 60 + comps.minute!) as NSNumber
+          self.dc.save()
+          
+        })
+    
+    
     
     //  Would not work... but still
     //  http://stackoverflow.com/questions/30627694/modifying-ekparticipants-attendees-in-eventkit-like-sunrise
@@ -219,6 +331,14 @@ class EventTypeFormViewController: FormViewController {
   func calendarsAllowingContentModifications() -> [EKCalendar] {
     return EKEventStore().calendars(for: .event).filter({ (calendar) -> Bool in
       return calendar.allowsContentModifications
+    })
+  }
+  
+  func reminderListsAllowingContentModifications() -> [EKCalendar] {
+    
+    return EKEventStore().calendars(for: .reminder).filter({ (calendar) -> Bool in
+      return true
+      //      return calendar.allowsContentModifications
     })
   }
 }

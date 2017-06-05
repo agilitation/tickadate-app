@@ -340,7 +340,7 @@
                                     <constraint firstItem="KQA-fo-0dI" firstAttribute="top" secondItem="BsI-Ql-chK" secondAttribute="bottom" id="tKK-0Q-Pwl"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="label" destination="BsI-Ql-chK" id="hZa-g6-QQJ"/>
+                                    <outlet property="label" destination="BsI-Ql-chK" id="Z4j-H7-kbo"/>
                                     <outlet property="stack" destination="KQA-fo-0dI" id="RwY-Tk-Lkd"/>
                                 </connections>
                             </collectionViewCell>
@@ -366,7 +366,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="colorPickerViewController" storyboardName="ColorPicker" referencedIdentifier="colorPickerViewController" id="0WA-og-lrX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4B-Xj-kMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="1573"/>
+            <point key="canvasLocation" x="1563" y="539"/>
         </scene>
         <!--EventTypes-->
         <scene sceneID="pAf-0C-ftw">
@@ -390,7 +390,7 @@
                 <viewControllerPlaceholder storyboardName="EventsOfDay" id="bUP-de-Bdl" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpQ-Ve-wKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300.72463768115944" y="857.20108695652175"/>
+            <point key="canvasLocation" x="1275" y="539"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

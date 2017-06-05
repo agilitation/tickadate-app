@@ -49,6 +49,12 @@ struct CalendarDate {
 
 class DateUtils: NSObject {
   
+  static func dateWithFixedTime(fromDate date:Date, withFixedTimeInMinutes minutes:NSNumber) -> Date{
+    var comps = Calendar.current.dateComponents([.day, .month, .year], from: date)
+    comps.minute = Int(minutes)
+    return Calendar.current.date(from: comps)!
+  }
+  
   static func generateDates(_ dr:DateRange) -> [CalendarDate] {
     var dates:[CalendarDate] = []
     var tempDate:Date! = dr.from

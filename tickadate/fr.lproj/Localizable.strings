@@ -71,11 +71,29 @@
 /* Title for the 'Publish / calendar' push row */
 "eventType/form/publish/calendar/label" = "Calendrier";
 
+/* Title for the 'Publish / reminderLists' push row */
+"eventType/form/publish/reminderLists/label" = "Liste";
+
 /* Label for the 'Publish / shouldCreateEventInCalendar' switch row */
 "eventType/form/publish/shouldCreateEventInCalendar/label" = "Publier dans un calendrier";
 
+/* Label for the 'Publish / shouldCreateReminder' switch row */
+"eventType/form/publish/shouldCreateReminder/label" = "Créer un rappel";
+
 /* Title for the Publish section */
 "eventType/form/publish/title" = "Publication";
+
+/* Label for the 'createReminder/day' int row */
+"eventType/form/reminder/days/label" = "Nombre de jours";
+
+/* Placeholder for the 'createReminder/day' int row */
+"eventType/form/reminder/days/placeholder" = "Délai avant rappel";
+
+/* Label for the 'reminder / Time' time row */
+"eventType/form/reminder/time/label" = "Heure du rappel";
+
+/* Placeholder for the 'reminder / Time' time row */
+"eventType/form/reminder/time/placeholder" = "Même heure que le tick";
 
 /* 'In a week' action from the quick date picker, +7d */
 "quickDatePicker/inAWeek" = "Dans une semaine";

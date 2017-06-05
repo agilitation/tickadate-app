@@ -11,7 +11,6 @@
 		7A11F94F1ED4AB8B00ECCD94 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11F94E1ED4AB8B00ECCD94 /* BarChartTableViewCell.swift */; };
 		7A11F9511ED4E9CC00ECCD94 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11F9501ED4E9CC00ECCD94 /* BarChartView.swift */; };
 		7A1C13A91EDC3B12007A6D75 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */; };
-		7A1C13AC1EDC3B42007A6D75 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */; };
 		7A2BD9451EC273EE002E3FE8 /* EventTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */; };
 		7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */; };
 		7A2BD9491EC2F7D0002E3FE8 /* EventTypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */; };
@@ -38,6 +37,7 @@
 		7A873F4A1EE337AD00E0A058 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F491EE337AD00E0A058 /* Cartfile */; };
 		7A873F4C1EE3862500E0A058 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */; };
 		7A873F4E1EE408A400E0A058 /* BorderedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F4D1EE408A400E0A058 /* BorderedTableViewCell.swift */; };
+		7A873F501EE5325900E0A058 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F4F1EE5325900E0A058 /* Onboarding.swift */; };
 		7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA51EC112B800CF0002 /* EventTypesController.swift */; };
 		7A901CA81EC1135200CF0002 /* EventTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */; };
 		7A901CAC1EC11A7300CF0002 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901CAB1EC11A7300CF0002 /* CalendarController.swift */; };
@@ -104,9 +104,6 @@
 		7A11F9501ED4E9CC00ECCD94 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7A1C13AA1EDC3B42007A6D75 /* tickadate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tickadate.entitlements; sourceTree = "<group>"; };
-		7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		7A1C13B81EDC3F40007A6D75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
-		7A1C13BA1EDC3F45007A6D75 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/Info.plist; sourceTree = "<group>"; };
 		7A2BD9441EC273EE002E3FE8 /* EventTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeViewController.swift; sourceTree = "<group>"; };
 		7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		7A2BD9481EC2F7D0002E3FE8 /* EventTypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesTableViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +133,8 @@
 		7A873F491EE337AD00E0A058 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyStoreKit.framework; path = Carthage/Build/iOS/SwiftyStoreKit.framework; sourceTree = "<group>"; };
 		7A873F4D1EE408A400E0A058 /* BorderedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedTableViewCell.swift; sourceTree = "<group>"; };
+		7A873F4F1EE5325900E0A058 /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		7A873F511EE5980A00E0A058 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A901CA51EC112B800CF0002 /* EventTypesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypesController.swift; sourceTree = "<group>"; };
 		7A901CA71EC1135200CF0002 /* EventTypeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A901CAB1EC11A7300CF0002 /* CalendarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
@@ -143,7 +142,6 @@
 		7A901CB51EC20C8600CF0002 /* EventDotsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDotsStack.swift; sourceTree = "<group>"; };
 		7A901CF91EC22E6100CF0002 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
 		7A901D011EC23AB600CF0002 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
-		7A9791911EDC434F00D910B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCellDefinitions.swift; sourceTree = "<group>"; };
 		7A9791941EDCC5E000D910B6 /* DemoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DemoData.plist; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */,
 				7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */,
 				7A1C13A91EDC3B12007A6D75 /* StoreKit.framework in Frameworks */,
-				7A1C13AC1EDC3B42007A6D75 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +317,7 @@
 				7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */,
 				7AB0B0D11EC07D4600BEC76C /* Main.storyboard */,
 				7AB0B0CF1EC07D4600BEC76C /* ViewController.swift */,
+				7A873F4F1EE5325900E0A058 /* Onboarding.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -358,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */,
-				7A1C13AB1EDC3B42007A6D75 /* HealthKit.framework */,
 				7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */,
 				7A4865291EC73C4200456BDF /* SwiftIconFont.framework */,
 				7A2BD9461EC2F1B6002E3FE8 /* Eureka.framework */,
@@ -405,7 +402,7 @@
 		7AB0B0CC1EC07D4500BEC76C /* tickadate */ = {
 			isa = PBXGroup;
 			children = (
-				7A1C13B91EDC3F40007A6D75 /* Info.plist */,
+				7A873F511EE5980A00E0A058 /* Info.plist */,
 				7ACDED131EDC17A5004CDB9D /* Localizable.strings */,
 				7AB0B0CD1EC07D4500BEC76C /* AppDelegate.swift */,
 				7AB0B0D41EC07D4600BEC76C /* Assets.xcassets */,
@@ -540,7 +537,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -663,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3996411ECB0418002E3255 /* ColorPickerViewController.swift in Sources */,
+				7A873F501EE5325900E0A058 /* Onboarding.swift in Sources */,
 				7AE4EF601ED430D700F3082C /* StatTableViewCell.swift in Sources */,
 				7A11F9511ED4E9CC00ECCD94 /* BarChartView.swift in Sources */,
 				7A901CA61EC112B800CF0002 /* EventTypesController.swift in Sources */,
@@ -743,16 +741,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7A1C13B91EDC3F40007A6D75 /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A1C13B81EDC3F40007A6D75 /* Base */,
-				7A1C13BA1EDC3F45007A6D75 /* fr */,
-				7A9791911EDC434F00D910B6 /* en */,
-			);
-			name = Info.plist;
-			sourceTree = "<group>";
-		};
 		7A873F381EE0A8E000E0A058 /* iOS.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -928,7 +916,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
-				CODE_SIGN_ENTITLEMENTS = tickadate/tickadate.entitlements;
 				DEVELOPMENT_TEAM = 5DS79WMFEL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -947,7 +934,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
-				CODE_SIGN_ENTITLEMENTS = tickadate/tickadate.entitlements;
 				DEVELOPMENT_TEAM = 5DS79WMFEL;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -79,6 +79,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.onboarding()
     visibleMonthFormatter.dateFormat = "MMMM YYYY"
     calendarController.select(date: self.selectedDate)
     
@@ -158,6 +159,13 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
     quickAddButton.color = uiColor
     tickButton.color  = uiColor
     daySummaryButton.color  = uiColor
+    
+    quickAddButton.color = UIColor.white
+    tickButton.color  = UIColor.white
+    daySummaryButton.color  = UIColor.white
+    
+    toolbarView.backgroundColor = etColor
+    
     visibleMonthView.backgroundColor = uiColor
     DrawUtils.drawLine(
       onLayer: toolbarView.layer,

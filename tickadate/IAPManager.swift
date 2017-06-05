@@ -12,8 +12,8 @@ import SwiftyStoreKit
 
 
 enum ProductIDs : String {
-  case threeAdditionalEventTypes = "com.agilitation.tickadate.3-PACK"
-  case unlimitedEventTypes = "com.agilitation.tickadate.UNLIMITED"
+  case threeAdditionalEventTypes = "com.agilitation.tickadate.3AdditionalEventTypes"
+  case unlimitedEventTypes = "com.agilitation.tickadate.unlimited"
 }
 
 class IAPManager: NSObject {
@@ -25,6 +25,8 @@ class IAPManager: NSObject {
   var eventTypesCount:Int = 6
   
   var products:[String:SKProduct] = [:]
+  
+  var nc:NotificationCenter = NotificationCenter.default
   
   func retreiveProductsInfo(completion: @escaping () -> ()) {
     
@@ -54,6 +56,11 @@ class IAPManager: NSObject {
       SwiftyStoreKit.purchaseProduct(self.products[productID.rawValue]!, completion: { (result) in
         switch result {
         case .success(let purchase):
+          if productID == .threeAdditionalEventTypes {
+            self.eventTypesCount = self.eventTypesCount + 3
+            self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
+          }
+          
           print("Purchase Success: \(purchase.productId)")
           completion()
         case .error(let error):

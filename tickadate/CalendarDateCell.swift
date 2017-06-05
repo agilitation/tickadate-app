@@ -21,6 +21,7 @@ class CalendarDateCell: UICollectionViewCell {
   
   var calendarDate:CalendarDate!
   var visibleMonth:DateComponents!
+  var viewElementsInited:Bool = false
   
   override func prepareForReuse() {
     super.prepareForReuse()
@@ -45,12 +46,16 @@ class CalendarDateCell: UICollectionViewCell {
     
     contentView.addSubview(label)
     contentView.addSubview(stack)
+    viewElementsInited = true
   }
+  
   
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    initViewElements()
+    if !viewElementsInited {
+      initViewElements()
+    }
   }
   
   

@@ -4,7 +4,7 @@
         <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 16" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="eventType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventType" inverseName="defaultValues" inverseEntity="EventType" syncable="YES"/>
     </entity>
@@ -35,14 +35,18 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="promptForDetails" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="reminderDaysDelay" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="reminderEkCalendarIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminderTime" optional="YES" attributeType="Integer 16" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="shouldAskForLocation" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shouldCreateEventInCalendar" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shouldCreateReminder" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="defaultValues" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DefaultValues" inverseName="eventType" inverseEntity="DefaultValues" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Event" inverseName="type" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
         <element name="DefaultValues" positionX="-72" positionY="-81" width="128" height="135"/>
         <element name="Event" positionX="495" positionY="-226" width="128" height="30"/>
-        <element name="EventType" positionX="153" positionY="-331" width="243" height="240"/>
+        <element name="EventType" positionX="153" positionY="-331" width="243" height="300"/>
     </elements>
 </model>
