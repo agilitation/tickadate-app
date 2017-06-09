@@ -20,7 +20,6 @@ class EventsOfDayTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("load")
     dateFormatter.timeStyle = .none
     dateFormatter.dateStyle = .medium
     timeFormatter.dateStyle = .none

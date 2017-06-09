@@ -383,13 +383,14 @@ class DataController: NSObject, CLLocationManagerDelegate {
   }
   
   func bootstrapEventTypes() {
-    let names = ["Dinner at the restaurant", "Sport training", "Family meeting"]
-    let colors = ["50E3C2", "9012FE", "F0A91A"]
+    let names = ["Dinner at the restaurant", "Sport training"]
+    let colors = ["50E3C2", "9012FE"]
     var eventTypes:[EventType] = []
     for i in 0..<names.count {
       let et = EventType(context: context)
       et.name = names[i]
       et.color = colors[i]
+      et.order = Int16(i)
       et.isActive = true
       context.insert(et)
       eventTypes.append(et)

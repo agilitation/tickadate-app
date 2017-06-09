@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict><key>name</key><string>Cours de chinois</string><key>hex</key><string>1577c3</string></dict>
+  <dict><key>name</key><string>Lire un livre</string><key>hex</key><string>1f64e3</string></dict>
+  <dict><key>name</key><string>Aller au théatre</string><key>hex</key><string>723BA3</string></dict>
+  <dict><key>name</key><string>Répétition</string><key>hex</key><string>FF141D</string></dict>
+  <dict><key>name</key><string>Concert</string><key>hex</key><string>ff2374</string></dict>
+  <dict><key>name</key><string>Coiffeur</string><key>hex</key><string>997131</string></dict>
+  <dict><key>name</key><string>Onglerie</string><key>hex</key><string>e87cff</string></dict>
+  <dict><key>name</key><string>Payer le loyer</string><key>hex</key><string>17253e</string></dict>
+  <dict><key>name</key><string>Ménage</string><key>hex</key><string>4280E4</string></dict>
+  <dict><key>name</key><string>Jardinage</string><key>hex</key><string>73A54C</string></dict>
+  <dict><key>name</key><string>Repas au resto</string><key>hex</key><string>C75060</string></dict>
+  <dict><key>name</key><string>Shopping</string><key>hex</key><string>C7AA71</string></dict>
+  <dict><key>name</key><string>Pêche</string><key>hex</key><string>6CB98C</string></dict>
+  <dict><key>name</key><string>Jeux vidéos</string><key>hex</key><string>7F7F7F</string></dict>
+  <dict><key>name</key><string>Barbecue</string><key>hex</key><string>801707</string></dict>
+  <dict><key>name</key><string>Fête</string><key>hex</key><string>FF8000</string></dict>
+  <dict><key>name</key><string>Lindy Hop</string><key>hex</key><string>FF8055</string></dict>
+  <dict><key>name</key><string>Café</string><key>hex</key><string>43141D</string></dict>
+  <dict><key>name</key><string>Médecin</string><key>hex</key><string>51CCF1</string></dict>
+  <dict><key>name</key><string>Foot</string><key>hex</key><string>088d04</string></dict>
+</array>
+</plist>

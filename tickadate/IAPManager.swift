@@ -14,19 +14,46 @@ import SwiftyStoreKit
 enum ProductIDs : String {
   case threeAdditionalEventTypes = "com.agilitation.tickadate.3AdditionalEventTypes"
   case unlimitedEventTypes = "com.agilitation.tickadate.unlimited"
+  case additionalColorSwatch = "com.agilitation.tickadate.additionalColorPalette"
 }
 
 class IAPManager: NSObject {
-
+  
   static let shared:IAPManager = IAPManager()
   
   var activeColorSwatches:[ColorSwatch] = []
   
-  var eventTypesCount:Int = 6
+  var eventTypesCount:Int {
+    get { return UserDefaults.standard.integer(forKey: "eventTypesCount") }
+    set { UserDefaults.standard.set(newValue, forKey: "eventTypesCount") }
+  }
+  
+  var hasUnlimitedEventTypes: Bool {
+    get { return UserDefaults.standard.bool(forKey: "unlimitedEventTypes") }
+    set { UserDefaults.standard.set(newValue, forKey: "unlimitedEventTypes") }
+  }
+  
+  var activeColorSwatchesIds:NSMutableArray {
+    get { return UserDefaults.standard.mutableArrayValue(forKey: "activeColorSwatches") }
+  }
   
   var products:[String:SKProduct] = [:]
   
   var nc:NotificationCenter = NotificationCenter.default
+  
+  func reset() {
+    self.eventTypesCount = 3
+    self.hasUnlimitedEventTypes = false
+    self.activeColorSwatchesIds.removeAllObjects()
+    self.activeColorSwatchesIds.add("iOS")
+  }
+  
+  func buyAdditionalColorSwatch(id:String){
+//    self.purchase(.additionalColorSwatch) { 
+      self.activeColorSwatchesIds.add(id)
+      self.nc.post(name: NSNotification.Name("colorSwatches.change"), object: self)
+//    }
+  }
   
   func retreiveProductsInfo(completion: @escaping () -> ()) {
     
@@ -58,6 +85,11 @@ class IAPManager: NSObject {
         case .success(let purchase):
           if productID == .threeAdditionalEventTypes {
             self.eventTypesCount = self.eventTypesCount + 3
+            self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
+          }
+          
+          if productID == .unlimitedEventTypes {
+            self.hasUnlimitedEventTypes = true
             self.nc.post(name: Notification.Name("eventTypes.change"), object: nil)
           }
           

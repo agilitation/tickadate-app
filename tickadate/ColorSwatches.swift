@@ -68,8 +68,13 @@ class ColorSwatchesManager {
   var swatches:[ColorSwatch] = []
   
   func fetchActiveColorSwatches(completion: @escaping ([ColorSwatch]) -> ()){
-    // todo filter according to existing IAPurchases
-    self.fetchAvailableColorSwatches(completion: completion)
+    self.fetchAvailableColorSwatches { (swatches) in
+      let filtered = swatches.filter({ (swatch) -> Bool in
+        return IAPManager.shared.activeColorSwatchesIds.contains(swatch.productID)
+      })
+      
+      completion(filtered)
+    }
   }
   
   func fetchAvailableColorSwatches(completion: @escaping ([ColorSwatch]) -> ()){

@@ -19,6 +19,7 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
   public override func setup() {
     
     height = { BaseRow.estimatedRowHeight }
+    
 
     self.circle = CircleView(frame: CGRect(
       x: 0,
@@ -28,89 +29,23 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
     ))
     
     circle.isOpaque = false
-    circle.translatesAutoresizingMaskIntoConstraints = false
     
-    self.detailTextLabel?.translatesAutoresizingMaskIntoConstraints = false
-    
-    self.contentView.addSubview(circle)
-    self.contentView.addConstraints([
-      NSLayoutConstraint(
-        item: circle,
-        attribute: .centerY,
-        relatedBy: .equal,
-        toItem: self.contentView,
-        attribute: .centerY,
-        multiplier: 1,
-        constant: 0),
-      
-      NSLayoutConstraint(
-        item: circle,
-        attribute: .height,
-        relatedBy: .equal,
-        toItem: nil,
-        attribute: .notAnAttribute,
-        multiplier: 1,
-        constant: 24),
-      NSLayoutConstraint(
-        item: circle,
-        attribute: .width,
-        relatedBy: .equal,
-        toItem: nil,
-        attribute: .notAnAttribute,
-        multiplier: 1,
-        constant: 24),
-      NSLayoutConstraint(
-        item: circle,
-        attribute: .trailing,
-        relatedBy: .equal,
-        toItem: circle.superview,
-        attribute: .trailing,
-        multiplier: 1,
-        constant: -10),
-//      NSLayoutConstraint(
-//        item: self.contentView,
-//        attribute: .height,
-//        relatedBy: .equal,
-//        toItem: nil,
-//        attribute: .notAnAttribute,
-//        multiplier: 1,
-//        constant: 44),
-      NSLayoutConstraint(
-        item: self.detailTextLabel!,
-        attribute: .trailing,
-        relatedBy: .equal,
-        toItem: circle,
-        attribute: .leading,
-        multiplier: 1,
-        constant: -10),
-      NSLayoutConstraint(
-        item: self.detailTextLabel!,
-        attribute: .firstBaseline,
-        relatedBy: .equal,
-        toItem: self.textLabel,
-        attribute: .firstBaseline,
-        multiplier: 1,
-        constant: 0),
-      NSLayoutConstraint(
-        item: self.detailTextLabel!,
-        attribute: .centerY,
-        relatedBy: .equal,
-        toItem: self.contentView,
-        attribute: .centerY,
-        multiplier: 1,
-        constant: 0),
-      
-      ])
+    self.detailTextLabel!.frame.origin.x = self.detailTextLabel!.frame.origin.x - 10
+    self.accessoryView = circle
   }
-  
-  
   
   public override func update() {
     self.textLabel?.text = row.title
-    self.detailTextLabel?.text = row.value?.label ?? "None"
+    self.detailTextLabel?.text = row.value?.label  ?? ""
     self.circle.color = row.value?.color ?? UIColor.black
-    self.layoutSubviews()
+    self.setNeedsLayout()
   }
+}
+
+
+class CircleAccessoryView:UIView {
+  
+
 }
 
 
@@ -163,6 +98,16 @@ class ColorPickerViewController: UICollectionViewController, TypedRowControllerT
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    reload()
+    
+    NotificationCenter.default.addObserver(forName: NSNotification.Name("colorSwatches.change"), object: nil, queue: nil) { (notif) in
+      self.reload()
+    }
+  }
+  
+  
+  func reload() {
     let dg = DispatchGroup()
 
     ColorSwatchesManager.shared.fetchActiveColorSwatches { (swatches) in
@@ -170,12 +115,13 @@ class ColorPickerViewController: UICollectionViewController, TypedRowControllerT
         dg.enter()
         cs.load(completion: dg.leave)
       })
-      dg.notify(queue: DispatchQueue.main, execute: { 
+      dg.notify(queue: DispatchQueue.main, execute: {
         self.swatches = swatches
         self.collectionView?.reloadData()
       })
     }
   }
+  
   
   public var onDismissCallback : ((UIViewController) -> ())?
 

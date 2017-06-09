@@ -49,6 +49,10 @@ struct CalendarDate {
 
 class DateUtils: NSObject {
   
+  static func getOrderedWeekdays() -> [String] {
+    return Calendar.current.shortWeekdaySymbols
+  }
+  
   static func dateWithFixedTime(fromDate date:Date, withFixedTimeInMinutes minutes:NSNumber) -> Date{
     var comps = Calendar.current.dateComponents([.day, .month, .year], from: date)
     comps.minute = Int(minutes)

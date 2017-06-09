@@ -28,6 +28,8 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     case eventTypes =  1
     case examples = 2
   }
+
+  var sectionsIds:[sections] = IAPManager.shared.hasUnlimitedEventTypes ? [.eventTypes, .examples] : [.progress, .eventTypes, .examples]
   
   var eventTypeExamples:[EventTypeExample] = []
   var eventTypes:[EventType] = []
@@ -117,24 +119,22 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 3
+    return sectionsIds.count
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    switch section {
-    case sections.progress.rawValue:
+    switch sectionsIds[section] {
+    case sections.progress:
       return 1
-    case sections.eventTypes.rawValue:
+    case sections.eventTypes:
       return self.eventTypes.count
-    case sections.examples.rawValue:
+    case sections.examples:
       return self.eventTypeExamples.count
-    default:
-      return 0
     }
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == sections.progress.rawValue {
+    if sectionsIds[indexPath.section] == sections.progress {
       return 34
     } else {
       return super.tableView(tableView, heightForRowAt: indexPath)
@@ -143,27 +143,25 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    switch indexPath.section {
-    case sections.progress.rawValue:
+    switch sectionsIds[indexPath.section] {
+    case sections.progress:
       let cell = tableView.dequeueReusableCell(withIdentifier: "progress", for: indexPath) as! EventTypeProgressTableViewCell
       cell.progress.progress = Float(self.eventTypes.count) / Float(IAPManager.shared.eventTypesCount)
       cell.caption.text = String(format: "%d / %d events", self.eventTypes.count, IAPManager.shared.eventTypesCount)
       return cell
-    case sections.eventTypes.rawValue:
+    case sections.eventTypes:
       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventTypeTableViewCell
       cell.eventType = eventTypes[indexPath.item]
       return cell
-    case sections.examples.rawValue:
+    case sections.examples:
       let cell = tableView.dequeueReusableCell(withIdentifier: "placeholderCell", for: indexPath) as! EventTypeExampleTableViewCell
       cell.eventTypeExample = eventTypeExamples[indexPath.item]
       return cell
-    default :
-      return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     }
   }
   
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return indexPath.section == sections.eventTypes.rawValue
+    return sectionsIds[indexPath.section] == sections.eventTypes
   }
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -192,11 +190,11 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   
   
   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-    return indexPath.section == sections.eventTypes.rawValue
+    return sectionsIds[indexPath.section] == sections.eventTypes
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.section != sections.examples.rawValue {
+    if sectionsIds[indexPath.section] != sections.examples {
       return
     }
     

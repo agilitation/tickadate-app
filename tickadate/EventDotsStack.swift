@@ -13,14 +13,14 @@ import DynamicColor
 
 class EventDotsStack: UIView {
   
-  static var drawCount:Int = 0
+  static let margin:CGFloat! = 2.0
+  static let diameter:CGFloat! = 6.0
   
-  
-  let margin:CGFloat! = 2.0
-  let diameter:CGFloat! = 6.0
   var cnt:Int = 0
   var dots:[String] = [] {
     didSet {
+      
+      // maybe use oldValue ?
       if (dots.count > 0 || cnt != dots.count) {
         cnt = dots.count
         self.setNeedsDisplay()
@@ -29,13 +29,11 @@ class EventDotsStack: UIView {
   }
   
   override func draw(_ rect: CGRect) {
-    EventDotsStack.drawCount = EventDotsStack.drawCount.advanced(by: 1)
-    print(EventDotsStack.drawCount)
     if let context:CGContext =  UIGraphicsGetCurrentContext() {
       context.clear(rect)
       let existingCircleCount = self.subviews.count
       let numberOfCircles:CGFloat = CGFloat(dots.count)
-      let maxNumberOfCirclesByRow:CGFloat = floor((rect.width - margin) / (diameter + margin))
+      let maxNumberOfCirclesByRow:CGFloat = floor((rect.width - EventDotsStack.margin) / (EventDotsStack.diameter + EventDotsStack.margin))
       
       
       var remainingCircles:CGFloat = numberOfCircles
@@ -51,7 +49,7 @@ class EventDotsStack: UIView {
         oldDrawn = drawnCirclesCountInRow
         remainingCircles.subtract(drawnCirclesCountInRow)
         numberOfCirclesInRow = ceil(remainingCircles / numberOfRows)
-        rowWidth = diameter * numberOfCirclesInRow + margin * (numberOfCirclesInRow + 1)
+        rowWidth = EventDotsStack.diameter * numberOfCirclesInRow + EventDotsStack.margin * (numberOfCirclesInRow + 1)
         offset = floor((rect.width - rowWidth) / 2)
         drawnCirclesCountInRow = 0
         row.add(1)
@@ -62,12 +60,12 @@ class EventDotsStack: UIView {
       
       for (index, dot) in dots.enumerated() {
         
-        let x:CGFloat = margin + offset + drawnCirclesCountInRow * (diameter + margin)
-        let y:CGFloat = row * (diameter + margin)
+        let x:CGFloat = EventDotsStack.margin + offset + drawnCirclesCountInRow * (EventDotsStack.diameter + EventDotsStack.margin)
+        let y:CGFloat = row * (EventDotsStack.diameter + EventDotsStack.margin)
         
         DrawUtils.drawCircle(
           onContext: context,
-          inRect: CGRect(x: x, y: y, width: diameter, height: diameter),
+          inRect: CGRect(x: x, y: y, width: EventDotsStack.diameter, height: EventDotsStack.diameter),
           color: DynamicColor(hexString: dot).cgColor
         )
         

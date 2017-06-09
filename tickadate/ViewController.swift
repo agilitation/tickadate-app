@@ -68,6 +68,9 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
   var calendarController:CalendarController!
   var eventTypesController:EventTypesController!
+  var pageViewController:UIPageViewController!
+  
+  var onboardingPager:OnboardingPager?
   //var eventsOfDayController:EventsOfDayTableViewController!
   
   var selectedEventType:EventType!
@@ -97,6 +100,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   }
   
   @IBAction func unwindToViewController(withSegue:UIStoryboardSegue) {
+    leaveUnboarding()
     reloadEventTypes()
     calendarController.collectionView?.reloadData()
   }
@@ -134,6 +138,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
       let statsVC:StatsTableViewController = nav.viewControllers.first as! StatsTableViewController
       statsVC.eventType = self.selectedEventType
     }
+    
 
   }
   

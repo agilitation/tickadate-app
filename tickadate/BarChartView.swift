@@ -56,8 +56,10 @@ class BarChartBar : UIView {
   
   var percent:Float = 0 {
     didSet {
-      self.heightConstraint.setMultiplier(multiplier: CGFloat(percent))
-      self.setNeedsLayout()
+      UIView.animate(withDuration: 1) {
+        self.heightConstraint.setMultiplier(multiplier: CGFloat(self.percent))
+        self.bar.layoutIfNeeded()
+      }
     }
   }
   
@@ -100,7 +102,7 @@ class BarChartBar : UIView {
       relatedBy: .equal,
       toItem: track,
       attribute: .height,
-      multiplier: 0.7,
+      multiplier: 1,
       constant: 0
     )
     
@@ -229,6 +231,8 @@ class BarChartBar : UIView {
     track.addConstraint(self.heightConstraint)
   }
   
+  func animateIn() {
+  }
   
 }
 
@@ -284,6 +288,12 @@ class BarChartView: UIStackView {
       bar.color = self.color
       bar.alpha = CGFloat(Float(0.5) + weightedValue / 2)
     }
+  }
+  
+  func animateIn() {
+    self.arrangedSubviews.forEach({ (bar) in
+      (bar as! BarChartBar).animateIn()
+    })
   }
   
 }

@@ -40,23 +40,22 @@ class WeekDayHeader: UIView {
     }
   }
   
-  override func draw(_ rect: CGRect) {
-    
-    super.draw(rect)
+  override func layoutSubviews() {
     
     if labels.count == 0 {
       self.prepareLabels()
     }
     
-    let labelWidth:CGFloat! = floor(rect.width / 7)
+    let labelWidth:CGFloat! = floor(self.bounds.width / 7)
     var labelOffset:CGFloat! = 0.0
-
+    
     for label in labels {
-
+      
       label.frame.origin.x = labelOffset
       label.frame.size.width = labelWidth
-      label.frame.size.height = rect.height
+      label.frame.size.height = self.bounds.height
       labelOffset.add(labelWidth)
     }
   }
+  
 }

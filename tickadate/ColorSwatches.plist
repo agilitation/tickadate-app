@@ -6,7 +6,7 @@
 		<key>name</key>
 		<string>iOS default palette</string>
 		<key>productID</key>
-		<string>CS-iOS</string>
+		<string>iOS</string>
 		<key>description</key>
 		<string>The default iOS 10 color palette</string>
 		<key>filename</key>
@@ -16,7 +16,7 @@
 		<key>name</key>
 		<string>FlatUI</string>
 		<key>productID</key>
-		<string>CS-FlatUI</string>
+		<string>FlatUI</string>
 		<key>description</key>
 		<string>A trendy flat UI palette</string>
 		<key>filename</key>
@@ -26,7 +26,7 @@
 		<key>name</key>
 		<string>Crayola® Bright</string>
 		<key>productID</key>
-		<string>CS-Crayola-Bright</string>
+		<string>Crayola-Bright</string>
 		<key>description</key>
 		<string>14 catchy colors to brighten up your daily routines</string>
 		<key>filename</key>
@@ -36,7 +36,7 @@
 		<key>name</key>
 		<string>Crayola® Fluorescent</string>
 		<key>productID</key>
-		<string>CS-Crayola-Fluorescent</string>
+		<string>Crayola-Fluorescent</string>
 		<key>description</key>
 		<string>14 catchy colors to brighten up your daily routines</string>
 		<key>filename</key>

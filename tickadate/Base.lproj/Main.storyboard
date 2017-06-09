@@ -45,7 +45,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuR-09-ekx" customClass="BorderedView" customModule="tickadate" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="130" width="375" height="38"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EG-bN-2GJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EG-bN-2GJ">
                                         <rect key="frame" x="50" y="0.0" width="275" height="38"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,11 +95,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZZZ-Qs-xn5" secondAttribute="height" multiplier="1:1" id="kJS-uH-7EY"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                <color key="value" red="1" green="0.36612253379999998" blue="0.347834641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="bUP-de-Bdl" kind="show" identifier="showEventsOfDay" id="sHX-g1-dud"/>
                                         </connections>
@@ -178,6 +173,7 @@
                         <outlet property="visibleMonthLabel" destination="7EG-bN-2GJ" id="mok-Qy-ASb"/>
                         <outlet property="visibleMonthView" destination="PuR-09-ekx" id="wOl-Ac-bze"/>
                         <outlet property="weekDayHeader" destination="hIb-tD-xBf" id="gru-FP-xon"/>
+                        <segue destination="t9q-V9-v4x" kind="show" identifier="showOnboardingSegue" id="O6X-q9-Ylv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -294,7 +290,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2a-6e-Nyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="-214"/>
+            <point key="canvasLocation" x="1591" y="810"/>
         </scene>
         <!--Calendar Controller-->
         <scene sceneID="Ylb-7c-taj">
@@ -358,7 +354,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TU-ku-lTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2045" y="453"/>
+            <point key="canvasLocation" x="980" y="810"/>
         </scene>
         <!--colorPickerViewController-->
         <scene sceneID="B1J-gw-NoQ">
@@ -374,7 +370,7 @@
                 <viewControllerPlaceholder storyboardName="EventTypes" id="gw7-B3-Nah" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ol-0d-AGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="97"/>
+            <point key="canvasLocation" x="2054" y="810"/>
         </scene>
         <!--EventTypesStats-->
         <scene sceneID="p8f-G4-IUT">
@@ -382,7 +378,7 @@
                 <viewControllerPlaceholder storyboardName="EventTypesStats" id="TW6-K3-yEX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nag-7w-iLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="137"/>
+            <point key="canvasLocation" x="1810" y="-51"/>
         </scene>
         <!--EventsOfDay-->
         <scene sceneID="m3l-xc-RZT">
@@ -390,7 +386,15 @@
                 <viewControllerPlaceholder storyboardName="EventsOfDay" id="bUP-de-Bdl" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpQ-Ve-wKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1275" y="539"/>
+            <point key="canvasLocation" x="1793" y="390"/>
+        </scene>
+        <!--onboardingPageViewController-->
+        <scene sceneID="0u2-Tz-K6n">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="onboardingPageViewController" storyboardName="Onboarding" referencedIdentifier="onboardingPageViewController" id="t9q-V9-v4x" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yRd-6W-LQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
