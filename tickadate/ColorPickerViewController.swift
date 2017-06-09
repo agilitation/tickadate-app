@@ -13,7 +13,7 @@ private let reuseIdentifier = "cell"
 
 final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
   
-  var circle:CircleView!
+  var circle:CircleAccessoryView!
   
   // IBOutlets or whatever you need for your cell
   public override func setup() {
@@ -21,14 +21,12 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
     height = { BaseRow.estimatedRowHeight }
     
 
-    self.circle = CircleView(frame: CGRect(
+    self.circle = CircleAccessoryView(frame: CGRect(
       x: 0,
       y: 0,
-      width: 24,
-      height: 24
+      width: 32,
+      height: 32
     ))
-    
-    circle.isOpaque = false
     
     self.detailTextLabel!.frame.origin.x = self.detailTextLabel!.frame.origin.x - 10
     self.accessoryView = circle
@@ -37,7 +35,7 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
   public override func update() {
     self.textLabel?.text = row.title
     self.detailTextLabel?.text = row.value?.label  ?? ""
-    self.circle.color = row.value?.color ?? UIColor.black
+    (self.accessoryView as! CircleAccessoryView).circle.color = row.value?.color ?? UIColor.black
     self.setNeedsLayout()
   }
 }
@@ -45,7 +43,25 @@ final class ColorPickerCell: Cell<ColorPaletteItem>, CellType {
 
 class CircleAccessoryView:UIView {
   
-
+  var circle:CircleView!
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    self.createCircle()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    self.createCircle()
+  }
+  
+  func createCircle() {
+    self.circle = CircleView(frame: self.frame.insetBy(dx: 4, dy: 4))
+    self.circle.isOpaque = true
+    self.circle.backgroundColor = UIColor.white
+    self.backgroundColor = UIColor.white
+    self.addSubview(self.circle)
+  }
 }
 
 

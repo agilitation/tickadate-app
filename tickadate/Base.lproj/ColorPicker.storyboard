@@ -35,11 +35,6 @@
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-8b-Szu" customClass="CircleView" customModule="tickadate" customModuleProvider="target">
                                             <rect key="frame" x="20" y="10" width="40" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                    <color key="value" red="1" green="0.36612253379999998" blue="0.347834641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8m-ez-vXk">
                                             <rect key="frame" x="10" y="57" width="60" height="13"/>
@@ -88,7 +83,7 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="y8X-IA-nbi">
-                        <barButtonItem key="rightBarButtonItem" title="Add colors" id="xPh-LJ-ibZ">
+                        <barButtonItem key="rightBarButtonItem" title="More colors" id="xPh-LJ-ibZ">
                             <connections>
                                 <segue destination="T72-XD-eNr" kind="show" id="Jch-Qi-XGm"/>
                             </connections>

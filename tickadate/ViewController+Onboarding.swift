@@ -36,7 +36,7 @@ extension ViewController {
   
   func isFirstLaunch() -> Bool{
     
-    UserDefaults.standard.set(false, forKey: "launchedBefore")
+//    UserDefaults.standard.set(false, forKey: "launchedBefore")
     
     if UserDefaults.standard.bool(forKey: "launchedBefore") {
       return false

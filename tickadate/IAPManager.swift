@@ -49,10 +49,10 @@ class IAPManager: NSObject {
   }
   
   func buyAdditionalColorSwatch(id:String){
-//    self.purchase(.additionalColorSwatch) { 
+    self.purchase(.additionalColorSwatch) {
       self.activeColorSwatchesIds.add(id)
       self.nc.post(name: NSNotification.Name("colorSwatches.change"), object: self)
-//    }
+    }
   }
   
   func retreiveProductsInfo(completion: @escaping () -> ()) {

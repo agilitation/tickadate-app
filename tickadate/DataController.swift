@@ -96,6 +96,9 @@ class DataController: NSObject, CLLocationManagerDelegate {
   }
   
   func fetchEventsSync(forEventType eventType:EventType) -> [Event]{
+    
+    
+    
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
     let predicate = NSPredicate(format: "type = %@", eventType)
     fetchRequest.predicate = predicate
