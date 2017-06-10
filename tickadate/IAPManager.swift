@@ -14,7 +14,7 @@ import SwiftyStoreKit
 enum ProductIDs : String {
   case threeAdditionalEventTypes = "com.agilitation.tickadate.3AdditionalEventTypes"
   case unlimitedEventTypes = "com.agilitation.tickadate.unlimited"
-  case additionalColorSwatch = "com.agilitation.tickadate.additionalColorPalette"
+  case additionalColorSwatch = "com.agilitation.tickadate.additionalColorSwatch"
 }
 
 class IAPManager: NSObject {
@@ -48,10 +48,11 @@ class IAPManager: NSObject {
     self.activeColorSwatchesIds.add("iOS")
   }
   
-  func buyAdditionalColorSwatch(id:String){
+  func buyAdditionalColorSwatch(id:String, completion: @escaping () -> ()){
     self.purchase(.additionalColorSwatch) {
       self.activeColorSwatchesIds.add(id)
       self.nc.post(name: NSNotification.Name("colorSwatches.change"), object: self)
+      completion()
     }
   }
   
@@ -64,7 +65,8 @@ class IAPManager: NSObject {
     
     SwiftyStoreKit.retrieveProductsInfo([
       ProductIDs.threeAdditionalEventTypes.rawValue,
-      ProductIDs.unlimitedEventTypes.rawValue
+      ProductIDs.unlimitedEventTypes.rawValue,
+      ProductIDs.additionalColorSwatch.rawValue,
     ]) { result in
       result.retrievedProducts.forEach({ (product) in
         self.products[product.productIdentifier] = product

@@ -112,11 +112,11 @@ class CalendarController: UICollectionViewController, UICollectionViewDelegateFl
   }
   
   
-  func getEvents(forDate:Date) -> [Event]{
+  func getEvents(forDate date:Date) -> [Event]{
     var results:[Event] = []
     for event in events {
       if let eventDate = event.date {
-        if calendar.isDate(eventDate as Date, inSameDayAs: forDate){
+        if (calendar.isDate(eventDate as Date, inSameDayAs: date) && event.type != nil) {
           results.append(event)
         }
       }

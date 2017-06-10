@@ -86,6 +86,18 @@
 /* Placeholder for the 'reminder / Time' time row */
 "eventType/form/reminder/time/placeholder" = "Heure du rappel";
 
+/* The message of the alert panel displayed when the user has no more event types */
+"eventTypes/table/unsufficient/alert/message" = "You have reached the maximum number of active events. To continue, please select one of the following options";
+
+/* The title of the alert panel displayed when the user has no more event types */
+"eventTypes/table/unsufficient/alert/title" = "Out of events";
+
+/* The label of the button that allows the user to buy 3 new event types */
+"eventTypes/table/unsufficient/buy3" = "Buy 3 additional events";
+
+/* The label of the button that allows the user to unlock event types */
+"eventTypes/table/unsufficient/unlock" = "Unlock unlimited events";
+
 /* 'In a week' action from the quick date picker, +7d */
 "quickDatePicker/inAWeek" = "In a week";
 

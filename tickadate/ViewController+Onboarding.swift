@@ -11,7 +11,7 @@ import UIKit
 
 extension ViewController {
   
-    func onboarding() {
+  func onboarding() {
     if isFirstLaunch() {
       let op = storyboard?.instantiateViewController(withIdentifier: "onboardingPageViewController") as! OnboardingPager
       op.view.frame = CGRect(x:0, y:0, width:self.view.frame.size.width, height: self.view.frame.size.height)
@@ -36,7 +36,7 @@ extension ViewController {
   
   func isFirstLaunch() -> Bool{
     
-//    UserDefaults.standard.set(false, forKey: "launchedBefore")
+    UserDefaults.standard.set(false, forKey: "launchedBefore")
     
     if UserDefaults.standard.bool(forKey: "launchedBefore") {
       return false

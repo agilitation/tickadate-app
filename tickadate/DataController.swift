@@ -115,6 +115,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
     
     
     var event:Event!
+    
     let cal:Calendar = Calendar.current
     
     
@@ -139,30 +140,30 @@ class DataController: NSObject, CLLocationManagerDelegate {
       event.type = type
       event.isAllDay = type.isAllDay
       event.details = details
+      event.duration = 60 // todo const
+      
+      let dayComps = cal.dateComponents([.day, .month, .year], from: date)
+      let dayDate = cal.date(from: dayComps)!
+      let todayTimeComps = cal.dateComponents([.hour, .minute], from: Date())
+      var minutes:Int = Int(todayTimeComps.hour! * 60 + todayTimeComps.minute!)
       
       if let defaultValues = type.defaultValues {
         
-        let dayComps = cal.dateComponents([.day, .month, .year], from: date)
-        let dayDate = cal.date(from: dayComps)!
-        
-        
-        
-        event.duration = Int16(defaultValues.duration)
-        
-        if defaultValues.time != nil {
-          event.date = cal.date(byAdding: .minute,
-                                value: Int(defaultValues.time!),
-                                to: dayDate)! as NSDate
-          
+        if defaultValues.duration != nil {
+          event.duration = Int16(defaultValues.duration!)
         }
         
-      } else {
-        let todayComps = cal.dateComponents([.hour, .minute], from: Date())
-        event.duration = 60 // todo const
-        event.date = cal.date(byAdding: .minute,
-                              value: Int(todayComps.hour! * 60 + todayComps.minute!),
-                              to: date)! as NSDate
+        if defaultValues.time != nil {
+         minutes = Int(defaultValues.time!)
+        }
       }
+      
+      event.date = cal.date(
+        byAdding: .minute,
+        value: minutes,
+        to: dayDate
+      )! as NSDate
+    
       
       if(type.shouldAskForLocation){
         DispatchQueue.main.async {

@@ -22,21 +22,27 @@ struct EventTypeExample {
 
 
 class EventTypesTableViewController: UITableViewController, EventTypeFormViewDelegate, UINavigationControllerDelegate {
-
+  
   enum sections:Int {
     case progress = 0
     case eventTypes =  1
     case examples = 2
   }
-
-  var sectionsIds:[sections] = IAPManager.shared.hasUnlimitedEventTypes ? [.eventTypes, .examples] : [.progress, .eventTypes, .examples]
+  
+  var sectionsIds:[sections] {
+    get {
+      return IAPManager.shared.hasUnlimitedEventTypes
+        ? [.eventTypes, .examples]
+        : [.progress, .eventTypes, .examples]
+    }
+  }
   
   var eventTypeExamples:[EventTypeExample] = []
   var eventTypes:[EventType] = []
   var dataController:DataController!
   var isEditingCancelled:Bool! = false
   var nc:NotificationCenter = NotificationCenter.default
-
+  
   
   @IBOutlet weak var backButtonItem: UIBarButtonItem!
   
@@ -59,15 +65,12 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   }
   
   func fetchEventTypeExamples(completion:@escaping () -> ()) {
-    if let fileUrl = Bundle.main.url(forResource: "EventTypeExamples", withExtension: "plist"),
-      let data = try? Data(contentsOf: fileUrl) {
-      if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [Dictionary<String, String>] {
-        self.eventTypeExamples = result!.map({ (color) -> EventTypeExample in
-          return EventTypeExample(name: color["name"]!, color: color["hex"]!)
-        })
-      }
+    PListParser<[[String:String]]>().parse(filename: "EventTypeExamples") { (result) in
+      self.eventTypeExamples = result.map({ (color) -> EventTypeExample in
+        return EventTypeExample(name: color["name"]!, color: color["hex"]!)
+      })
+      completion()
     }
-    completion()
   }
   
   override func viewDidLoad() {
@@ -85,17 +88,13 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     self.navigationItem.rightBarButtonItem = self.editButtonItem
     self.backButtonItem.title = CommonStrings.back
     
+    // reload the progress bar on eventTypes.change
     nc.addObserver(forName: NSNotification.Name("eventTypes.change"), object: nil, queue: nil) { (notif) in
-      let ip = IndexPath(item: 0, section: sections.progress.rawValue)
-      self.tableView.reloadRows(at: [ip], with: .fade)
+      if let progressSectionIndex = self.sectionsIds.index(of: sections.progress){
+        let ip = IndexPath(item: 0, section: progressSectionIndex)
+        self.tableView.reloadRows(at: [ip], with: .fade)
+      }
     }
-  }
-  
-  
-  
-  // Only one that works
-  @IBAction func onBack (_ sender: Any) {
-    self.performSegue(withIdentifier: "unwindToViewController", sender: self)
   }
   
   override func setEditing(_ editing: Bool, animated: Bool) {
@@ -198,7 +197,8 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
       return
     }
     
-    if eventTypes.count < IAPManager.shared.eventTypesCount {
+    // MARK: - Check if sufficient event types
+    if eventTypes.count < IAPManager.shared.eventTypesCount || IAPManager.shared.hasUnlimitedEventTypes {
       performSegue(withIdentifier: "createEventTypeSegue", sender: self)
     } else {
       self.alertForUnsufficientEventTypes()
@@ -239,8 +239,15 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   
   func alertForUnsufficientEventTypes(){
     let alert:UIAlertController = UIAlertController(
-      title: "Unsufficient event types",
-      message: "Why dont you give me money", preferredStyle: .alert
+      title: NSLocalizedString(
+        "eventTypes/table/unsufficient/alert/title",
+        comment: "The title of the alert panel displayed when the user has no more event types"
+      ),
+      message: NSLocalizedString(
+        "eventTypes/table/unsufficient/alert/message",
+        comment: "The message of the alert panel displayed when the user has no more event types"
+      ),
+      preferredStyle: .alert
     )
     
     alert.addAction(UIAlertAction(
@@ -250,7 +257,10 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     ))
     
     alert.addAction(UIAlertAction(
-      title: "Buy 3",
+      title: NSLocalizedString(
+        "eventTypes/table/unsufficient/buy3",
+        comment: "The label of the button that allows the user to buy 3 new event types"
+      ),
       style: .default,
       handler: { (action) in
         IAPManager.shared.purchase(.threeAdditionalEventTypes, completion: {
@@ -260,17 +270,23 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     ))
     
     alert.addAction(UIAlertAction(
-      title: "Unlock",
+      title: NSLocalizedString(
+        "eventTypes/table/unsufficient/unlock",
+        comment: "The label of the button that allows the user to unlock event types"
+      ),
       style: .default,
       handler: { (action) in
         IAPManager.shared.purchase(.unlimitedEventTypes, completion: {
+          // we have to reload the table view to remove the progress bar
+          IAPManager.shared.hasUnlimitedEventTypes = true
+          self.tableView.reloadData()
           self.performSegue(withIdentifier: "createEventTypeSegue", sender: self)
         })
     }
     ))
-
+    
     self.present(alert, animated: true, completion: nil)
-
+    
   }
   
   func eventTypeFormView(_ controller: EventTypeFormViewController, finishedEditingOf eventType: EventType) {

@@ -95,6 +95,18 @@
 /* Placeholder for the 'reminder / Time' time row */
 "eventType/form/reminder/time/placeholder" = "Même heure que le tick";
 
+/* The message of the alert panel displayed when the user has no more event types */
+"eventTypes/table/unsufficient/alert/message" = "Vous avez atteint la limite d'événements actifs. Pour continuer, merci de sélectionner une des options suivantes :";
+
+/* The title of the alert panel displayed when the user has no more event types */
+"eventTypes/table/unsufficient/alert/title" = "Plus d'événements";
+
+/* The label of the button that allows the user to buy 3 new event types */
+"eventTypes/table/unsufficient/buy3" = "Acheter 3 événements supplémentaires";
+
+/* The label of the button that allows the user to unlock event types */
+"eventTypes/table/unsufficient/unlock" = "Débloquer les événements illimités";
+
 /* 'In a week' action from the quick date picker, +7d */
 "quickDatePicker/inAWeek" = "Dans une semaine";
 

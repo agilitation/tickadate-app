@@ -28,10 +28,7 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
   @IBAction func onTick(_ sender: Any) {
     
     let eventCreated:(Event) -> () = { (event) in
-      self.dataController.fetchEvents(completion: { (events) in
-        self.calendarController.events = events
-        self.calendarController.reloadCell(forDate: event.date! as Date)
-      })
+      NSLog("event created %@", event)
     }
     
     if selectedEventType!.promptForDetails {
@@ -47,10 +44,12 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
       
       alert.addAction(UIAlertAction(title: CommonStrings.cancel, style: .cancel, handler: nil))
       alert.addAction(UIAlertAction(title: CommonStrings.confirm, style: .default, handler: { (action) in
-        self.dataController.createEvent(ofType: self.selectedEventType!,
-                                        onDate: self.selectedDate!,
-                                        withDetails: alert.textFields![0].text!,
-                                        completion: eventCreated)
+        self.dataController.createEvent(
+          ofType: self.selectedEventType!,
+          onDate: self.selectedDate!,
+          withDetails: alert.textFields![0].text!,
+          completion: eventCreated
+        )
       }))
       
       self.present(alert, animated: true, completion: nil)
@@ -91,6 +90,15 @@ class ViewController: UIViewController, EventTypesControllerDelegate, CalendarCo
       self.dataController.fetchEvents(completion: { (events) in
         self.calendarController.events = events
         self.calendarController.reloadCell(forDate: date)
+      })
+    }
+    nc.addObserver(forName: NSNotification.Name("event.create"), object: nil, queue: nil) { (notif) in
+      let event:Event = notif.object as! Event
+      self.dataController.fetchEvents(completion: { (events) in
+        self.calendarController.events = events
+        if let d = event.date {
+          self.calendarController.reloadCell(forDate: d as Date)
+        }
       })
     }
   }

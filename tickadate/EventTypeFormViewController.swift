@@ -112,7 +112,7 @@ class EventTypeFormViewController: FormViewController {
           $0.value = Int(duration)
         }
         }.onChange({ ( row) in
-          self.dc.getDefaultValues(forEventType: self.eventType!).duration = Int16(row.value ?? 0)
+          self.dc.getDefaultValues(forEventType: self.eventType!).duration = NSNumber(value: row.value ?? 0)
           self.dc.save()
         })
       
