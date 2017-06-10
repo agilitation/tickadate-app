@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-  <dict><key>name</key><string>French lessons</string><key>hex</key><string>1577c3</string></dict>
-  <dict><key>name</key><string>Read a book</string><key>hex</key><string>1f64e3</string></dict>
-  <dict><key>name</key><string>Theater</string><key>hex</key><string>723BA3</string></dict>
-  <dict><key>name</key><string>Rehearsal</string><key>hex</key><string>FF141D</string></dict>
+  <dict><key>name</key><string>Mow the lawn</string><key>hex</key><string>68d845</string></dict>
+  <dict><key>name</key><string>Read a book</string><key>hex</key><string>2aaef5</string></dict>
+  <dict><key>name</key><string>Theater</string><key>hex</key><string>cb77df</string></dict>
+  <dict><key>name</key><string>Rehearsal</string><key>hex</key><string>fd9426</string></dict>
   <dict><key>name</key><string>Concert</string><key>hex</key><string>ff2374</string></dict>
   <dict><key>name</key><string>Haircut</string><key>hex</key><string>997131</string></dict>
   <dict><key>name</key><string>Nails</string><key>hex</key><string>e87cff</string></dict>
@@ -17,7 +17,7 @@
   <dict><key>name</key><string>Fishing</string><key>hex</key><string>6CB98C</string></dict>
   <dict><key>name</key><string>Video games</string><key>hex</key><string>7F7F7F</string></dict>
   <dict><key>name</key><string>Barbecue</string><key>hex</key><string>801707</string></dict>
-  <dict><key>name</key><string>Party</string><key>hex</key><string>FF8000</string></dict>
+  <dict><key>name</key><string>Party</string><key>hex</key><string>e9ba2a</string></dict>
   <dict><key>name</key><string>Lindy Hop</string><key>hex</key><string>FF8055</string></dict>
   <dict><key>name</key><string>Coffee</string><key>hex</key><string>43141D</string></dict>
   <dict><key>name</key><string>Doctor</string><key>hex</key><string>51CCF1</string></dict>

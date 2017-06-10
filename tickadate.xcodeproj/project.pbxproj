@@ -36,7 +36,6 @@
 		7A873F2F1EE00BF000E0A058 /* ColorSwatchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F2E1EE00BF000E0A058 /* ColorSwatchesTableViewController.swift */; };
 		7A873F311EE018D300E0A058 /* ColorSwatches.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F301EE018D300E0A058 /* ColorSwatches.plist */; };
 		7A873F361EE0A8E000E0A058 /* iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F381EE0A8E000E0A058 /* iOS.plist */; };
-		7A873F3D1EE0B6CB00E0A058 /* FlatUI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F3C1EE0B6CB00E0A058 /* FlatUI.plist */; };
 		7A873F3F1EE1381900E0A058 /* ColorSwatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F3E1EE1381900E0A058 /* ColorSwatchTableViewCell.swift */; };
 		7A873F431EE154FB00E0A058 /* EventsOfDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */; };
 		7A873F461EE15E9600E0A058 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A873F451EE15E9600E0A058 /* IAPManager.swift */; };
@@ -53,9 +52,8 @@
 		7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A901CF91EC22E6100CF0002 /* DynamicColor.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		7A901D021EC23AB600CF0002 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A901D011EC23AB600CF0002 /* CircleView.swift */; };
 		7A9791931EDC5A5F00D910B6 /* StatCellDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */; };
-		7A9791951EDCC5E000D910B6 /* DemoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9791941EDCC5E000D910B6 /* DemoData.plist */; };
-		7A9791961EDCC5E000D910B6 /* DemoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9791941EDCC5E000D910B6 /* DemoData.plist */; };
-		7A9791971EDCC5E000D910B6 /* DemoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9791941EDCC5E000D910B6 /* DemoData.plist */; };
+		7A9B53361EEC117300B34552 /* FlatUI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B53381EEC117300B34552 /* FlatUI.plist */; };
+		7A9B533C1EEC14A500B34552 /* PantoneYear2016.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B533B1EEC14A500B34552 /* PantoneYear2016.plist */; };
 		7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9A1ECC66A4001B6520 /* RAL.plist */; };
 		7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628ED1ECCF04400834FAD /* StyleKit.swift */; };
 		7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */; };
@@ -140,7 +138,6 @@
 		7A873F301EE018D300E0A058 /* ColorSwatches.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ColorSwatches.plist; sourceTree = "<group>"; };
 		7A873F371EE0A8E000E0A058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/iOS.plist; sourceTree = "<group>"; };
 		7A873F391EE0A8E100E0A058 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/iOS.plist; sourceTree = "<group>"; };
-		7A873F3C1EE0B6CB00E0A058 /* FlatUI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FlatUI.plist; sourceTree = "<group>"; };
 		7A873F3E1EE1381900E0A058 /* ColorSwatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSwatchTableViewCell.swift; sourceTree = "<group>"; };
 		7A873F411EE13D8300E0A058 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ColorPicker.strings; sourceTree = "<group>"; };
 		7A873F421EE154FB00E0A058 /* EventsOfDay.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsOfDay.storyboard; sourceTree = "<group>"; };
@@ -159,7 +156,11 @@
 		7A901CF91EC22E6100CF0002 /* DynamicColor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicColor.framework; path = Carthage/Build/iOS/DynamicColor.framework; sourceTree = "<group>"; };
 		7A901D011EC23AB600CF0002 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCellDefinitions.swift; sourceTree = "<group>"; };
-		7A9791941EDCC5E000D910B6 /* DemoData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DemoData.plist; sourceTree = "<group>"; };
+		7A9B53331EEC0B9400B34552 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		7A9B53351EEC0B9800B34552 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Onboarding+Inspiration.strings"; sourceTree = "<group>"; };
+		7A9B53371EEC117300B34552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/FlatUI.plist; sourceTree = "<group>"; };
+		7A9B53391EEC117400B34552 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/FlatUI.plist; sourceTree = "<group>"; };
+		7A9B533B1EEC14A500B34552 /* PantoneYear2016.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PantoneYear2016.plist; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
 		7AA628ED1ECCF04400834FAD /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtons.swift; sourceTree = "<group>"; };
@@ -344,7 +345,6 @@
 			children = (
 				7AF97EDF1EC48A3300DD5AC1 /* DataController.swift */,
 				7A901CAD1EC1BEEE00CF0002 /* TickADate.xcdatamodeld */,
-				7A9791941EDCC5E000D910B6 /* DemoData.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -404,15 +404,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7A9B533A1EEC148900B34552 /* Pantone */ = {
+			isa = PBXGroup;
+			children = (
+				7A9B533B1EEC14A500B34552 /* PantoneYear2016.plist */,
+			);
+			name = Pantone;
+			sourceTree = "<group>";
+		};
 		7A9CCD9D1ECC6B25001B6520 /* ColorSwatches */ = {
 			isa = PBXGroup;
 			children = (
+				7A9B533A1EEC148900B34552 /* Pantone */,
 				7ACDED1D1EDC370A004CDB9D /* CrayolaBright.plist */,
 				7AAD59F61ECC6BD6003D2DA5 /* CrayolaFluorescent.plist */,
 				7A9CCD9A1ECC66A4001B6520 /* RAL.plist */,
 				7A873F301EE018D300E0A058 /* ColorSwatches.plist */,
 				7A873F381EE0A8E000E0A058 /* iOS.plist */,
-				7A873F3C1EE0B6CB00E0A058 /* FlatUI.plist */,
+				7A9B53381EEC117300B34552 /* FlatUI.plist */,
 			);
 			name = ColorSwatches;
 			sourceTree = "<group>";
@@ -623,10 +632,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A9B533C1EEC14A500B34552 /* PantoneYear2016.plist in Resources */,
 				7A873F361EE0A8E000E0A058 /* iOS.plist in Resources */,
 				7A873F4A1EE337AD00E0A058 /* Cartfile in Resources */,
 				7AB0B0D81EC07D4600BEC76C /* LaunchScreen.storyboard in Resources */,
-				7A873F3D1EE0B6CB00E0A058 /* FlatUI.plist in Resources */,
+				7A9B53361EEC117300B34552 /* FlatUI.plist in Resources */,
 				7A48AB381EE99A2800CA2641 /* EventTypeExamples.plist in Resources */,
 				7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */,
 				7A873F431EE154FB00E0A058 /* EventsOfDay.storyboard in Resources */,
@@ -641,7 +651,6 @@
 				7A48AB271EE727D800CA2641 /* Onboarding.storyboard in Resources */,
 				7A48AB371EE84C6800CA2641 /* Onboarding+Inspiration.storyboard in Resources */,
 				7A873F311EE018D300E0A058 /* ColorSwatches.plist in Resources */,
-				7A9791951EDCC5E000D910B6 /* DemoData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +658,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9791961EDCC5E000D910B6 /* DemoData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +665,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9791971EDCC5E000D910B6 /* DemoData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +801,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7A48AB281EE727D800CA2641 /* Base */,
+				7A9B53331EEC0B9400B34552 /* fr */,
 			);
 			name = Onboarding.storyboard;
 			sourceTree = "<group>";
@@ -802,6 +810,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7A48AB361EE84C6800CA2641 /* Base */,
+				7A9B53351EEC0B9800B34552 /* fr */,
 			);
 			name = "Onboarding+Inspiration.storyboard";
 			sourceTree = "<group>";
@@ -822,6 +831,15 @@
 				7A873F391EE0A8E100E0A058 /* fr */,
 			);
 			name = iOS.plist;
+			sourceTree = "<group>";
+		};
+		7A9B53381EEC117300B34552 /* FlatUI.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A9B53371EEC117300B34552 /* Base */,
+				7A9B53391EEC117400B34552 /* fr */,
+			);
+			name = FlatUI.plist;
 			sourceTree = "<group>";
 		};
 		7AA628F31ECF456100834FAD /* ColorPicker.storyboard */ = {

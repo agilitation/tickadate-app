@@ -49,7 +49,7 @@ class ColorSwatch {
     }
     
     PListParser<[[String:String]]>().parse(filename: self.filename) { (result) in
-      result.forEach({ (color) in
+      result?.forEach({ (color) in
         self.colors.append(ColorPaletteItem(hexString: color["hex"]!, label: color["label"]!))
       })
       completion()
@@ -80,7 +80,7 @@ class ColorSwatchesManager {
   func fetchAvailableColorSwatches(completion: @escaping ([ColorSwatch]) -> ()){
     if swatches.count == 0 {
       PListParser<[[String:String]]>().parse(filename: "ColorSwatches") { (result) in
-        result.forEach({ (colorSwatchPListDict) in
+        result?.forEach({ (colorSwatchPListDict) in
           self.swatches.append(ColorSwatch(fromPList: colorSwatchPListDict))
         })
         completion(self.swatches)

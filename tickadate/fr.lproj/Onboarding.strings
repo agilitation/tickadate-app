@@ -1,0 +1,58 @@
+
+/* Class = "UILabel"; text = "take note\nof recurring 
+events, quickly."; ObjectID = "1Ou-UH-kF9"; */
+"1Ou-UH-kF9.text" = "Notez facilement les événements du quotidien";
+
+/* Class = "UILabel"; text = "Default title and notes"; ObjectID = "2hY-rd-Woq"; */
+"2hY-rd-Woq.text" = "Titre et description par défaut";
+
+/* Class = "UILabel"; text = "Choose the event"; ObjectID = "624-r9-ukp"; */
+"624-r9-ukp.text" = "Choisissez l'événement";
+
+/* Class = "UILabel"; text = "Several statistics and graphs are available for each event"; ObjectID = "8WB-wI-Lai"; */
+"8WB-wI-Lai.text" = "Pour chaque événement vous trouverez des statistiques complètes et pertinentes";
+
+/* Class = "UILabel"; text = "Tick !"; ObjectID = "A1s-zZ-4Q1"; */
+"A1s-zZ-4Q1.text" = "Tickez !";
+
+/* Class = "UILabel"; text = "Create reminders"; ObjectID = "B4x-My-xbt"; */
+"B4x-My-xbt.text" = "Création de rappels";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Emb-qw-eaJ"; */
+"Emb-qw-eaJ.normalTitle" = "Suivant";
+
+/* Class = "UILabel"; text = "Publish in calendars"; ObjectID = "Hjl-OI-KLw"; */
+"Hjl-OI-KLw.text" = "Publier dans votre agenda";
+
+/* Class = "UILabel"; text = "3."; ObjectID = "IeP-Cj-J3k"; */
+"IeP-Cj-J3k.text" = "3.";
+
+/* Class = "UILabel"; text = "Frequency per day, per week, per month, time interval between ticks, recurrence, etc."; ObjectID = "Kuy-b2-I78"; */
+"Kuy-b2-I78.text" = "Fréquence par jour, par semaine, par mois, écart entre les ticks, récurrence, etc.";
+
+/* Class = "UILabel"; text = "Default time and duration"; ObjectID = "eU1-c2-S4m"; */
+"eU1-c2-S4m.text" = "Heur et durée par défaut";
+
+/* Class = "UILabel"; text = "2."; ObjectID = "hds-jm-J4A"; */
+"hds-jm-J4A.text" = "2.";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "ipT-vU-4pu"; */
+"ipT-vU-4pu.normalTitle" = "Suivant";
+
+/* Class = "UILabel"; text = "analyze\nyour habits"; ObjectID = "jwp-QB-N9D"; */
+"jwp-QB-N9D.text" = "Analysez vos habitudes";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "ovv-Xz-oQ1"; */
+"ovv-Xz-oQ1.normalTitle" = "Suivant";
+
+/* Class = "UILabel"; text = "Choose the day"; ObjectID = "qeI-6l-jv6"; */
+"qeI-6l-jv6.text" = "Choisissez un jour";
+
+/* Class = "UILabel"; text = "1."; ObjectID = "tvY-KM-UkN"; */
+"tvY-KM-UkN.text" = "1.";
+
+/* Class = "UILabel"; text = "customize \nyour events"; ObjectID = "y7j-11-XLb"; */
+"y7j-11-XLb.text" = "Des événements à votre image";
+
+/* Class = "UILabel"; text = "All day ticks"; ObjectID = "yqe-BW-aDK"; */
+"yqe-BW-aDK.text" = "Ticks sur la journée entière";

@@ -154,7 +154,7 @@ class DataController: NSObject, CLLocationManagerDelegate {
         }
         
         if defaultValues.time != nil {
-         minutes = Int(defaultValues.time!)
+          minutes = Int(defaultValues.time!)
         }
       }
       
@@ -162,8 +162,8 @@ class DataController: NSObject, CLLocationManagerDelegate {
         byAdding: .minute,
         value: minutes,
         to: dayDate
-      )! as NSDate
-    
+        )! as NSDate
+      
       
       if(type.shouldAskForLocation){
         DispatchQueue.main.async {
@@ -387,19 +387,19 @@ class DataController: NSObject, CLLocationManagerDelegate {
   }
   
   func bootstrapEventTypes() {
-    let names = ["Dinner at the restaurant", "Sport training"]
-    let colors = ["50E3C2", "9012FE"]
-    var eventTypes:[EventType] = []
-    for i in 0..<names.count {
+    
+    func createEventTypeFromExample(desc:[String:String], position:Int){
       let et = EventType(context: context)
-      et.name = names[i]
-      et.color = colors[i]
-      et.order = Int16(i)
+      et.name = desc["name"]
+      et.color = desc["hex"]
+      et.order = Int16(position)
       et.isActive = true
       context.insert(et)
-      eventTypes.append(et)
     }
     
+    let result = PListParser<[[String:String]]>().parseSync(filename: "EventTypeExamples")
+    createEventTypeFromExample(desc: result![0], position: 0)
+    createEventTypeFromExample(desc: result![1], position: 1)
     save()
   }
   

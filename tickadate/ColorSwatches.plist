@@ -24,23 +24,33 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Crayola® Bright</string>
+		<string>Crayons Bright</string>
 		<key>productID</key>
 		<string>Crayola-Bright</string>
 		<key>description</key>
-		<string>14 catchy colors to brighten up your daily routines</string>
+		<string>24 catchy colors from the famous crayon maker</string>
 		<key>filename</key>
 		<string>CrayolaBright</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Crayola® Fluorescent</string>
+		<string>Crayons Fluorescent</string>
 		<key>productID</key>
 		<string>Crayola-Fluorescent</string>
 		<key>description</key>
-		<string>14 catchy colors to brighten up your daily routines</string>
+		<string>16 flashy tints to help you get a tan while using the app</string>
 		<key>filename</key>
 		<string>CrayolaFluorescent</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Spring &amp; Fall 2016</string>
+		<key>productID</key>
+		<string>PantoneYear2016</string>
+		<key>description</key>
+		<string>The colors of the year 2016</string>
+		<key>filename</key>
+		<string>PantoneYear2016</string>
 	</dict>
 </array>
 </plist>

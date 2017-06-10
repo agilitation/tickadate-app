@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   PantoneYear2016.plist
+   tickadate
+
+   Created by Romain Bessuges-Meusy on 10/06/2017.
+   Copyright (c) 2017 Agilitation. All rights reserved.
+-->
+<plist version="1.0">
+    <array>
+      <dict><key>label</key><string>Rose Quartz</string><key>hex</key><string>f7cac9</string></dict>
+      <dict><key>label</key><string>Peach Echo</string><key>hex</key><string>f7786b</string></dict>
+      <dict><key>label</key><string>Serenity</string><key>hex</key><string>91A8d0</string></dict>
+      <dict><key>label</key><string>Snorkel Blue</string><key>hex</key><string>034f84</string></dict>
+      <dict><key>label</key><string>Buttercup</string><key>hex</key><string>fae03c</string></dict>
+      <dict><key>label</key><string>Limpet Shell</string><key>hex</key><string>98ddde</string></dict>
+      <dict><key>label</key><string>Lilac Gray</string><key>hex</key><string>9896a4</string></dict>
+      <dict><key>label</key><string>Fiesta</string><key>hex</key><string>dd4132</string></dict>
+      <dict><key>label</key><string>Iced Coffee</string><key>hex</key><string>b18f6a</string></dict>
+      <dict><key>label</key><string>Green Flash</string><key>hex</key><string>79c753</string></dict>
+    </array>
+</plist>

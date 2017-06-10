@@ -23,9 +23,11 @@ class InspirationStepOnboardingViewController: OnboardingViewController {
   
   func fetchEventTypeExamples(completion:@escaping () -> ()) {
     PListParser<[[String:String]]>().parse(filename: "EventTypeExamples") { (result) in
-      self.eventTypeExamples = result.map({ (color) -> EventTypeExample in
-        return EventTypeExample(name: color["name"]!, color: color["hex"]!)
-      })
+      if let examples = result {
+        self.eventTypeExamples = examples.map({ (color) -> EventTypeExample in
+          return EventTypeExample(name: color["name"]!, color: color["hex"]!)
+        })
+      }
       completion()
     }
   }
@@ -42,7 +44,7 @@ class InspirationStepOnboardingViewController: OnboardingViewController {
         circle.isOpaque = false
         circle.addConstraints([
           NSLayoutConstraint(
-            item: circle, 
+            item: circle,
             attribute: .height,
             relatedBy: .equal,
             toItem: nil,
@@ -59,7 +61,7 @@ class InspirationStepOnboardingViewController: OnboardingViewController {
             multiplier: 1,
             constant: 14
           ),
-        ])
+          ])
         let label:UILabel = UILabel(frame: CGRect(x:0, y:0, width: 300, height: 20))
         label.text = example.name
         label.font = UIFont.systemFont(ofSize: 14, weight: 0)
@@ -82,5 +84,5 @@ class InspirationStepOnboardingViewController: OnboardingViewController {
     }
   }
   
-
+  
 }

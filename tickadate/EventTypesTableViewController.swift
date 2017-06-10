@@ -66,9 +66,13 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
   
   func fetchEventTypeExamples(completion:@escaping () -> ()) {
     PListParser<[[String:String]]>().parse(filename: "EventTypeExamples") { (result) in
-      self.eventTypeExamples = result.map({ (color) -> EventTypeExample in
-        return EventTypeExample(name: color["name"]!, color: color["hex"]!)
-      })
+      if var examples = result {
+        examples.removeFirst(2)
+        
+        self.eventTypeExamples = examples.map({ (color) -> EventTypeExample in
+          return EventTypeExample(name: color["name"]!, color: color["hex"]!)
+        })
+      }
       completion()
     }
   }

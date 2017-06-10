@@ -36,7 +36,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ou-UH-kF9">
                                 <rect key="frame" x="18" y="38" width="284" height="107.5"/>
-                                <string key="text">take note
+                                <string key="text">keep track
 of recurring  events, quickly.</string>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
@@ -44,7 +44,7 @@ of recurring  events, quickly.</string>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="6q2-VG-Z49">
-                                <rect key="frame" x="0.0" y="163.5" width="320" height="338.5"/>
+                                <rect key="frame" x="0.0" y="163" width="320" height="339"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sNP-dE-4lM">
                                         <rect key="frame" x="44.5" y="0.0" width="275.5" height="113"/>
@@ -72,7 +72,7 @@ of recurring  events, quickly.</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OWr-xk-zU8">
-                                        <rect key="frame" x="39" y="113" width="281" height="112.5"/>
+                                        <rect key="frame" x="39" y="113" width="281" height="113"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hds-jm-J4A">
                                                 <rect key="frame" x="0.0" y="35" width="36" height="43"/>
@@ -97,7 +97,7 @@ of recurring  events, quickly.</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zrq-oB-yG6">
-                                        <rect key="frame" x="39" y="225.5" width="281" height="113"/>
+                                        <rect key="frame" x="39" y="226" width="281" height="113"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" verticalHuggingPriority="251" text="3." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeP-Cj-J3k">
                                                 <rect key="frame" x="0.0" y="35" width="36" height="43"/>
@@ -189,7 +189,7 @@ your events</string>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fUV-ag-IUe">
-                                <rect key="frame" x="40.5" y="186.5" width="240" height="195"/>
+                                <rect key="frame" x="40" y="186.5" width="240" height="195"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3X8-a5-XKs">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="31"/>
@@ -301,7 +301,7 @@ your events</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwp-QB-N9D">
-                                <rect key="frame" x="18" y="38" width="284" height="72"/>
+                                <rect key="frame" x="18" y="38" width="284" height="70"/>
                                 <string key="text">analyze
 your habits</string>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
@@ -309,21 +309,21 @@ your habits</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NVL-WE-2Xh">
-                                <rect key="frame" x="18" y="128" width="284" height="374"/>
+                                <rect key="frame" x="18" y="126" width="284" height="406"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="byY-1X-bS4" customClass="BarChartView" customModule="tickadate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="284" height="374"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="284" height="406"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Several statistics and graphs are available for each event" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WB-wI-Lai">
-                                        <rect key="frame" x="0.0" y="374" width="284" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="406" width="284" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.33333333329999998" alpha="0.3028413955" colorSpace="calibratedWhite"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency per day, per week, per month, time interval between ticks, recurrence, etc." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuy-b2-I78">
-                                        <rect key="frame" x="0.0" y="374" width="284" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="406" width="284" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="0.66531999143835618" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -331,7 +331,7 @@ your habits</string>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipT-vU-4pu">
-                                <rect key="frame" x="144" y="520" width="32" height="30"/>
+                                <rect key="frame" x="144" y="550" width="32" height="0.0"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

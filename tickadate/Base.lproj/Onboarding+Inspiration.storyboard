@@ -27,7 +27,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="eCn-wo-p5J"/>
                                 </constraints>
-                                <state key="normal" title="Got it !"/>
+                                <state key="normal" title="Got it, let's go!"/>
                                 <connections>
                                     <action selector="quitOnboarding:" destination="cPI-fe-Qw5" eventType="touchUpInside" id="1rs-3X-2Df"/>
                                     <segue destination="52v-RW-J8y" kind="unwind" unwindAction="unwindToViewControllerWithSegue:" id="pIS-3u-Woc"/>
