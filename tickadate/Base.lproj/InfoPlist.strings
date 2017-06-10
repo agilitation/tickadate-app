@@ -1,0 +1,3 @@
+"NSRemindersUsageDescription" = "Let this app create reminders in the iOS Todo app";
+"NSLocationWhenInUseUsageDescription" = "Store your current location when you create a new tick";
+"NSCalendarsUsageDescription" = "Let this app create events in your calendars";

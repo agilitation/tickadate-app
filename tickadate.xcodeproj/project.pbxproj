@@ -54,6 +54,7 @@
 		7A9791931EDC5A5F00D910B6 /* StatCellDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9791921EDC5A5F00D910B6 /* StatCellDefinitions.swift */; };
 		7A9B53361EEC117300B34552 /* FlatUI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B53381EEC117300B34552 /* FlatUI.plist */; };
 		7A9B533C1EEC14A500B34552 /* PantoneYear2016.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B533B1EEC14A500B34552 /* PantoneYear2016.plist */; };
+		7A9B533F1EEC1A0100B34552 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B53411EEC1A0100B34552 /* InfoPlist.strings */; };
 		7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9A1ECC66A4001B6520 /* RAL.plist */; };
 		7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628ED1ECCF04400834FAD /* StyleKit.swift */; };
 		7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */; };
@@ -161,6 +162,8 @@
 		7A9B53371EEC117300B34552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/FlatUI.plist; sourceTree = "<group>"; };
 		7A9B53391EEC117400B34552 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/FlatUI.plist; sourceTree = "<group>"; };
 		7A9B533B1EEC14A500B34552 /* PantoneYear2016.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PantoneYear2016.plist; sourceTree = "<group>"; };
+		7A9B53401EEC1A0100B34552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7A9B53421EEC1A0200B34552 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
 		7AA628ED1ECCF04400834FAD /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtons.swift; sourceTree = "<group>"; };
@@ -453,6 +456,7 @@
 			children = (
 				7A873F511EE5980A00E0A058 /* Info.plist */,
 				7ACDED131EDC17A5004CDB9D /* Localizable.strings */,
+				7A9B53411EEC1A0100B34552 /* InfoPlist.strings */,
 				7AB0B0CD1EC07D4500BEC76C /* AppDelegate.swift */,
 				7AB0B0D41EC07D4600BEC76C /* Assets.xcassets */,
 				7A1C13AF1EDC3DF1007A6D75 /* Components */,
@@ -641,6 +645,7 @@
 				7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */,
 				7A873F431EE154FB00E0A058 /* EventsOfDay.storyboard in Resources */,
 				7ACDED1B1EDC370A004CDB9D /* CrayolaBright.plist in Resources */,
+				7A9B533F1EEC1A0100B34552 /* InfoPlist.strings in Resources */,
 				7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */,
 				7AB0B0D51EC07D4600BEC76C /* Assets.xcassets in Resources */,
 				7AAD59F71ECC6BD6003D2DA5 /* CrayolaFluorescent.plist in Resources */,
@@ -840,6 +845,15 @@
 				7A9B53391EEC117400B34552 /* fr */,
 			);
 			name = FlatUI.plist;
+			sourceTree = "<group>";
+		};
+		7A9B53411EEC1A0100B34552 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A9B53401EEC1A0100B34552 /* Base */,
+				7A9B53421EEC1A0200B34552 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		7AA628F31ECF456100834FAD /* ColorPicker.storyboard */ = {

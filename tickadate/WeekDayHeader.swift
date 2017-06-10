@@ -32,7 +32,7 @@ class WeekDayHeader: UIView {
       label.textAlignment = .center
       label.text = weekdaySymbol
       label.layer.shadowRadius = 1
-      label.layer.shadowColor = UIColor.black.cgColor
+      label.layer.shadowColor = UIColor.black.lighter(amount: 0.8).cgColor
       label.layer.shadowOffset = CGSize(width: 0, height: 1)
       label.layer.shadowOpacity = 1
       self.addSubview(label)

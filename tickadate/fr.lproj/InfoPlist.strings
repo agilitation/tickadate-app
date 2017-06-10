@@ -1,0 +1,3 @@
+"NSRemindersUsageDescription" = "Autorise l'application à créer des rappels dans l'application Rappels de votre téléphone";
+"NSLocationWhenInUseUsageDescription" = "Enregistre votre géolocalisation au moment où vous créez un tick";
+"NSCalendarsUsageDescription" = "Autorise l'application à créer des événements dans les agendas présents sur votre téléphone";
