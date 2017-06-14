@@ -113,6 +113,9 @@
 /* 'Yesterday' action from the quick date picker, -1d */
 "quickDatePicker/yesterday" = "Yesterday";
 
+/* The title of the alert displayed to the user when he cliked on the restore purchases button */
+"restorPurchases/alert/title" = "Purchase restored";
+
 /* Label for day of year stat */
 "stats/dayOfYear/label" = "Current year frequency";
 
@@ -169,9 +172,6 @@
 
 /* Title for the base section */
 "eventType/form/base/title" = "";
-
-/* The title of the alert displayed to the user when he cliked on the restore purchases button */
-"restorPurchases/alert/title" = "";
 
 /* Unit for interval stat */
 "stats/interval/unit" = "";
