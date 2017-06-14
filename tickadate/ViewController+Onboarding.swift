@@ -13,12 +13,14 @@ extension ViewController {
   
   func onboarding() {
     if isFirstLaunch() {
+      IAPManager.shared.reset()
+      self.dataController.reset()
+      
       let op = storyboard?.instantiateViewController(withIdentifier: "onboardingPageViewController") as! OnboardingPager
       op.view.frame = CGRect(x:0, y:0, width:self.view.frame.size.width, height: self.view.frame.size.height)
       self.addChildViewController(op)
       self.view.addSubview(op.view)
       op.didMove(toParentViewController: self)
-      
       self.onboardingPager = op
     }
   }
@@ -34,20 +36,17 @@ extension ViewController {
     }
   }
   
+  
   func isFirstLaunch() -> Bool{
     
-    //UserDefaults.standard.set(false, forKey: "launchedBefore")
+    //Uncomment to create a first launch
+//    UserDefaults.standard.set(false, forKey: "launchedBefore")
     
     if UserDefaults.standard.bool(forKey: "launchedBefore") {
       return false
     }
     
     UserDefaults.standard.set(true, forKey: "launchedBefore")
-    
-    IAPManager.shared.reset()
-    dataController.deleteAllEvents()
-    dataController.deleteAllEventTypes()
-    dataController.bootstrapEventTypes()
     return true
     
   }

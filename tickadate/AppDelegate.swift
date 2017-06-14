@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-      
+    
+    SwiftyStoreKit.completeTransactions(atomically: false) { purchases in
       for purchase in purchases {
         
         if purchase.transaction.transactionState == .purchased || purchase.transaction.transactionState == .restored {

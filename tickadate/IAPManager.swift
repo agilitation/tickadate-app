@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 import SwiftyStoreKit
-
+import SwiftKeychainWrapper
 
 enum ProductIDs : String {
   case threeAdditionalEventTypes = "com.agilitation.tickadate.3AdditionalEventTypes"
@@ -17,15 +17,26 @@ enum ProductIDs : String {
   case additionalColorSwatch = "com.agilitation.tickadate.additionalColorSwatch"
 }
 
+enum ConsumableIAPurchasesKeys:String {
+  case eventTypesCount = "com.agilitation.tickadate.eventTypesCount"
+  case colorSwatches = "com.agilitation.tickadate.colorSwatches"
+}
+
 class IAPManager: NSObject {
   
   static let shared:IAPManager = IAPManager()
+  
+  var shouldBypassITunesStore = false
   
   var activeColorSwatches:[ColorSwatch] = []
   
   var eventTypesCount:Int {
     get { return UserDefaults.standard.integer(forKey: "eventTypesCount") }
-    set { UserDefaults.standard.set(newValue, forKey: "eventTypesCount") }
+    set {
+      UserDefaults.standard.set(newValue, forKey: "eventTypesCount")
+      // Store eventTypesCount in keychain to restore the consumable IAP
+      KeychainWrapper.standard.set(newValue, forKey: ConsumableIAPurchasesKeys.eventTypesCount.rawValue)
+    }
   }
   
   var hasUnlimitedEventTypes: Bool {
@@ -42,16 +53,43 @@ class IAPManager: NSObject {
   var nc:NotificationCenter = NotificationCenter.default
   
   func reset() {
-    self.eventTypesCount = 3
+    
     self.hasUnlimitedEventTypes = false
+    
+    SwiftyStoreKit.restorePurchases { (results) in
+      print("colorSwatchesInKeychain", results)
+      results.restoredPurchases.forEach({ (purchase) in
+        if purchase.productId == ProductIDs.unlimitedEventTypes.rawValue {
+          self.hasUnlimitedEventTypes = true
+        }
+      })
+    }
+    
     self.activeColorSwatchesIds.removeAllObjects()
-    self.activeColorSwatchesIds.add("iOS")
+    
+    if let colorSwatchesInKeychain = KeychainWrapper.standard.string(forKey: ConsumableIAPurchasesKeys.colorSwatches.rawValue) {
+      print ("colorSwatchesInKeychain", colorSwatchesInKeychain)
+      activeColorSwatchesIds.addObjects(from: colorSwatchesInKeychain.components(separatedBy: ";"))
+    } else {
+      self.activeColorSwatchesIds.add("iOS")
+    }
+    
+    if let eventTypesCountInKeychain = KeychainWrapper.standard.integer(forKey: ConsumableIAPurchasesKeys.eventTypesCount.rawValue) {
+      print("eventTypesCountInKeychain", eventTypesCountInKeychain)
+      self.eventTypesCount = eventTypesCountInKeychain
+    } else {
+      self.eventTypesCount = 3
+    }
+    
   }
   
   func buyAdditionalColorSwatch(id:String, completion: @escaping () -> ()){
     self.purchase(.additionalColorSwatch) {
       self.activeColorSwatchesIds.add(id)
       self.nc.post(name: NSNotification.Name("colorSwatches.change"), object: self)
+      // Store colorSwatches in keychain to restore the consumable IAP
+      print(self.activeColorSwatchesIds.componentsJoined(by: ";"))
+      KeychainWrapper.standard.set(self.activeColorSwatchesIds.componentsJoined(by: ";"), forKey: ConsumableIAPurchasesKeys.colorSwatches.rawValue)
       completion()
     }
   }
@@ -67,16 +105,20 @@ class IAPManager: NSObject {
       ProductIDs.threeAdditionalEventTypes.rawValue,
       ProductIDs.unlimitedEventTypes.rawValue,
       ProductIDs.additionalColorSwatch.rawValue,
-    ]) { result in
-      result.retrievedProducts.forEach({ (product) in
-        self.products[product.productIdentifier] = product
-      })
-      completion()
+      ]) { result in
+        result.retrievedProducts.forEach({ (product) in
+          self.products[product.productIdentifier] = product
+        })
+        completion()
     }
   }
   
   func purchase(_ productID:ProductIDs, completion: @escaping () -> ()){
     
+    if shouldBypassITunesStore {
+      completion()
+      return
+    }
     retreiveProductsInfo {
       if self.products[productID.rawValue] == nil {
         print("no product found for ID", productID.rawValue)
@@ -112,6 +154,7 @@ class IAPManager: NSObject {
         }
       })
     }
+    
   }
   
 }

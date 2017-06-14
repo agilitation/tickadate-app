@@ -386,6 +386,12 @@ class DataController: NSObject, CLLocationManagerDelegate {
     }
   }
   
+  func reset() {
+    self.deleteAllEvents()
+    self.deleteAllEventTypes()
+    self.bootstrapEventTypes()
+  }
+  
   func bootstrapEventTypes() {
     
     func createEventTypeFromExample(desc:[String:String], position:Int){

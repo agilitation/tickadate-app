@@ -56,6 +56,7 @@
 		7A9B533C1EEC14A500B34552 /* PantoneYear2016.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B533B1EEC14A500B34552 /* PantoneYear2016.plist */; };
 		7A9B533F1EEC1A0100B34552 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A9B53411EEC1A0100B34552 /* InfoPlist.strings */; };
 		7A9CCD9B1ECC66A4001B6520 /* RAL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A9CCD9A1ECC66A4001B6520 /* RAL.plist */; };
+		7AA295081EF11BE000E88680 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA295071EF11BE000E88680 /* SwiftKeychainWrapper.framework */; };
 		7AA628EE1ECCF04400834FAD /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628ED1ECCF04400834FAD /* StyleKit.swift */; };
 		7AA628F01ECCF25100834FAD /* ToolbarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */; };
 		7AA628F51ECF456100834FAD /* ColorPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA628F31ECF456100834FAD /* ColorPicker.storyboard */; };
@@ -165,6 +166,7 @@
 		7A9B53401EEC1A0100B34552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7A9B53421EEC1A0200B34552 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7A9CCD9A1ECC66A4001B6520 /* RAL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RAL.plist; path = Assets.xcassets/RAL.plist; sourceTree = "<group>"; };
+		7AA295071EF11BE000E88680 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
 		7AA628ED1ECCF04400834FAD /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		7AA628EF1ECCF25100834FAD /* ToolbarButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButtons.swift; sourceTree = "<group>"; };
 		7AA628F41ECF456100834FAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ColorPicker.storyboard; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AA295081EF11BE000E88680 /* SwiftKeychainWrapper.framework in Frameworks */,
 				7A873F4C1EE3862500E0A058 /* SwiftyStoreKit.framework in Frameworks */,
 				7A2BD9471EC2F1B6002E3FE8 /* Eureka.framework in Frameworks */,
 				7A901CFA1EC22E6100CF0002 /* DynamicColor.framework in Frameworks */,
@@ -259,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				7A61D4EC1EE5EF78001CB207 /* Onboarding */,
-				7A873F441EE15E6B00E0A058 /* IAP */,
 				7AB0B0D61EC07D4600BEC76C /* LaunchScreen.storyboard */,
 				7A1C13B11EDC3E10007A6D75 /* Calendar */,
 				7AE4EF671ED43F7600F3082C /* ColorPicker */,
@@ -398,6 +400,7 @@
 		7A901CF61EC22BED00CF0002 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AA295071EF11BE000E88680 /* SwiftKeychainWrapper.framework */,
 				7A873F4B1EE3862500E0A058 /* SwiftyStoreKit.framework */,
 				7A1C13A81EDC3B12007A6D75 /* StoreKit.framework */,
 				7A4865291EC73C4200456BDF /* SwiftIconFont.framework */,
@@ -459,6 +462,7 @@
 				7A9B53411EEC1A0100B34552 /* InfoPlist.strings */,
 				7AB0B0CD1EC07D4500BEC76C /* AppDelegate.swift */,
 				7AB0B0D41EC07D4600BEC76C /* Assets.xcassets */,
+				7A873F441EE15E6B00E0A058 /* IAP */,
 				7A1C13AF1EDC3DF1007A6D75 /* Components */,
 				7A1C13BB1EDC3FE3007A6D75 /* Data */,
 				7A1C13B71EDC3F18007A6D75 /* Main */,
@@ -685,6 +689,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/DynamicColor.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyStoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
