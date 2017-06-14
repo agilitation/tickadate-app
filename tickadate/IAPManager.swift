@@ -57,7 +57,7 @@ class IAPManager: NSObject {
     self.hasUnlimitedEventTypes = false
     
     SwiftyStoreKit.restorePurchases { (results) in
-      print("colorSwatchesInKeychain", results)
+      print("restorePurchasesResult", results)
       results.restoredPurchases.forEach({ (purchase) in
         if purchase.productId == ProductIDs.unlimitedEventTypes.rawValue {
           self.hasUnlimitedEventTypes = true

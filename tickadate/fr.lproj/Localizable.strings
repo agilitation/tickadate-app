@@ -172,3 +172,6 @@
 
 /* Title for the base section */
 "eventType/form/base/title" = "";
+
+/* The title of the alert displayed to the user when he cliked on the restore purchases button */
+"restorPurchases/alert/title" = "";

@@ -56,6 +56,17 @@ class EventTypesTableViewController: UITableViewController, EventTypeFormViewDel
     }
   }
   
+  @IBAction func restorePurchases(_ sender: Any) {
+    IAPManager.shared.reset()
+    let alert = UIAlertController(
+      title: NSLocalizedString("restorPurchases/alert/title", comment: "The title of the alert displayed to the user when he cliked on the restore purchases button"),
+      message: nil,
+      preferredStyle: .alert
+    )
+    
+    alert.addAction(.init(title: CommonStrings.confirm, style: .default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
   func fetchEventTypes(completion:@escaping () -> ()){
     dataController.fetchActiveEventTypes(completion: { (eventTypes) in
       self.eventTypes = eventTypes

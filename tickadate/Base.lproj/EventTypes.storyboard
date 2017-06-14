@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="seh-Xh-ugV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="seh-Xh-ugV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -129,7 +129,15 @@
                             <outlet property="delegate" destination="krc-pP-F8w" id="XzZ-nz-Tlm"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BTo-gs-g4M"/>
+                        <barButtonItem title="Restore Purchases" id="BTT-OA-QZw">
+                            <connections>
+                                <action selector="restorePurchases:" destination="krc-pP-F8w" id="0na-U7-Wbi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="znI-Ey-2xo"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Event Types" id="3zO-D4-lgs">
                         <barButtonItem key="backBarButtonItem" tag="1" title="Back" id="XrV-9m-tLQ">
                             <connections>
@@ -222,7 +230,7 @@
         <!--Event Types-->
         <scene sceneID="IRW-fM-MUc">
             <objects>
-                <navigationController title="Event Types" automaticallyAdjustsScrollViewInsets="NO" id="seh-Xh-ugV" sceneMemberID="viewController">
+                <navigationController title="Event Types" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="seh-Xh-ugV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <fixedSimulatedSizeMetrics key="simulatedDestinationMetrics">
                         <size key="portraitSize" width="320" height="480"/>
